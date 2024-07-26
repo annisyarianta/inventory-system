@@ -7,18 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="{{asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendor/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/vendor/linearicons/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/linearicons/style.css') }}">
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-    <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
     <!-- ICONS -->
-    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/siger_crop-removebg-preview.png')}}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets/img/siger_crop-removebg-preview.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/siger_crop-removebg-preview.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96"
+        href="{{ asset('assets/img/siger_crop-removebg-preview.png') }}">
 </head>
 
 <body>
@@ -30,17 +31,18 @@
                     <div class="left">
                         <div class="content">
                             <div class="header">
-                                <div class="logo text-center"><img style="height: 120px" src="{{asset('assets/img/Radin Inten II Logo crop.png')}}"
-                                        alt="Klorofil Logo">
+                                <div class="logo text-center"><img style="height: 130px"
+                                        src="{{ asset('assets/img/Radin Inten II Logo crop.png') }}"
+                                        alt="Logo Radin Inten II">
                                 </div>
                                 {{-- <p class="lead">Login</p> --}}
                             </div>
                             <form class="form-auth-small" action="/postlogin" method="POST">
-                                {{csrf_field()}}
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <label for="signin-email" class="control-label sr-only">Email</label>
                                     <input name="username" type="text" class="form-control" id="signin-email"
-                                        placeholder="User Name">
+                                        placeholder="Email">
                                 </div>
                                 <div class="form-group">
                                     <label for="signin-password" class="control-label sr-only">Password</label>
@@ -64,8 +66,8 @@
                     <div class="right">
                         <div class="overlay"></div>
                         <div class="content text">
-                            <h1 class="heading">Aplikasi Pengelolaan Inventory Barang</h1>
-                            <p>Radin Inten II International Airport</p>
+                            <h1 class="heading" style="font-size: 40px; font-weight: 600">ATK Inventory System</h1>
+                            <p style="font-size: 25px; font-weight: 400">Bandara Radin Inten II Lampung</p>
                         </div>
                     </div>
                     <div class="clearfix"></div>
