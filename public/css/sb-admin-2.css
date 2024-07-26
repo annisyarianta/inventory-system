@@ -10,7 +10,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+ :root {
   --blue: #4e73df;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -64,10 +64,17 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #858796;
+  /* color: #858796; */
   text-align: left;
   background-color: #fff;
 }
+
+/* html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
@@ -10343,7 +10350,7 @@ a:focus {
   display: block;
 }
 
-.sidebar .nav-item.active .nav-link {
+.sidebar .nav-item .nav-link.active {
   font-weight: 700;
 }
 
@@ -10657,11 +10664,11 @@ a:focus {
   color: #b7b9cc;
 }
 
-.sidebar-light .nav-item.active .nav-link {
+.sidebar-light .nav-item .nav-link.active {
   color: #6e707e;
 }
 
-.sidebar-light .nav-item.active .nav-link i {
+.sidebar-light .nav-item .nav-link.active i {
   color: #6e707e;
 }
 
@@ -10709,11 +10716,11 @@ a:focus {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.sidebar-dark .nav-item.active .nav-link {
+.sidebar-dark .nav-item .nav-link.active {
   color: #fff;
 }
 
-.sidebar-dark .nav-item.active .nav-link i {
+.sidebar-dark .nav-item .nav-link.active i {
   color: #fff;
 }
 
