@@ -1,45 +1,79 @@
-<div id="sidebar-nav" class="sidebar">
-    <div class="sidebar-scroll">
-        <nav>
-            <ul class="nav">
-                <li><a href="/dashboardatk" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a>
-                </li>
-                <li><a href="/daftar" class=""><i class="lnr lnr-layers"></i> <span>Daftar Barang</span></a>
-                </li>
-                <li><a href="/masukga" class=""><i class="lnr lnr-download"></i> <span>Barang Masuk</span></a>
-                </li>
-                <li><a href="/keluarga" class=""><i class="lnr lnr-upload"></i> <span>Barang Keluar</span></a>
-                </li>
-                {{-- <li><a href="/laporan" class=""><i class="lnr lnr-file-empty"></i> <span>Laporan</span></a>
-                </li> --}}
-                <li>
-                    <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-menu"></i>
-                        <span>Laporan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                    <div id="subPages" class="collapse ">
-                        <ul class="nav">
-                            <li><a href="/laporan/excel">Laporan Excel</a></li>
-                            <li><a href="/laporan/pdf">Laporan PDF</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="/barangga" class=""><i class="lnr lnr-database"></i> <span>Master Data</span></a>
-                </li>
-                <li><a href="/unit" class=""><i class="lnr lnr-users"></i> <span>Unit</span></a>
-                </li>
-                {{-- <li>
-                    <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-menu"></i>
-                        <span>Lokasi Penyimpanan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                    <div id="subPages" class="collapse ">
-                        <ul class="nav">
-                            <li><a href="/lokasi">Edit Lokasi</a></li>
-                            @foreach ($lokasi_barang as $lokasi)
-                            <li><a href="/lokasi/{{$lokasi->id}}/list">{{$lokasi->NamaLokasi}}</a>
-                            </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </li> --}}
-            </ul>
-        </nav>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <img class="img-fluid" style="max-width: 35px" src="img/logoAP-title.png" alt="" />
+        </div>
+        <div class="sidebar-brand-text mx-3" style="font-size: 1rem">
+            InJourney
+        </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0" />
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="/dashboardatk">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <!-- Nav Item - Daftar User -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Daftar User</span></a>
+    </li>
+
+    <!-- Nav Item - Daftar Barang -->
+    <li class="nav-item">
+        <a class="nav-link" href="/daftar">
+            <i class="fas fa-fw fa-archive"></i>
+            <span>Daftar Barang</span></a>
+    </li>
+
+    <!-- Nav Item - Barang Masuk -->
+    <li class="nav-item">
+        <a class="nav-link" href="/masukga">
+            <i class="fas fa-fw fa-download"></i>
+            <span>Barang Masuk</span></a>
+    </li>
+
+    <!-- Nav Item - Barang Keluar -->
+    <li class="nav-item">
+        <a class="nav-link" href="/keluarga">
+            <i class="fas fa-fw fa-upload"></i>
+            <span>Barang Keluar</span></a>
+    </li>
+
+    <!-- Nav Item - Validate Request -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-clipboard-check"></i>
+            <span>Validasi Barang</span></a>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Master Data</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/barangga">Barang</a>
+                <a class="collapse-item" href="/unit">Unit</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block" />
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
-</div>
+</ul>
