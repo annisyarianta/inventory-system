@@ -1,15 +1,5 @@
 @extends('layouts.master')
-{{-- @section('cari')
-<form class="navbar-form navbar-left">
-    <form class="form-inline my-2 my-lg-0" method="GET" action="/masukga">
-        <input id="tanggalawalmasuk" name="tanggalawalmasuk" class="form-control mr-sm-2" type="search" placeholder="Tanggal Awal"
-            aria-label="Search">
-        <input id="tanggalakhirmasuk" name="tanggalakhirmasuk" class="form-control mr-sm-2" type="search" placeholder="Tanggal Akhir"
-            aria-label="Search">
-        <button class="btn btn-primary" type="submit">Filter</button>
-    </form>
-</form>
-@endsection --}}
+
 @section('content')
 @if (session('sukses'))
 <div class="alert alert-success alert-dismissible" role="alert">
@@ -23,46 +13,63 @@
             aria-hidden="true">×</span></button>
 </div>
 @endif
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title">UNIT</h3>
-                <div class="right">
-                    <a type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#unitModal">Tambah Unit</a>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Unit</h1>
+    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the official DataTables documentation.</p>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-end">
+            <a type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                data-target="#unitModal">
+                <span class="text">Tambah Unit</span>
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting sorting_asc text-center" tabindex="0" aria-controls="dataTable"
+                                            rowspan="1" colspan="1"
+                                            aria-label="No.: activate to sort column descending" aria-sort="ascending"
+                                            style="width: 30px;">No.</th>
+                                        <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Nama Barang: activate to sort column ascending"
+                                            style="width: 200px;">Unit</th>
+                                        <th class="text-center"
+                                            style="width: 62.2px;">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <?php $no=0; ?>
+                                @foreach ($unit as $unt) <?php $no++; ?>
+                                <tr>
+                                    <th scope="row" class="text-center"><?= $no; ?></th>
+                                    {{-- <td><a href="/lokasi/{{$lokasi->id}}/list">{{$lokasi->NamaLokasi}}</a></td> --}}
+                                    <td>{{$unt->namaunit}}</td>
+                                    <td class="text-center">
+                                        <button type="button" data-toggle="modal" data-target="#editunit"
+                                            data-namaunit="{{$unt->namaunit}}" data-id="{{$unt->id}}"
+                                            class="btn btn-warning btn-circle mr-1"><i class="fas fa-pencil-alt"></i></button>
+                                        <a href="/unit/{{$unt->id}}/delete" class="btn btn-danger btn-circle"
+                                            onclick="return confirm('Yakin ingin menghapus {{$unt->namaunit}}? ')"><i
+                                                class="fas fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="panel-body">
-                <table class="table table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>No.</th>
-                            <th>Unit</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <?php $no=0; ?>
-                    @foreach ($unit as $unt) <?php $no++; ?>
-                    <tr>
-                        <th scope="row"><?= $no; ?></th>
-                        {{-- <td><a href="/lokasi/{{$lokasi->id}}/list">{{$lokasi->NamaLokasi}}</a></td> --}}
-                        <td>{{$unt->namaunit}}</td>
-                        <td>
-                            <button type="button" data-toggle="modal" data-target="#editunit"
-                                data-namaunit="{{$unt->namaunit}}" data-id="{{$unt->id}}"
-                                class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button>
-                            <a href="/unit/{{$unt->id}}/delete" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Yakin ingin menghapus {{$unt->namaunit}}? ')"><i
-                                    class="lnr lnr-trash"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </table>
             </div>
         </div>
     </div>
 </div>
-
 
 {{-- Modal Form TAMBAH --}}
 <div class="modal fade" id="unitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
