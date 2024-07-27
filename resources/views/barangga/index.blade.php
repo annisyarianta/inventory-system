@@ -60,6 +60,10 @@
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
                                                 style="width: 200px;">Nama Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Kategori: activate to sort column ascending"
+                                            style="width: 200px;">Kategori</th>
                                             <th class="text-center" style="width: 126.2px;">Gambar</th>
                                             <th class="text-center" style="width: 62.2px;">Aksi</th>
                                         </tr>
@@ -75,6 +79,7 @@
                     </td> --}}
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
+                                            <td>{{ $barang->kategori }}</td>
                                             <td><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 200px; max-height: 200px"></td>
                                             <td class="text-center">
@@ -136,6 +141,21 @@
                             @endif
                         </div>
 
+                        <div class="form-group{{ $errors->has('kategori') ? ' has-error ' : '' }}">
+                            <label for="kategori">Kategori Barang</label>
+                            <select name="kategori" class="form-control" id="kategori">
+                                <option value="">Pilih Kategori</option>
+                                <option value="Barang Habis Pakai">Barang Habis Pakai</option>
+                                <option value="Barang Tidak Habis Pakai">Barang Tidak Habis Pakai</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            @if ($errors->has('kategori'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('kategori') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
                         <div class="form-group{{ $errors->has('gambar') ? ' has-error ' : '' }}">
                             <label for="gambar">Gambar</label>
                             <input name="gambar" type="file" class="form-control-file" id="gambar">
@@ -185,6 +205,21 @@
                                 placeholder="Kode Barang" value="{{ old('kodebarang') }}">
                             @if ($errors->has('kodebarang'))
                                 <span class="help-block">{{ $errors->first('kodebarang') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('kategori') ? ' has-error ' : '' }}">
+                            <label for="kategori">Kategori Barang</label>
+                            <select name="kategori" class="form-control" id="kategori">
+                                <option value="">Pilih Kategori</option>
+                                <option value="Barang Habis Pakai">Barang Habis Pakai</option>
+                                <option value="Barang Tidak Habis Pakai">Barang Tidak Habis Pakai</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            @if ($errors->has('kategori'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('kategori') }}</strong>
+                                </span>
                             @endif
                         </div>
 

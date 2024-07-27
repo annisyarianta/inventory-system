@@ -25,6 +25,7 @@ class BaranggaController extends Controller
         $this->validate($request, [
             'namabarang' => 'required|unique:barangga',
             'kodebarang' => 'required|unique:barangga',
+            'kategori' => 'required|string',
             'gambar' => 'mimes:jpg,jpeg,png'
         ]);
 
@@ -51,6 +52,7 @@ class BaranggaController extends Controller
         $this->validate($request, [
             'namabarang' => 'required',
             'kodebarang' => 'required',
+            'kategori' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png'
         ]);
         $barang->update($request->all());

@@ -49,6 +49,9 @@
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Jumlah Barang: activate to sort column ascending"
                                                 style="width: 62.2px;">Jumlah Barang</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Kategori: activate to sort column ascending"
+                                            style="width: 62.2px;">Kategori</th>
                                             <th style="width: 126.2px;">Gambar</th>
                                         </tr>
                                     </thead>
@@ -73,6 +76,7 @@
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
                                             </td>
+                                            <td>{{ $barang->kategori }}</td>
                                             <td><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 200px; max-height: 200px"></td>
                                         </tr>
