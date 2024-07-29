@@ -21,7 +21,7 @@
 
     <!-- Nav Item - Daftar User -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="/users">
             <i class="fas fa-fw fa-users"></i>
             <span>Daftar User</span></a>
     </li>

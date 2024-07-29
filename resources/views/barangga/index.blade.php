@@ -116,9 +116,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 id="exampleModalLabel">Edit Master Data</h3>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button> --}}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form id="aksi" action="" method="POST" enctype="multipart/form-data">

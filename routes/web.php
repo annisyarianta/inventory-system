@@ -26,6 +26,12 @@ Route::get('/logout', 'AuthController@logout');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboardatk', 'DashboardController@index');
 
+    Route::get('/users', 'UserController@index');
+    Route::post('/users/create', 'UserController@create');
+    Route::get('/users/{id}/edit', 'UserController@edit');
+    Route::post('/users/{id}/update', 'UserController@update');
+    Route::get('/users/{id}/delete', 'UserController@delete');
+
     Route::get('/barangga', 'BaranggaController@index');
     Route::post('/barangga/create', 'BaranggaController@create');
     Route::get('/barangga/{id}/edit', 'BaranggaController@edit');
