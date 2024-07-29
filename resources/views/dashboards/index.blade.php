@@ -6,7 +6,7 @@
     <!-- Page Heading -->
     <div
         class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h2 mb-0 text-gray-800" style="font-weight: 600">Dashboard</h1>
+        <h1 class="h2 mb-0 text-black-800" style="font-weight: 600">Dashboard</h1>
     </div>
     <div class="row">
         <!-- Earnings (Monthly) Card Example -->
@@ -22,7 +22,7 @@
                                 Earnings (Monthly)
                             </div>
                             <div
-                                class="h5 mb-0 font-weight-bold text-gray-800">
+                                class="h5 mb-0 font-weight-bold text-black-800">
                                 $40,000
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                                 Earnings (Annual)
                             </div>
                             <div
-                                class="h5 mb-0 font-weight-bold text-gray-800">
+                                class="h5 mb-0 font-weight-bold text-black-800">
                                 $215,000
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                 class="row no-gutters align-items-center">
                                 <div class="col-auto">
                                     <div
-                                        class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                        class="h5 mb-0 mr-3 font-weight-bold text-black-800">
                                         50%
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                 Pending Requests
                             </div>
                             <div
-                                class="h5 mb-0 font-weight-bold text-gray-800">
+                                class="h5 mb-0 font-weight-bold text-black-800">
                                 18
                             </div>
                         </div>

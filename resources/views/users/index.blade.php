@@ -24,7 +24,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Daftar User</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Daftar User</h1>
         {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the official DataTables documentation.</p> --}}
         <!-- DataTales Example -->
@@ -39,7 +39,7 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting sorting_asc text-center" tabindex="0"
@@ -76,9 +76,9 @@
                                             <td scope="row" class="text-center"><?= $no ?></td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->role }}</td>
-                                            <td>{{ $user->created_at }}</td>
-                                            <td>{{ $user->updated_at }}</td>
+                                            <td class="text-center">{{ $user->role }}</td>
+                                            <td class="text-center">{{ $user->created_at }}</td>
+                                            <td class="text-center">{{ $user->updated_at }}</td>
                                             <td class="text-center">
                                                 {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
                                                     class="lnr lnr-pencil"></i></a> --}}

@@ -2,10 +2,10 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
-            <img class="img-fluid" style="max-width: 40px" src="../../assets/img/injourney-round.png" alt="" />
+            <img class="img-fluid" style="max-width: 40px" src="../../assets/img/ap2-bulet-tok.png" alt="" />
         </div>
         <div class="sidebar-brand-text mx-3" style="font-size: 1rem">
-            <img class="img-fluid" style="max-width: 140px" src="../../assets/img/logo-in-white.png" alt="" />
+            <img class="img-fluid" style="max-width: 140px" src="../../assets/img/AP2-white.png" alt="" />
         </div>
     </a>
 
