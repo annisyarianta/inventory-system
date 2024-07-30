@@ -19,22 +19,8 @@
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Nav Item - Daftar User -->
-    <li class="nav-item">
-        <a class="nav-link" href="/users">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Daftar User</span></a>
-    </li>
-
-    <!-- Nav Item - Daftar Barang -->
-    <li class="nav-item">
-        <a class="nav-link" href="/daftar">
-            <i class="fas fa-fw fa-archive"></i>
-            <span>Daftar Barang</span></a>
-    </li>
-
-    <!-- Nav Item - Barang Masuk -->
-    <li class="nav-item">
+     <!-- Nav Item - Barang Masuk -->
+     <li class="nav-item">
         <a class="nav-link" href="/masukga">
             <i class="fas fa-fw fa-download"></i>
             <span>Barang Masuk</span></a>
@@ -47,7 +33,21 @@
             <span>Barang Keluar</span></a>
     </li>
 
-    <!-- Nav Item - Validate Request -->
+    <!-- Nav Item - Daftar Barang -->
+    <li class="nav-item">
+        <a class="nav-link" href="/daftar">
+            <i class="fas fa-fw fa-archive"></i>
+            <span>Daftar Barang</span></a>
+    </li>
+
+    <!-- Nav Item - Request -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-clipboard-check"></i>
+            <span>Request Barang</span></a>
+    </li>
+
+    <!-- Nav Item - Validate -->
     <li class="nav-item">
         <a class="nav-link" href="">
             <i class="fas fa-fw fa-clipboard-check"></i>
@@ -67,6 +67,13 @@
                 <a class="collapse-item" href="/unit">Unit</a>
             </div>
         </div>
+    </li>
+
+    <!-- Nav Item - Daftar User -->
+    <li class="nav-item">
+        <a class="nav-link" href="/users">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Daftar User</span></a>
     </li>
 
     <!-- Divider -->
