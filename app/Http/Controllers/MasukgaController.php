@@ -33,6 +33,7 @@ class MasukgaController extends Controller
         $this->validate($request, [
             'barangga_id' => 'required',
             'jumlahmasuk' => 'required|integer',
+            'satuan' => 'required|string',
             'tanggalmasuk' => 'required'
         ]);
 
@@ -54,6 +55,7 @@ class MasukgaController extends Controller
         $this->validate($request, [
             'barangga_id' => 'required',
             'jumlahmasuk' => 'required|integer',
+            'satuan' => 'required|string',
             'tanggalmasuk' => 'required'
         ]);
         $barang->update($request->all());

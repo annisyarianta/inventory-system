@@ -35,10 +35,10 @@
                 <a href="#" class="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#cetakba">
                     <span class="text">Cetak BA</span>
                 </a>
-                <a href="/barang/exportpdfkeluar" class="btn btn-danger btn-sm mr-2">
+                <a href="/keluarga/exportpdfkeluar" class="btn btn-danger btn-sm mr-2">
                     <span class="text">Export PDF</span>
                 </a>
-                <a href="/barang/exportexcelkeluar" class="btn btn-success btn-sm mr-2">
+                <a href="/keluarga/exportexcelkeluar" class="btn btn-success btn-sm mr-2">
                     <span class="text">Export Excel</span>
                 </a>
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahkeluar">
@@ -202,15 +202,15 @@
                 <form action="/keluarga/exportpdfba" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="nomorba">Nomor Berita Acara</label>
                             <input name="nomorba" type="text" class="form-control" id="nomorba"
                                 placeholder="Nomor Berita Acara" value="{{ old('nomorba') }}">
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label for="tanggalba">Tanggal Berita Acara</label>
-                            <input name="tanggalba" type="text" class="form-control" id="tanggalba"
+                            <input name="tanggalba" type="date" class="form-control" id="tanggalba"
                                 placeholder="Tanggal Berita Acara" value="{{ old('tanggalba') }}">
                         </div>
 
@@ -238,9 +238,15 @@
                                 placeholder="Penerima" value="{{ old('penerima') }}">
                         </div>
 
+                        <div class="form-group">
+                            <label for="jabatanpenerima">Jabatan Penerima</label>
+                            <input name="jabatanpenerima" type="text" class="form-control" id="jabatanpenerima"
+                                placeholder="Jabatan Penerima" value="{{ old('jabatanpenerima') }}">
+                        </div>
+
                         <div class="form-group{{ $errors->has('tanggalbaawal') ? ' has-error ' : '' }}">
                             <label for="tanggalbaawal">Periode Barang Keluar</label>
-                            <input name="tanggalbaawal" type="text" class="form-control" id="tanggalbaawal"
+                            <input name="tanggalbaawal" type="date" class="form-control" id="tanggalbaawal"
                                 placeholder="Tanggal Barang Keluar" value="{{ old('tanggalbaawal') }}">
                             @if ($errors->has('tanggalbaawal'))
                                 <span class="help-block">*Kolom ini harus diisi</span>

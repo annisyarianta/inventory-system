@@ -27,7 +27,7 @@
     
                     <div class="form-group{{$errors->has('tanggalmasuk') ? ' has-error ' : ''}}">
                         <label for="tanggalmasuk">Tanggal Barang Masuk</label>
-                            <input name="tanggalmasuk" type="text" class="form-control" id="tanggalmasuk" value="{{$barangmasuk->tanggalmasuk}}">
+                            <input name="tanggalmasuk" type="date" class="form-control" id="tanggalmasuk" value="{{$barangmasuk->tanggalmasuk}}">
                         @if ($errors->has('tanggalmasuk'))
                         <span class="help-block">{{$errors->first('tanggalmasuk')}}</span>
                         @endif
@@ -38,6 +38,14 @@
                         <input name="jumlahmasuk" type="number" class="form-control" id="jumlahmasuk" value="{{$barangmasuk->jumlahmasuk}}">
                         @if ($errors->has('jumlahmasuk'))
                         <span class="help-block">{{$errors->first('jumlahmasuk')}}</span>
+                        @endif
+                    </div>
+
+                    <div class="form-group{{$errors->has('satuan') ? ' has-error ' : ''}}">
+                        <label for="satuan">Satuan</label>
+                        <input name="satuan" type="text" class="form-control" id="satuan" value="{{$barangmasuk->satuan}}">
+                        @if ($errors->has('satuan'))
+                        <span class="help-block">{{$errors->first('satuan')}}</span>
                         @endif
                     </div>
     

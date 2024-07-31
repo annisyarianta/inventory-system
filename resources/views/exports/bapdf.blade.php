@@ -40,11 +40,9 @@
 </head>
 
 <body>
-    <h2 style="text-align: center">BERITA ACARA</h2>
-    <h2 style="text-align: center; border-bottom: 1px solid black; width: 100%">PENGELUARAN BARANG ALAT TULIS KANTOR (ATK) PERIODE {{strtoupper($tanggalba)}}</h2>
+    <h2 style="text-align: center; margin-bottom: 0;">DAFTAR</h2>
+    <h2 style="text-align: center; border-bottom: 1px solid black; width: 100%;  margin-top: 0;">PENGELUARAN BARANG ALAT TULIS KANTOR (ATK) UNIT {{strtoupper($namaunit->namaunit)}}</h2>
 
-    <h4>NOMOR       : {{$nomorba}}</h4>
-    <h4>TANGGAL : {{strtoupper($tanggalba)}}</h4>
     <p>Dengan ini dinyatakan penerimaan Barang Alat Tulis Kantor (ATK) tersebut di bawah ini:</p>
     <table class="tabel">
         <thead>
@@ -102,19 +100,16 @@
         <thead>
             <tr>
                 <th style="border: none">Diketahui:</th>
-                <th style="border: none">Diserahkan Oleh:</th>
                 <th style="border: none">Telah DIterima Oleh:</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td style="padding-bottom: 100px; border: none"><b>Plt. Asst. Manager of Finance & Human Resources</b></td>
-                <td style="border: none"></td>
-                <td style="border: none"></td>
+                <td style="padding-bottom: 100px; border: none"><b>Asst. Manager of <br>Finance & Human Resources</b></td>
+                <td style="padding-bottom: 100px; border: none"><b>{{$jabatanpenerima}}</b></td>
             </tr>
             <tr>
-                <td style="border: none"><b><u>BUNGA RISKA UTAMI</u></b></td>
-                <td style="border: none"><b><u>RAHADITYA SAPUTRA</u></b></td>
+                <td style="border: none"><b><u>YUSPRIADY YUSUF</u></b></td>
                 <td style="border: none"><b><u>{{$penerima}}</u></b></td>
             </tr>
         </tbody>

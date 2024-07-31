@@ -25,7 +25,7 @@ class BaranggaController extends Controller
         $this->validate($request, [
             'namabarang' => 'required|unique:barangga',
             'kodebarang' => 'required|unique:barangga',
-            'kategori' => 'required|string',
+            'jenisbarang' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png'
         ]);
 
@@ -52,7 +52,7 @@ class BaranggaController extends Controller
         $this->validate($request, [
             'namabarang' => 'required',
             'kodebarang' => 'required',
-            'kategori' => 'required',
+            'jenisbarang' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png'
         ]);
         $barang->update($request->all());
@@ -75,6 +75,8 @@ class BaranggaController extends Controller
             return redirect('/barangga')->with('sukses', 'Data berhasil dihapus');
         }
     }
+
+    
 
     // public function exportPDF()
     // {

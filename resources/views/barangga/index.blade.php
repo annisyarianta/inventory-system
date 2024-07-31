@@ -30,12 +30,6 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">
-                <a href="/barangga/exportpdfbarangga" class="btn btn-danger btn-sm mr-2">
-                    <span class="text">Export PDF</span>
-                </a>
-                <a href="/barangga/exportexcelbarangga" class="btn btn-success btn-sm mr-2">
-                    <span class="text">Export Excel</span>
-                </a>
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
                     <span class="text">Tambah Data</span>
                 </a>
@@ -59,6 +53,7 @@
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
+<<<<<<< HEAD
                                                 style="width: 160px;">Nama Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                             rowspan="1" colspan="1"
@@ -66,6 +61,15 @@
                                             style="width: 70px;">Kategori</th>
                                             <th class="text-center" style="width: 80px;">Gambar</th>
                                             <th class="text-center" style="width: 40px;">Aksi</th>
+=======
+                                                style="width: 200px;">Nama Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Jenis Barang: activate to sort column ascending"
+                                                style="width: 200px;">Jenis Barang</th>
+                                            <th class="text-center" style="width: 126.2px;">Gambar</th>
+                                            <th class="text-center" style="width: 62.2px;">Aksi</th>
+>>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                                         </tr>
                                     </thead>
                                     <?php $no = $inventory_barang->currentPage() * $inventory_barang->perPage() - $inventory_barang->perPage(); ?>
@@ -79,9 +83,15 @@
                     </td> --}}
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
+<<<<<<< HEAD
                                             <td class="text-center">{{ $barang->kategori }}</td>
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 180px; max-height: 200px"></td>
+=======
+                                            <td>{{ $barang->jenisbarang }}</td>
+                                            <td><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
+                                                    style="max-width: 200px; max-height: 200px"></td>
+>>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                                             <td class="text-center">
                                                 {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
                                                     class="lnr lnr-pencil"></i></a> --}}
@@ -141,6 +151,7 @@
                             @endif
                         </div>
 
+<<<<<<< HEAD
                         <div class="form-group{{ $errors->has('kategori') ? ' has-error ' : '' }}">
                             <label for="kategori">Kategori Barang</label>
                             <select name="kategori" class="form-control" id="kategori">
@@ -153,6 +164,17 @@
                                 <span class="help-block">
                                     <strong>{{ $errors->first('kategori') }}</strong>
                                 </span>
+=======
+                        <div class="form-group{{ $errors->has('jenisbarang') ? ' has-error ' : '' }}">
+                            <label for="jenisbarang">Jenis Barang</label>
+                            <select name="jenisbarang" class="form-control" id="jenisbarang">
+                                <option value="">Pilih Jenis Barang</option>
+                                <option value="Habis Pakai" {{ old('jenisbarang') == 'Habis Pakai' ? 'selected' : '' }}>Habis Pakai</option>
+                                <option value="Tidak Habis Pakai" {{ old('jenisbarang') == 'Tidak Habis Pakai' ? 'selected' : '' }}>Tidak Habis Pakai</option>
+                            </select>
+                            @if ($errors->has('jenisbarang'))
+                                <span class="help-block">{{ $errors->first('jenisbarang') }}</span>
+>>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                             @endif
                         </div>
 
@@ -208,18 +230,15 @@
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('kategori') ? ' has-error ' : '' }}">
-                            <label for="kategori">Kategori Barang</label>
-                            <select name="kategori" class="form-control" id="kategori">
-                                <option value="">Pilih Kategori</option>
-                                <option value="Barang Habis Pakai">Barang Habis Pakai</option>
-                                <option value="Barang Tidak Habis Pakai">Barang Tidak Habis Pakai</option>
-                                <option value="Lainnya">Lainnya</option>
+                        <div class="form-group{{ $errors->has('jenisbarang') ? ' has-error ' : '' }}">
+                            <label for="jenisbarang">Jenis Barang</label>
+                            <select name="jenisbarang" class="form-control" id="jenisbarang">
+                                <option value="">Pilih Jenis Barang</option>
+                                <option value="Habis Pakai" {{ old('jenisbarang') == 'Habis Pakai' ? 'selected' : '' }}>Habis Pakai</option>
+                                <option value="Tidak Habis Pakai" {{ old('jenisbarang') == 'Tidak Habis Pakai' ? 'selected' : '' }}>Tidak Habis Pakai</option>
                             </select>
-                            @if ($errors->has('kategori'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('kategori') }}</strong>
-                                </span>
+                            @if ($errors->has('jenisbarang'))
+                                <span class="help-block">{{ $errors->first('jenisbarang') }}</span>
                             @endif
                         </div>
 

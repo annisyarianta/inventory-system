@@ -18,7 +18,7 @@ class CreateBaranggaTable extends Migration
             $table->timestamps();
             $table->string('namabarang');
             $table->string('kodebarang');
-            $table->string('kategori');
+            $table->string('jenisbarang');
             $table->string('gambar')->nullable();
         });
     }
