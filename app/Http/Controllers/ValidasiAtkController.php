@@ -54,7 +54,7 @@ class ValidasiAtkController extends Controller
             'tanggal_validasi' => now()
         ]);
 
-        return redirect('/validasiatk')->with('sukses', 'Validasi ATK berhasil diupdate');
+        return redirect('/validations')->with('sukses', 'Validasi ATK berhasil diupdate');
     }
 }
 
