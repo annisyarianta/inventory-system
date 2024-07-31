@@ -24,7 +24,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Master Data Barang</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Master Data Barang</h1>
         <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the official DataTables documentation.</p>
         <!-- DataTales Example -->
@@ -39,20 +39,29 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting sorting_asc text-center" tabindex="0"
                                                 aria-controls="dataTable" rowspan="1" colspan="1"
                                                 aria-label="No.: activate to sort column descending" aria-sort="ascending"
-                                                style="width: 30px;">No.</th>
+                                                style="width: 10px;">No.</th>
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 50px;">Kode Barang</th>
+                                                style="width: 40px;">Kode Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
+<<<<<<< HEAD
+                                                style="width: 160px;">Nama Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                            rowspan="1" colspan="1"
+                                            aria-label="Kategori: activate to sort column ascending"
+                                            style="width: 70px;">Kategori</th>
+                                            <th class="text-center" style="width: 80px;">Gambar</th>
+                                            <th class="text-center" style="width: 40px;">Aksi</th>
+=======
                                                 style="width: 200px;">Nama Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
@@ -60,6 +69,7 @@
                                                 style="width: 200px;">Jenis Barang</th>
                                             <th class="text-center" style="width: 126.2px;">Gambar</th>
                                             <th class="text-center" style="width: 62.2px;">Aksi</th>
+>>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                                         </tr>
                                     </thead>
                                     <?php $no = $inventory_barang->currentPage() * $inventory_barang->perPage() - $inventory_barang->perPage(); ?>
@@ -73,9 +83,15 @@
                     </td> --}}
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
+<<<<<<< HEAD
+                                            <td class="text-center">{{ $barang->kategori }}</td>
+                                            <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
+                                                    style="max-width: 180px; max-height: 200px"></td>
+=======
                                             <td>{{ $barang->jenisbarang }}</td>
                                             <td><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 200px; max-height: 200px"></td>
+>>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                                             <td class="text-center">
                                                 {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
                                                     class="lnr lnr-pencil"></i></a> --}}
@@ -110,9 +126,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 id="exampleModalLabel">Edit Master Data</h3>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button> --}}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <form id="aksi" action="" method="POST" enctype="multipart/form-data">
@@ -135,6 +151,20 @@
                             @endif
                         </div>
 
+<<<<<<< HEAD
+                        <div class="form-group{{ $errors->has('kategori') ? ' has-error ' : '' }}">
+                            <label for="kategori">Kategori Barang</label>
+                            <select name="kategori" class="form-control" id="kategori">
+                                <option value="">Pilih Kategori</option>
+                                <option value="Barang Habis Pakai">Barang Habis Pakai</option>
+                                <option value="Barang Tidak Habis Pakai">Barang Tidak Habis Pakai</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                            @if ($errors->has('kategori'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('kategori') }}</strong>
+                                </span>
+=======
                         <div class="form-group{{ $errors->has('jenisbarang') ? ' has-error ' : '' }}">
                             <label for="jenisbarang">Jenis Barang</label>
                             <select name="jenisbarang" class="form-control" id="jenisbarang">
@@ -144,6 +174,7 @@
                             </select>
                             @if ($errors->has('jenisbarang'))
                                 <span class="help-block">{{ $errors->first('jenisbarang') }}</span>
+>>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                             @endif
                         </div>
 

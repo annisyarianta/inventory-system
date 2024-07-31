@@ -16,7 +16,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Unit</h1>
+    <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Unit</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the official DataTables documentation.</p>
     <!-- DataTales Example -->
@@ -32,18 +32,18 @@
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">
                         <div class="col-sm-12">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting sorting_asc text-center" tabindex="0" aria-controls="dataTable"
                                             rowspan="1" colspan="1"
                                             aria-label="No.: activate to sort column descending" aria-sort="ascending"
-                                            style="width: 30px;">No.</th>
+                                            style="width: 10px;">No.</th>
                                         <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Nama Barang: activate to sort column ascending"
-                                            style="width: 200px;">Unit</th>
+                                            style="width: 150px;">Unit</th>
                                         <th class="text-center"
-                                            style="width: 62.2px;">Aksi</th>
+                                            style="width: 50px;">Aksi</th>
                                     </tr>
                                 </thead>
                                 <?php $no=0; ?>

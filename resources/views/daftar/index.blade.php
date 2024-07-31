@@ -15,7 +15,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Inventory Barang</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Inventory Barang</h1>
         <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the official DataTables documentation.</p>
         <!-- DataTales Example -->
@@ -33,39 +33,39 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable"
+                                            <th class="sorting sorting_asc text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="No.: activate to sort column descending" aria-sort="ascending"
-                                                style="width: 30px;">No.</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                style="width: 10px;">No.</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Kode Barang: activate to sort column ascending"
                                                 style="width: 50px;">Kode Barang</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 200px;">Nama Barang</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                colspan="1" aria-label="Jenis Barang: activate to sort column ascending"
-                                                style="width: 200px;">Jenis Barang</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                style="width: 170px;">Nama Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Jumlah Barang: activate to sort column ascending"
-                                                style="width: 62.2px;">Jumlah Barang</th>
-                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                style="width: 60px;">Jumlah Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Jenis Barang: activate to sort column ascending"
+                                            style="width: 70px;">Jenis Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Satuan: activate to sort column ascending"
                                                 style="width: 62.2px;">Satuan</th>
-                                            <th style="width: 126.2px;">Gambar</th>
+                                            <th style="width: 100px;" class="text-center">Gambar</th>
                                         </tr>
                                     </thead>
-                                    <?php $no = $inventory_barang->currentPage() * $inventory_barang->perPage() - $inventory_barang->perPage(); ?> @foreach ($inventory_barang as $barang)
+                                    <tbody>
+                                        <?php $no = $inventory_barang->currentPage() * $inventory_barang->perPage() - $inventory_barang->perPage(); ?> @foreach ($inventory_barang as $barang)
                                         <?php $no++; ?>
                                         <tr>
-                                            <td scope="row"><?= $no ?></td>
+                                            <td scope="row" class="text-center"><?= $no ?></td>
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
-                                            <td>{{ $barang->jenisbarang }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <?php $jmlhmasuk = 0;
                                                 $jmlhkeluar = 0; ?>
                                                 @foreach ($barangmasuk as $brgmasuk)
@@ -80,6 +80,7 @@
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
                                             </td>
+                                            <td>{{ $barang->jenisbarang }}</td>
                                             <td>
                                             @foreach ($barangmasuk as $brgmasuk)
                                                 @if ($barang->id == $brgmasuk->barangga_id)
@@ -87,9 +88,10 @@
                                                 @endif
                                             @endforeach
                                             </td>
-                                            <td><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
+                                            <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 200px; max-height: 200px"></td>
                                         </tr>
+                                    </tbody>
                                     @endforeach
                                 </table>
                                 {{ $inventory_barang->links() }}

@@ -1,7 +1,24 @@
 @extends('layouts.master')
 @section('content')
+    <!-- MAIN -->
 
-<!-- MAIN -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h2>Edit Data Inventory</h2>
+                </div>
+                <div class="panel-body">
+                    <form action="/barangga/{{ $barang->id }}/update" method="POST" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="form-group{{ $errors->has('namabarang') ? ' has-error ' : '' }}">
+                            <label for="namabarang">Nama Barang</label>
+                            <input name="namabarang" type="text" class="form-control" id="namabarang"
+                                value="{{ $barang->namabarang }}">
+                            @if ($errors->has('namabarang'))
+                                <span class="help-block">{{ $errors->first('namabarang') }}</span>
+                            @endif
+                        </div>
 
 <div class="row">
     <div class="col-md-12">
@@ -36,22 +53,21 @@
                         @endif
                     </div>
 
-                    <div class="form-group{{$errors->has('gambar') ? ' has-error ' : ''}}">
-                        <label for="gambar">Gambar</label>
-                        <input name="gambar" type="file" class="form-control-file" id="gambar">
-                        @if ($errors->has('gambar'))
-                        <span class="help-block">{{$errors->first('gambar')}}</span>
-                        @endif
-                        <small>*Upload gambar jika ada (*.jpg, *.jpeg, *.png)</small>
-                    </div>
+                        <div class="form-group{{ $errors->has('gambar') ? ' has-error ' : '' }}">
+                            <label for="gambar">Gambar</label>
+                            <input name="gambar" type="file" class="form-control-file" id="gambar">
+                            @if ($errors->has('gambar'))
+                                <span class="help-block">{{ $errors->first('gambar') }}</span>
+                            @endif
+                            <small>*Upload gambar jika ada (*.jpg, *.jpeg, *.png)</small>
+                        </div>
 
-                    <button type="submit" class="btn btn-warning">Update</button>
-                </form>
+                        <button type="submit" class="btn btn-warning">Update</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- END MAIN -->
-
+    <!-- END MAIN -->
 @endsection

@@ -26,7 +26,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Barang Keluar</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Barang Keluar</h1>
         <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the official DataTables documentation.</p>
         <!-- DataTales Example -->
@@ -50,7 +50,7 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting sorting_asc text-center" tabindex="0"
@@ -60,24 +60,24 @@
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 50px;">Kode Barang</th>
+                                                style="width: 40px;">Kode Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 200px;">Nama Barang</th>
+                                                style="width: 150px;">Nama Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Tanggal Barang Keluar: activate to sort column ascending"
-                                                style="width: 100px;">Tanggal Barang Keluar</th>
+                                                style="width: 70px;">Tanggal <br> Barang Keluar</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Barang Keluar: activate to sort column ascending"
-                                                style="width: 50px;">Jumlah Barang Keluar</th>
+                                                style="width: 70px;">Jumlah <br> Barang Keluar</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Unit: activate to sort column ascending" style="width: 50px;">
+                                                aria-label="Unit: activate to sort column ascending" style="width: 30px;">
                                                 Unit</th>
-                                            <th class="text-center" style="width: 62.2px;">Aksi</th>
+                                            <th class="text-center" style="width: 40px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <?php $no = $barangkeluar->currentPage() * $barangkeluar->perPage() - $barangkeluar->perPage(); ?>
@@ -91,9 +91,9 @@
                         </td> --}}
                                             <td>{{ $barang->barangga->kodebarang }}</td>
                                             <td>{{ $barang->barangga->namabarang }}</td>
-                                            <td>{{ $barang->tanggalkeluar }}</td>
-                                            <td>{{ $barang->jumlahkeluar }}</td>
-                                            <td>{{ $barang->unit->namaunit }}</td>
+                                            <td class="text-center">{{ $barang->tanggalkeluar }}</td>
+                                            <td class="text-center">{{ $barang->jumlahkeluar }}</td>
+                                            <td class="text-center">{{ $barang->unit->namaunit }}</td>
                                             <td class="text-center">
                                                 <a href="/keluarga/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle"><i

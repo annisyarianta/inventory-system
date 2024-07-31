@@ -23,6 +23,7 @@
   --cyan: #36b9cc;
   --white: #fff;
   --gray: #858796;
+  --black: #212529;
   --gray-dark: #5a5c69;
   --primary: #4e73df;
   --secondary: #858796;
@@ -64,7 +65,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  /* color: #858796; */
+  color: var(--black);
   text-align: left;
   background-color: #fff;
 }
@@ -1492,18 +1493,18 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #858796;
+  /* color: #858796; */
 }
 
 .table th,
 .table td {
-  padding: 0.75rem;
-  vertical-align: top;
+  padding: 0.5rem;
+  vertical-align: center;
   border-top: 1px solid #e3e6f0;
 }
 
 .table thead th {
-  vertical-align: bottom;
+  vertical-align: center;
   border-bottom: 2px solid #e3e6f0;
 }
 
@@ -1542,8 +1543,8 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-  color: #858796;
-  background-color: rgba(0, 0, 0, 0.075);
+  /* color: #858796; */
+  background-color: rgba(0, 0, 0, 0.055);
 }
 
 .table-primary,
@@ -1560,7 +1561,7 @@ pre code {
 }
 
 .table-hover .table-primary:hover {
-  background-color: #b7c7f2;
+  background-color: #1a1b20;
 }
 
 .table-hover .table-primary:hover > td,
@@ -9907,8 +9908,8 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-color: #212529;
+  /* background-image: linear-gradient(180deg, #212529 10%, #224abe 100%); */
   background-size: cover;
 }
 
@@ -10550,7 +10551,7 @@ a:focus {
     margin-right: 0.25rem;
   }
   .sidebar .nav-item .nav-link span {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     display: inline;
   }
   .sidebar .nav-item .nav-link[data-toggle="collapse"]::after {

@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <img class="img-fluid" style="max-width: 35px" src="img/logoAP-title.png" alt="" />
+        <div class="sidebar-brand-icon">
+            <img class="img-fluid" style="max-width: 40px" src="../../assets/img/ap2-bulet-tok.png" alt="" />
         </div>
         <div class="sidebar-brand-text mx-3" style="font-size: 1rem">
-            InJourney
+            <img class="img-fluid" style="max-width: 140px" src="../../assets/img/AP2-white.png" alt="" />
         </div>
     </a>
 
@@ -19,22 +19,8 @@
             <span>Dashboard</span></a>
     </li>
 
-    <!-- Nav Item - Daftar User -->
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Daftar User</span></a>
-    </li>
-
-    <!-- Nav Item - Daftar Barang -->
-    <li class="nav-item">
-        <a class="nav-link" href="/daftar">
-            <i class="fas fa-fw fa-archive"></i>
-            <span>Daftar Barang</span></a>
-    </li>
-
-    <!-- Nav Item - Barang Masuk -->
-    <li class="nav-item">
+     <!-- Nav Item - Barang Masuk -->
+     <li class="nav-item">
         <a class="nav-link" href="/masukga">
             <i class="fas fa-fw fa-download"></i>
             <span>Barang Masuk</span></a>
@@ -47,9 +33,23 @@
             <span>Barang Keluar</span></a>
     </li>
 
-    <!-- Nav Item - Validate Request -->
+    <!-- Nav Item - Daftar Barang -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="/daftar">
+            <i class="fas fa-fw fa-archive"></i>
+            <span>Daftar Barang</span></a>
+    </li>
+
+    <!-- Nav Item - Request -->
+    <li class="nav-item">
+        <a class="nav-link" href="/requests">
+            <i class="fas fa-fw fa-clipboard-check"></i>
+            <span>Request Barang</span></a>
+    </li>
+
+    <!-- Nav Item - Validate -->
+    <li class="nav-item">
+        <a class="nav-link" href="/validations">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Validasi Barang</span></a>
     </li>
@@ -67,6 +67,36 @@
                 <a class="collapse-item" href="/unit">Unit</a>
             </div>
         </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Reports
+    </div>
+
+    <!-- Nav Item - Cetak Laporan -->
+    <li class="nav-item">
+        <a class="nav-link" href="/laporan">
+            <i class="fas fa-fw fa-print"></i>
+            <span>Cetak Laporan</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Settings
+    </div>
+
+    <!-- Nav Item - Daftar User -->
+    <li class="nav-item">
+        <a class="nav-link" href="/users">
+            <i class="fas fa-fw fa-users"></i>
+            <span>User Management</span></a>
     </li>
 
     <!-- Divider -->
