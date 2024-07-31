@@ -14,19 +14,23 @@
                 <th>Nama Barang</th>
                 <th>Jumlah Request</th>
                 <th>Unit</th>
+                <th>Tanggal Request</th>
+                <th>Keterangan</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
             @foreach($validations as $validation)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $validation->request->barangga->kodebarang }}</td>
-                    <td>{{ $validation->request->barangga->namabarang }}</td>
-                    <td>{{ $validation->request->quantity }}</td>
-                    <td>{{ $validation->request->unit->namaunit }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $validation->requestmodel ? $validation->requestmodel->barangga->kodebarang : '-' }}</td>
+                <td>{{ $validation->requestmodel ? $validation->requestmodel->barangga->namabarang : '-' }}</td>
+                <td>{{ $validation->requestmodel ? $validation->requestmodel->quantity : '-' }}</td>
+                <td>{{ $validation->requestmodel ? $validation->requestmodel->unit->namaunit : '-' }}</td>
+                <td>{{ $validation->requestmodel ? $validation->requestmodel->tanggal_request : '-' }}</td>
+                <td>{{ $validation->status }}</td>
                     <td>
-                        <form action="{{ url('/validasiatk/' . $validation->id . '/validate') }}" method="POST">
+                        <form action="{{ url('/validations/' . $validation->id . '/validate') }}" method="POST">
                             @csrf
                             <button type="submit" name="status" value="approved" class="btn btn-success">ACC</button>
                             <button type="submit" name="status" value="rejected" class="btn btn-danger">Tolak</button>
