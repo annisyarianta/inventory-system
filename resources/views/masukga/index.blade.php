@@ -140,7 +140,7 @@
 
                         <div class="form-group{{ $errors->has('tanggalmasuk') ? ' has-error ' : '' }}">
                             <label for="tanggalmasuk">Tanggal Barang Masuk</label>
-                            <input name="tanggalmasuk" type="text" class="form-control" id="tanggalmasuk"
+                            <input name="tanggalmasuk" type="date" class="form-control" id="tanggalmasuk"
                                 placeholder="Tanggal Barang Masuk" value="{{ old('tanggalmasuk') }}">
                             @if ($errors->has('tanggalmasuk'))
                                 <span class="help-block">*Kolom ini harus diisi</span>

@@ -42,14 +42,14 @@
 
     <!-- Nav Item - Request -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="/request_atk">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Request Barang</span></a>
     </li>
 
     <!-- Nav Item - Validate -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="/validasi_atk">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Validasi Barang</span></a>
     </li>
@@ -69,11 +69,34 @@
         </div>
     </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Reports
+    </div>
+
+    <!-- Nav Item - Cetak Laporan -->
+    <li class="nav-item">
+        <a class="nav-link" href="/laporan">
+            <i class="fas fa-fw fa-print"></i>
+            <span>Cetak Laporan</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Settings
+    </div>
+
     <!-- Nav Item - Daftar User -->
     <li class="nav-item">
         <a class="nav-link" href="/users">
             <i class="fas fa-fw fa-users"></i>
-            <span>Daftar User</span></a>
+            <span>User Management</span></a>
     </li>
 
     <!-- Divider -->
