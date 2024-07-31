@@ -42,14 +42,14 @@
 
     <!-- Nav Item - Request -->
     <li class="nav-item">
-        <a class="nav-link" href="/request_atk">
+        <a class="nav-link" href="/requests">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Request Barang</span></a>
     </li>
 
     <!-- Nav Item - Validate -->
     <li class="nav-item">
-        <a class="nav-link" href="/validasi_atk">
+        <a class="nav-link" href="/validations">
             <i class="fas fa-fw fa-clipboard-check"></i>
             <span>Validasi Barang</span></a>
     </li>
