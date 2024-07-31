@@ -47,8 +47,14 @@
                                                 colspan="1" aria-label="Nama Barang: activate to sort column ascending"
                                                 style="width: 200px;">Nama Barang</th>
                                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                colspan="1" aria-label="Jenis Barang: activate to sort column ascending"
+                                                style="width: 200px;">Jenis Barang</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Jumlah Barang: activate to sort column ascending"
                                                 style="width: 62.2px;">Jumlah Barang</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                colspan="1" aria-label="Satuan: activate to sort column ascending"
+                                                style="width: 62.2px;">Satuan</th>
                                             <th style="width: 126.2px;">Gambar</th>
                                         </tr>
                                     </thead>
@@ -58,6 +64,7 @@
                                             <td scope="row"><?= $no ?></td>
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
+                                            <td>{{ $barang->jenisbarang }}</td>
                                             <td>
                                                 <?php $jmlhmasuk = 0;
                                                 $jmlhkeluar = 0; ?>
@@ -72,6 +79,13 @@
                                                     @endif
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
+                                            </td>
+                                            <td>
+                                            @foreach ($barangmasuk as $brgmasuk)
+                                                @if ($barang->id == $brgmasuk->barangga_id)
+                                                    {{ $brgmasuk->satuan }} 
+                                                @endif
+                                            @endforeach
                                             </td>
                                             <td><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 200px; max-height: 200px"></td>

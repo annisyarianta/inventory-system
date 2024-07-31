@@ -33,10 +33,10 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">
-                <a href="/barang/exportpdfmasuk" class="btn btn-danger btn-sm mr-2">
+                <a href="/masukga/exportpdfmasuk" class="btn btn-danger btn-sm mr-2">
                     <span class="text">Export PDF</span>
                 </a>
-                <a href="/barang/exportexcelmasuk" class="btn btn-success btn-sm mr-2">
+                <a href="/masukga/exportexcelmasuk" class="btn btn-success btn-sm mr-2">
                     <span class="text">Export Excel</span>
                 </a>
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahmasuk">
@@ -71,6 +71,10 @@
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Barang Masuk: activate to sort column ascending"
                                                 style="width: 50px;">Jumlah Barang Masuk</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Satuan: activate to sort column ascending"
+                                                style="width: 50px;">Satuan</th>
                                             <th class="text-center" style="width: 62.2px;">Aksi</th>
                                         </tr>
                                     </thead>
@@ -87,6 +91,7 @@
                                             <td>{{ $barang->barangga->namabarang }}</td>
                                             <td>{{ $barang->tanggalmasuk }}</td>
                                             <td>{{ $barang->jumlahmasuk }}</td>
+                                            <td>{{ $barang->satuan }}</td>
                                             <td class="text-center">
                                                 <a href="/masukga/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle mr-1"><i
@@ -140,7 +145,7 @@
 
                         <div class="form-group{{ $errors->has('tanggalmasuk') ? ' has-error ' : '' }}">
                             <label for="tanggalmasuk">Tanggal Barang Masuk</label>
-                            <input name="tanggalmasuk" type="text" class="form-control" id="tanggalmasuk"
+                            <input name="tanggalmasuk" type="date" class="form-control" id="tanggalmasuk"
                                 placeholder="Tanggal Barang Masuk" value="{{ old('tanggalmasuk') }}">
                             @if ($errors->has('tanggalmasuk'))
                                 <span class="help-block">*Kolom ini harus diisi</span>
@@ -153,6 +158,15 @@
                                 placeholder="Jumlah Barang Masuk" value="{{ old('jumlahmasuk') }}">
                             @if ($errors->has('jumlahmasuk'))
                                 <span class="help-block">{{ $errors->first('jumlahmasuk') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('satuan') ? ' has-error ' : '' }}">
+                            <label for="satuan">Satuan</label>
+                            <input name="satuan" type="text" class="form-control" id="satuan"
+                                placeholder="Satuan" value="{{ old('satuan') }}">
+                            @if ($errors->has('satuan'))
+                                <span class="help-block">{{ $errors->first('satuan') }}</span>
                             @endif
                         </div>
                     </div>

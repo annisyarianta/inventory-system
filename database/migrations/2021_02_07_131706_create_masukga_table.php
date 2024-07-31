@@ -18,6 +18,7 @@ class CreateMasukgaTable extends Migration
             $table->timestamps();
             $table->string('barangga_id');
             $table->integer('jumlahmasuk');
+            $table->string('satuan');
             $table->date('tanggalmasuk');
         });
     }

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RequestAtkController;
+use App\Http\Controllers\ValidasiAtkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/barangga/{id}/edit', 'BaranggaController@edit');
     Route::post('/barangga/{id}/update', 'BaranggaController@update');
     Route::get('/barangga/{id}/delete', 'BaranggaController@delete');
+    Route::get('/barangga/exportexcelbarangga', 'BaranggaController@exportexcelmasuk');
+    Route::get('/barangga/exportpdfbarangga', 'BaranggaController@exportpdfmasuk');
 
     Route::get('/masukga', 'MasukgaController@index');
     Route::post('/masukga/create', 'MasukgaController@create');
@@ -65,6 +69,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/unit/create', 'UnitController@create');
     Route::get('/unit/{id}/delete', 'UnitController@delete');
     Route::post('/unit/{id}/update', 'UnitController@update');
+
+    Route::get('/requests', [RequestAtkController::class, 'index'])->name('requests.index');
+    Route::get('/requests/create', [RequestAtkController::class, 'create'])->name('requests.create');
+    Route::post('/requests', [RequestAtkController::class, 'store'])->name('requests.store');
+    Route::get('/requests/{id}/edit', [RequestAtkController::class, 'edit'])->name('requests.edit');
+    Route::put('/requests/{id}', [RequestAtkController::class, 'update'])->name('requests.update');
+    Route::delete('/requests/{id}', [RequestAtkController::class, 'destroy'])->name('requests.destroy');
+
+    Route::get('/validations', [ValidasiAtkController::class, 'index'])->name('validations.index');
+    Route::get('/validations/{id}/edit', [ValidasiAtkController::class, 'edit'])->name('validations.edit');
+    Route::put('/validations/{id}', [ValidasiAtkController::class, 'update'])->name('validations.update');
+    Route::delete('/validations/{id}', [ValidasiAtkController::class, 'destroy'])->name('validations.destroy');
 });
 
     // Route::get('/inventory', 'InventoryController@index');

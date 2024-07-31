@@ -12,6 +12,14 @@
             <div class="panel-body">
                 <form action="/barangga/{{$barang->id}}/update" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
+                    <div class="form-group{{$errors->has('kodebarang') ? ' has-error ' : ''}}">
+                        <label for="kodebarang">Kode Barang</label>
+                        <input name="kodebarang" type="text" class="form-control" id="kodebarang" value="{{$barang->kodebarang}}">
+                        @if ($errors->has('kodebarang'))
+                        <span class="help-block">{{$errors->first('kodebarang')}}</span>
+                        @endif
+                    </div>
+
                     <div class="form-group{{$errors->has('namabarang') ? ' has-error ' : ''}}">
                         <label for="namabarang">Nama Barang</label>
                         <input name="namabarang" type="text" class="form-control" id="namabarang" value="{{$barang->namabarang}}">
@@ -20,11 +28,11 @@
                         @endif
                     </div>
 
-                    <div class="form-group{{$errors->has('kodebarang') ? ' has-error ' : ''}}">
-                        <label for="kodebarang">Kode Barang</label>
-                        <input name="kodebarang" type="text" class="form-control" id="kodebarang" value="{{$barang->kodebarang}}">
-                        @if ($errors->has('kodebarang'))
-                        <span class="help-block">{{$errors->first('kodebarang')}}</span>
+                    <div class="form-group{{$errors->has('jenisbarang') ? ' has-error ' : ''}}">
+                        <label for="jenisbarang">Jenis Barang</label>
+                        <input name="jenisbarang" type="text" class="form-control" id="jenisbarang" value="{{$barang->jenisbarang}}">
+                        @if ($errors->has('jenisbarang'))
+                        <span class="help-block">{{$errors->first('jenisbarang')}}</span>
                         @endif
                     </div>
 
