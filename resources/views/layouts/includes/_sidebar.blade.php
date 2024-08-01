@@ -19,6 +19,14 @@
             <span>Dashboard</span></a>
     </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Kelola Barang
+    </div>
+
      <!-- Nav Item - Barang Masuk -->
      <li class="nav-item">
         <a class="nav-link" href="/masukga">
