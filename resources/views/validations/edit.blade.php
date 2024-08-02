@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Validate Request</h1>
-    <form action="{{ route('validations.update', $requestItem->id) }}" method="POST">
+    <form action="{{ route('validations.update', $validation->id) }}" method="POST" id="form-{{ $validation->id }}">        
         @csrf
         @method('PUT')
         <div class="form-group">

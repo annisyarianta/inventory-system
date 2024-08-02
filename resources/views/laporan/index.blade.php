@@ -22,7 +22,8 @@
             <h6 class="m-0 font-weight-bold text-primary">Form Cetak Laporan</h6>
         </div>
         <div class="card-body">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <!-- Tambahkan id ke form untuk mempermudah manipulasi JavaScript -->
+            <form id="formCetakLaporan" action="" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="modal-body">
                     <div class="form-group">
@@ -54,7 +55,7 @@
 
                     <div class="form-group">
                         <label for="formatdokumen">Format Dokumen</label>
-                        <select name="formatdokumen" class="form-control" id="formatdokumen">
+                        <select name="formatdokumen" class="form-control" id="formatdokumen" onchange="updateFormAction()">
                             <option value="">-- Pilih Format Dokumen --</option>
                             <option value="excel">Excel</option>
                             <option value="pdf">PDF</option>
@@ -63,17 +64,32 @@
                 </div>
 
                 <div class="modal-footer">
-                    <a href="#" class="btn btn-primary btn-icon-split btn-sm">
+                    <button type="submit" class="btn btn-primary btn-icon-split btn-sm">
                         <span class="icon text-white-50">
                             <i class="fas fa-print"></i>
                         </span>
                         <span class="text">Cetak Laporan</span>
-                    </a>
+                    </button>
                 </div>
                 
             </form>
         </div>
     </div>
 </div>
+
+<script>
+function updateFormAction() {
+    var format = document.getElementById('formatdokumen').value;
+    var form = document.getElementById('formCetakLaporan');
+
+    if (format === 'excel') {
+        form.action = '/laporan/exportexcellaporan';
+    } else if (format === 'pdf') {
+        form.action = '/laporan/exportpdflaporan';
+    } else {
+        form.action = ''; // Set default atau kosong jika tidak ada format yang dipilih
+    }
+}
+</script>
 
 @endsection

@@ -27,4 +27,5 @@ class barangga extends Model
 
         return asset('images/' . $this->gambar);
     }
+
 }

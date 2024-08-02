@@ -18,4 +18,6 @@ class keluarga extends Model
     {
         return $this->belongsTo(unit::class);
     }
+
+
 }
