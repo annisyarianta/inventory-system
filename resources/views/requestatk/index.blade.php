@@ -24,7 +24,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-end">
-        <a href="{{ url('/requests/create') }}" class="btn btn-primary mb-3">Tambah Request ATK</a>
+        <a href="{{ url('/requests/create') }}" class="btn btn-primary btn-sm">Tambah Request ATK</a>
             </div>
             
             <div class="card-body">
@@ -50,37 +50,46 @@
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Tanggal Request: activate to sort column ascending"
-                                                style="width: 200px;">Tanggal Request</th>
+                                                style="width: 100px;">Tanggal Request</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Tanggal Request: activate to sort column ascending"
-                                                style="width: 200px;">Tanggal Acc</th>
+                                                style="width: 100px;">Tanggal Acc</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Request: activate to sort column ascending"
-                                                style="width: 200px;">Jumlah Request</th>
+                                                style="width: 50px;">Jumlah Request</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Unit: activate to sort column ascending"
-                                                style="width: 200px;">Unit</th>
+                                                style="width: 50px;">Unit</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Status: activate to sort column ascending"
-                                                style="width: 200px;">Status</th>
-                                            <th class="text-center" style="width: 62.2px;">Aksi</th>
+                                                style="width: 50px;">Status</th>
                                         </tr>
                                     </thead>
         <tbody>
             @foreach($requests as $request)
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $request->barangga->kodebarang }}</td>
+                    <td class="text-center">{{ $loop->iteration }}</td>
+                    <td class="text-center">{{ $request->barangga->kodebarang }}</td>
                     <td>{{ $request->barangga->namabarang }}</td>
-                    <td>{{ $request->tanggal_request }}</td>
-                    <td>{{ $request->validation ? $request->validation->tanggal_validasi : '-' }}</td>
-                    <td>{{ $request->quantity }}</td>
-                    <td>{{ $request->unit->namaunit }}</td>
-                    <td>{{ $request->status }}</td>
+                    <td class="text-center">{{ date('d/m/Y', strtotime($request->tanggal_request)) }}</td>
+                    <td class="text-center">{{ $request->validation ? date('d/m/Y', strtotime($request->tanggal_validasi)) : '-' }}</td>
+                    <td class="text-center">{{ $request->quantity }}</td>
+                    <td class="text-center">{{ $request->unit->namaunit }}</td>
+                    <td class="text-center">
+                        @if($request->status == 'pending')
+                            <span class="badge badge-secondary">Pending</span>
+                        @elseif($request->status == 'approved')
+                            <span class="badge badge-success">Approved</span>
+                        @elseif($request->status == 'rejected')
+                            <span class="badge badge-danger">Rejected</span>
+                        @else
+                            {{ $request->status }}
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </tbody>

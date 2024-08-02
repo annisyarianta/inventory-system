@@ -42,19 +42,19 @@
                                                 style="width: 10px;">No.</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 50px;">Kode Barang</th>
+                                                style="width: 40px;">Kode Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 170px;">Nama Barang</th>
+                                                style="width: 200px;">Nama Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Jenis Barang: activate to sort column ascending"
-                                            style="width: 70px;">Jenis Barang</th>
+                                            style="width: 50px;">Jenis Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Jumlah Barang: activate to sort column ascending"
-                                                style="width: 60px;">Jumlah Barang</th>
+                                                style="width: 30px;">Jumlah Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Satuan: activate to sort column ascending"
-                                                style="width: 62.2px;">Satuan</th>
+                                                style="width: 30px;">Satuan</th>
                                             <th style="width: 100px;" class="text-center">Gambar</th>
                                         </tr>
                                     </thead>
@@ -63,9 +63,17 @@
                                         <?php $no++; ?>
                                         <tr>
                                             <td scope="row" class="text-center"><?= $no ?></td>
-                                            <td>{{ $barang->kodebarang }}</td>
+                                            <td class="text-center">{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
-                                            <td>{{ $barang->jenisbarang }}</td>
+                                            <td class="text-center">
+                                                @if($barang->jenisbarang == 'Habis Pakai')
+                                                    <span class="badge badge-warning">Habis Pakai</span>
+                                                @elseif($barang->jenisbarang == 'Tidak Habis Pakai')
+                                                    <span class="badge badge-primary">Tidak Habis Pakai</span>
+                                                @else
+                                                    <span class="badge badge-secondary">{{ $barang->jenisbarang }}</span>
+                                                @endif
+                                            </td>
                                             <td class="text-center">
                                                 <?php $jmlhmasuk = 0;
                                                 $jmlhkeluar = 0; ?>
@@ -81,7 +89,7 @@
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
                                             </td>
-                                            <td>
+                                            <td class="text-center">
                                             @foreach ($barangmasuk as $brgmasuk)
                                                 @if ($barang->id == $brgmasuk->barangga_id)
                                                     {{ $brgmasuk->satuan }} 
@@ -89,7 +97,7 @@
                                             @endforeach
                                             </td>
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
-                                                    style="max-width: 200px; max-height: 200px"></td>
+                                                    style="max-width: 150px; max-height: 180px"></td>
                                         </tr>
                                     </tbody>
                                     @endforeach

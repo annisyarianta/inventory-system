@@ -49,14 +49,14 @@
                                 <?php $no=0; ?>
                                 @foreach ($unit as $unt) <?php $no++; ?>
                                 <tr>
-                                    <th scope="row" class="text-center"><?= $no; ?></th>
+                                    <td scope="row" class="text-center"><?= $no; ?></td>
                                     {{-- <td><a href="/lokasi/{{$lokasi->id}}/list">{{$lokasi->NamaLokasi}}</a></td> --}}
                                     <td>{{$unt->namaunit}}</td>
                                     <td class="text-center">
                                         <button type="button" data-toggle="modal" data-target="#editunit"
                                             data-namaunit="{{$unt->namaunit}}" data-id="{{$unt->id}}"
-                                            class="btn btn-warning btn-circle mr-1"><i class="fas fa-pencil-alt"></i></button>
-                                        <a href="/unit/{{$unt->id}}/delete" class="btn btn-danger btn-circle"
+                                            class="btn btn-warning btn-circle btn-sm mr-1"><i class="fas fa-pencil-alt"></i></button>
+                                        <a href="/unit/{{$unt->id}}/delete" class="btn btn-danger btn-circle btn-sm"
                                             onclick="return confirm('Yakin ingin menghapus {{$unt->namaunit}}? ')"><i
                                                 class="fas fa-trash"></i></a>
                                     </td>

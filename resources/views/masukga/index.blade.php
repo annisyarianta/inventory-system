@@ -27,8 +27,7 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Barang Masuk</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the official DataTables documentation.</p>
+        <br>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">
@@ -55,7 +54,7 @@
                                                 aria-controls="dataTable" rowspan="1" colspan="1"
                                                 aria-label="No.: activate to sort column descending" aria-sort="ascending"
                                                 style="width: 10px;">No.</th>
-                                            <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Kode Barang: activate to sort column ascending"
                                                 style="width: 40px;">Kode Barang</th>
@@ -66,11 +65,11 @@
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Tanggal Barang Masuk: activate to sort column ascending"
-                                                style="width: 75px;">Tanggal Barang Masuk</th>
+                                                style="width: 75px;">Tanggal <br> Barang Masuk</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Barang Masuk: activate to sort column ascending"
-                                                style="width: 50px;">Jumlah Barang Masuk</th>
+                                                style="width: 50px;">Jumlah <br> Barang Masuk</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Satuan: activate to sort column ascending"
@@ -87,11 +86,12 @@
                                             {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
                                                 data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
                                         </td> --}}
-                                            <td>{{ $barang->barangga->kodebarang }}</td>
+                                            <td class="text-center">{{ $barang->barangga->kodebarang }}</td>
                                             <td>{{ $barang->barangga->namabarang }}</td>
-                                            <td>{{ $barang->tanggalmasuk }}</td>
-                                            <td>{{ $barang->jumlahmasuk }}</td>
-                                            <td>{{ $barang->satuan }}</td>
+                                            {{-- <td class="text-center">{{ $barang->tanggalmasuk }}</td> --}}
+                                            <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalmasuk)) }}</td>
+                                            <td class="text-center">{{ $barang->jumlahmasuk }}</td>
+                                            <td class="text-center">{{ $barang->satuan }}</td>
                                             <td class="text-center">
                                                 <a href="/masukga/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle btn-sm mr-1"><i

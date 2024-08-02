@@ -53,11 +53,11 @@
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 160px;">Nama Barang</th>
+                                                style="width: 180px;">Nama Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jenis Barang: activate to sort column ascending"
-                                                style="width: 100px;">Jenis Barang</th>
+                                                style="width: 50px;">Jenis Barang</th>
                                             <th class="text-center" style="width: 80px;">Gambar</th>
                                             <th class="text-center" style="width: 40px;">Aksi</th>
                                         </tr>
@@ -73,7 +73,15 @@
                     </td> --}}
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
-                                            <td class="text-center">{{ $barang->jenisbarang }}</td>
+                                            <td class="text-center">
+                                                @if($barang->jenisbarang == 'Habis Pakai')
+                                                    <span class="badge badge-warning">Habis Pakai</span>
+                                                @elseif($barang->jenisbarang == 'Tidak Habis Pakai')
+                                                    <span class="badge badge-primary">Tidak Habis Pakai</span>
+                                                @else
+                                                    <span class="badge badge-secondary">{{ $barang->jenisbarang }}</span>
+                                                @endif
+                                            </td>
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 180px; max-height: 200px"></td>
                                             <td class="text-center">

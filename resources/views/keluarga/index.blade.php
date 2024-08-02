@@ -60,7 +60,7 @@
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 40px;">Kode Barang</th>
+                                                style="width: 30px;">Kode Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
@@ -89,9 +89,9 @@
                                             {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
                                 data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
                         </td> --}}
-                                            <td>{{ $barang->barangga->kodebarang }}</td>
-                                            <td>{{ $barang->barangga->namabarang }}</td>
-                                            <td class="text-center">{{ $barang->tanggalkeluar }}</td>
+                                            <td class="text-center">{{ $barang->barangga->kodebarang }}</td>
+                                            <td >{{ $barang->barangga->namabarang }}</td>
+                                            <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalkeluar)) }}</td>
                                             <td class="text-center">{{ $barang->jumlahkeluar }}</td>
                                             <td class="text-center">{{ $barang->unit->namaunit }}</td>
                                             <td class="text-center">

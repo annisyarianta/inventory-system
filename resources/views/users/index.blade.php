@@ -39,7 +39,8 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting sorting_asc text-center" tabindex="0"
@@ -76,7 +77,16 @@
                                             <td scope="row" class="text-center"><?= $no ?></td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td class="text-center">{{ $user->role }}</td>
+                                            <td class="text-center">
+                                                @if ($user->role == 'admin')
+                                                    <span class="badge badge-info badge-pill">Admin</span>
+                                                @elseif($user->role == 'staff')
+                                                    <span class="badge badge-orange badge-pill">Staff</span>
+                                                @else
+                                                    <span
+                                                        class="badge badge-secondary badge-pill">{{ $user->role }}</span>
+                                                @endif
+                                            </td>
                                             <td class="text-center">{{ $user->created_at }}</td>
                                             <td class="text-center">{{ $user->updated_at }}</td>
                                             <td class="text-center">
@@ -116,7 +126,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="aksi" action="/users/{{ $user->id }}/update" method="POST"
+                    <form  action="/users/{{ $user->id }}/update" id="aksi" method="POST"
                         enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error ' : '' }}">
