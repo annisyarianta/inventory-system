@@ -50,11 +50,12 @@
                                                 colspan="1" aria-label="Jumlah Barang: activate to sort column ascending"
                                                 style="width: 60px;">Jumlah Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1" aria-label="Jenis Barang: activate to sort column ascending"
-                                            style="width: 70px;">Jenis Barang</th>
-                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Satuan: activate to sort column ascending"
                                                 style="width: 62.2px;">Satuan</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                            colspan="1" aria-label="Jenis Barang: activate to sort column ascending"
+                                            style="width: 70px;">Jenis Barang</th>
+                                            
                                             <th style="width: 100px;" class="text-center">Gambar</th>
                                         </tr>
                                     </thead>
@@ -80,7 +81,6 @@
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
                                             </td>
-                                            <td>{{ $barang->jenisbarang }}</td>
                                             <td>
                                             @foreach ($barangmasuk as $brgmasuk)
                                                 @if ($barang->id == $brgmasuk->barangga_id)
@@ -88,6 +88,8 @@
                                                 @endif
                                             @endforeach
                                             </td>
+                                            <td>{{ $barang->jenisbarang }}</td>
+                                          
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 200px; max-height: 200px"></td>
                                         </tr>

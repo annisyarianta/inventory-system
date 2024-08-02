@@ -7,7 +7,7 @@ use App\Requests;
 
 class Validation extends Model
 {
-    protected $fillable = ['request_id', 'status'];
+    protected $fillable = ['request_id', 'status', 'created_at'];
 
     public function requestmodel()
 {

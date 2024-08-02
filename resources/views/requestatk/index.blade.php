@@ -18,7 +18,7 @@
 
 <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Validasi Barang</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Request ATK</h1>
         <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the official DataTables documentation.</p>
         <!-- DataTales Example -->
@@ -42,11 +42,11 @@
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 40px;">Kode Barang</th>
+                                                style="width: 40px;">Kode ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 200px;">Nama Barang</th>
+                                                style="width: 200px;">Nama ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Tanggal Request: activate to sort column ascending"
@@ -58,7 +58,7 @@
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Request: activate to sort column ascending"
-                                                style="width: 200px;">Jumlah Request</th>
+                                                style="width: 200px;">Jumlah Request ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Unit: activate to sort column ascending"
@@ -67,7 +67,7 @@
                                                 rowspan="1" colspan="1"
                                                 aria-label="Status: activate to sort column ascending"
                                                 style="width: 200px;">Status</th>
-                                            <th class="text-center" style="width: 62.2px;">Aksi</th>
+                                            <!-- <th class="text-center" style="width: 62.2px;">Aksi</th> -->
                                         </tr>
                                     </thead>
         <tbody>
@@ -77,7 +77,7 @@
                     <td>{{ $request->barangga->kodebarang }}</td>
                     <td>{{ $request->barangga->namabarang }}</td>
                     <td>{{ $request->tanggal_request }}</td>
-                    <td>{{ $request->validation ? $request->validation->tanggal_validasi : '-' }}</td>
+                    <td>{{ $request->validation ? $request->validation->created_at : '-' }}</td>
                     <td>{{ $request->quantity }}</td>
                     <td>{{ $request->unit->namaunit }}</td>
                     <td>{{ $request->status }}</td>

@@ -78,7 +78,7 @@
                                 @method('PUT')
                                 <button type="button" onclick="submitForm('approved', {{ $validation->id }})" class="btn btn-success">ACC</button>
                                 <button type="button" onclick="submitForm('rejected', {{ $validation->id }})" class="btn btn-danger">Tolak</button>
-                                <button type="button" onclick="showKurangiModal({{ $validation->id }}, {{ $validation->requestmodel->quantity }})" class="btn btn-warning">Kurangi</button>
+                                <button type="button" onclick="showKurangiModal({{ $validation->id }}, {{ $validation->requestmodel->quantity }})" class="btn btn-warning">Edit</button>
                             </form>
                         @else
                             <span>Status: {{ ucfirst($validation->status) }}</span>
@@ -137,6 +137,7 @@
         input.name = 'status';
         input.value = status;
         form.appendChild(input);
+        
         form.submit();
     }
 
