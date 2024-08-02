@@ -17,4 +17,11 @@ class Requests extends Model
     {
         return $this->belongsTo(unit::class);
     }
+
+    // Di dalam model Request
+    public function validation()
+    {
+        return $this->belongsTo(Validation::class);
+    }
+
 }

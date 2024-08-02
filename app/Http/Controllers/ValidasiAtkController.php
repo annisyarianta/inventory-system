@@ -28,45 +28,46 @@ class ValidasiAtkController extends Controller
     public function storeValidation(Request $request, $id)
     {
         $validation = validationmodel::findOrFail($id);
-
+    
         // Validasi input
         $this->validate($request, [
             'status' => 'required|in:approved,rejected,modified',
             'quantity' => 'required_if:status,modified|integer|min:1'
         ]);
-
+    
         // Ambil data dari request
         $status = $request->input('status');
         $inputQuantity = $request->input('quantity');
         $requestQuantity = $validation->requestmodel->quantity;
-
-        // Periksa apakah statusnya 'modified' dan jumlah yang dikurangi valid
+    
         if ($status == 'modified') {
             if ($inputQuantity < $requestQuantity) {
                 $finalQuantity = $inputQuantity; // Gunakan jumlah yang dimasukkan di form
                 $status = 'approved'; // Ubah status menjadi 'approved'
             } else {
-                return redirect()->back()->withErrors('Jumlah yang dimasukkan lebih besar atau sama dengan jumlah request.');
+                return redirect()->back()->with('gagal', 'Jumlah yang dimasukkan lebih besar atau sama dengan jumlah request.');
             }
+        } elseif ($status == 'rejected') {
+            // Jika statusnya ditolak, tidak perlu mengubah jumlah
+            $finalQuantity = 0;
         } else {
-            $finalQuantity = $requestQuantity; // Jika status bukan 'modified', gunakan jumlah asli
+            $finalQuantity = $requestQuantity; // Jika status bukan 'modified' atau 'rejected', gunakan jumlah asli
         }
-
-        // Update validation dan request model dengan data baru
+    
+        // Update validation model dengan data baru
         $validation->update([
             'status' => $status,
             'quantity' => $finalQuantity,
             'tanggal_validasi' => now()
         ]);
-
-        // Update quantity di request model dan masukkan ke tabel barang keluar
+    
+        // Update status di request model
+        $validation->requestmodel->update([
+            'status' => $status,
+        ]);
+    
+        // Jika status adalah approved, masukkan data ke tabel barang keluar
         if ($status == 'approved') {
-            $validation->requestmodel->update([
-                'quantity' => $finalQuantity, // Update quantity di requestmodel
-                'status' => $status,
-            ]);
-
-            // Masukkan data ke tabel barang keluar
             keluarga::create([
                 'barangga_id' => $validation->requestmodel->barangga_id,
                 'jumlahkeluar' => $finalQuantity,
@@ -74,10 +75,12 @@ class ValidasiAtkController extends Controller
                 'unit_id' => $validation->requestmodel->unit_id
             ]);
         }
-
+    
         // Redirect ke halaman validasi dengan pesan sukses
         return redirect()->route('validations.index')->with('sukses', 'Validasi ATK berhasil diupdate');
     }
+    
+
 
     // Metode update untuk memanggil storeValidation
     public function update(Request $request, $id)

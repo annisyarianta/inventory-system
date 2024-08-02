@@ -25,16 +25,16 @@
     <div class="col-md-12">
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title">INVENTORY BARANG</h3>
+                <h3 class="panel-title">INVENTORY ATK</h3>
             </div>
             <div class="panel-body">
                 <table class="table table-hover">
                     <thead class="thead-dark">
                         <tr>
                             <th>No.</th>
-                            <th>Kode Barang</th>
-                            <th>Nama Barang</th>
-                            <th>Jumlah Barang</th>
+                            <th>Kode ATK</th>
+                            <th>Nama ATK</th>
+                            <th>Jumlah ATK</th>
                             <th>Gambar</th>
                         </tr>
                     </thead>

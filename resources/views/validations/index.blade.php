@@ -161,8 +161,6 @@
         </div>
     </div>
 
-
-
     <script>
         function submitForm(status, id) {
             var form = document.getElementById('form-' + id);
