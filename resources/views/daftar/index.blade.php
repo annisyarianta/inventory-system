@@ -47,11 +47,11 @@
                                                 colspan="1" aria-label="Nama Barang: activate to sort column ascending"
                                                 style="width: 170px;">Nama Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                                colspan="1" aria-label="Jumlah Barang: activate to sort column ascending"
-                                                style="width: 60px;">Jumlah Barang</th>
-                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                             colspan="1" aria-label="Jenis Barang: activate to sort column ascending"
                                             style="width: 70px;">Jenis Barang</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
+                                                colspan="1" aria-label="Jumlah Barang: activate to sort column ascending"
+                                                style="width: 60px;">Jumlah Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
                                                 colspan="1" aria-label="Satuan: activate to sort column ascending"
                                                 style="width: 62.2px;">Satuan</th>
@@ -65,6 +65,7 @@
                                             <td scope="row" class="text-center"><?= $no ?></td>
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
+                                            <td>{{ $barang->jenisbarang }}</td>
                                             <td class="text-center">
                                                 <?php $jmlhmasuk = 0;
                                                 $jmlhkeluar = 0; ?>
@@ -80,7 +81,6 @@
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
                                             </td>
-                                            <td>{{ $barang->jenisbarang }}</td>
                                             <td>
                                             @foreach ($barangmasuk as $brgmasuk)
                                                 @if ($barang->id == $brgmasuk->barangga_id)

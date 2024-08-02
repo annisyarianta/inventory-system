@@ -49,27 +49,17 @@
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 40px;">Kode Barang</th>
+                                                style="width: 50px;">Kode Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Nama Barang: activate to sort column ascending"
-<<<<<<< HEAD
                                                 style="width: 160px;">Nama Barang</th>
-                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
-                                            rowspan="1" colspan="1"
-                                            aria-label="Kategori: activate to sort column ascending"
-                                            style="width: 70px;">Kategori</th>
-                                            <th class="text-center" style="width: 80px;">Gambar</th>
-                                            <th class="text-center" style="width: 40px;">Aksi</th>
-=======
-                                                style="width: 200px;">Nama Barang</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jenis Barang: activate to sort column ascending"
-                                                style="width: 200px;">Jenis Barang</th>
-                                            <th class="text-center" style="width: 126.2px;">Gambar</th>
-                                            <th class="text-center" style="width: 62.2px;">Aksi</th>
->>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
+                                                style="width: 100px;">Jenis Barang</th>
+                                            <th class="text-center" style="width: 80px;">Gambar</th>
+                                            <th class="text-center" style="width: 40px;">Aksi</th>
                                         </tr>
                                     </thead>
                                     <?php $no = $inventory_barang->currentPage() * $inventory_barang->perPage() - $inventory_barang->perPage(); ?>
@@ -83,15 +73,9 @@
                     </td> --}}
                                             <td>{{ $barang->kodebarang }}</td>
                                             <td>{{ $barang->namabarang }}</td>
-<<<<<<< HEAD
-                                            <td class="text-center">{{ $barang->kategori }}</td>
+                                            <td class="text-center">{{ $barang->jenisbarang }}</td>
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 180px; max-height: 200px"></td>
-=======
-                                            <td>{{ $barang->jenisbarang }}</td>
-                                            <td><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
-                                                    style="max-width: 200px; max-height: 200px"></td>
->>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                                             <td class="text-center">
                                                 {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
                                                     class="lnr lnr-pencil"></i></a> --}}
@@ -100,10 +84,10 @@
                                                     data-id="{{ $barang->id }}"
                                                     data-kodebarang="{{ $barang->kodebarang }}"
                                                     data-gambar="{{ $barang->gambar }}"
-                                                    class="btn btn-warning btn-circle mr-1"><i
+                                                    class="btn btn-warning btn-circle btn-sm mr-1"><i
                                                         class="fas fa-pencil-alt"></i></button>
                                                 <a href="/barangga/{{ $barang->id }}/delete"
-                                                    class="btn btn-danger btn-circle"
+                                                    class="btn btn-danger btn-circle btn-sm"
                                                     onclick="return confirm('Yakin ingin menghapus {{ $barang->namabarang }}?')"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>
@@ -151,20 +135,6 @@
                             @endif
                         </div>
 
-<<<<<<< HEAD
-                        <div class="form-group{{ $errors->has('kategori') ? ' has-error ' : '' }}">
-                            <label for="kategori">Kategori Barang</label>
-                            <select name="kategori" class="form-control" id="kategori">
-                                <option value="">Pilih Kategori</option>
-                                <option value="Barang Habis Pakai">Barang Habis Pakai</option>
-                                <option value="Barang Tidak Habis Pakai">Barang Tidak Habis Pakai</option>
-                                <option value="Lainnya">Lainnya</option>
-                            </select>
-                            @if ($errors->has('kategori'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('kategori') }}</strong>
-                                </span>
-=======
                         <div class="form-group{{ $errors->has('jenisbarang') ? ' has-error ' : '' }}">
                             <label for="jenisbarang">Jenis Barang</label>
                             <select name="jenisbarang" class="form-control" id="jenisbarang">
@@ -174,7 +144,6 @@
                             </select>
                             @if ($errors->has('jenisbarang'))
                                 <span class="help-block">{{ $errors->first('jenisbarang') }}</span>
->>>>>>> 3056557e1c09dbfe1763ccbd160bf491d1aa477f
                             @endif
                         </div>
 
@@ -203,10 +172,10 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 id="exampleModalLabel">Tambah Data Inventory</h3>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button> --}}
+                    <h3 id="exampleModalLabel">Tambah Data ATK</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
 
                 <form action="/barangga/create" method="POST" enctype="multipart/form-data">
@@ -215,7 +184,7 @@
                         <div class="form-group{{ $errors->has('namabarang') ? ' has-error ' : '' }}">
                             <label for="namabarang">Nama Barang</label>
                             <input name="namabarang" type="text" class="form-control" id="namabarang"
-                                placeholder="Nama Barang" value="{{ old('namabarang') }}">
+                                placeholder="Masukkan nama ATK" value="{{ old('namabarang') }}">
                             @if ($errors->has('namabarang'))
                                 <span class="help-block">{{ $errors->first('namabarang') }}</span>
                             @endif
@@ -224,7 +193,7 @@
                         <div class="form-group{{ $errors->has('kodebarang') ? ' has-error ' : '' }}">
                             <label for="kodebarang">Kode Barang</label>
                             <input name="kodebarang" type="text" class="form-control" id="kodebarang"
-                                placeholder="Kode Barang" value="{{ old('kodebarang') }}">
+                                placeholder="Masukkan kode barang" value="{{ old('kodebarang') }}">
                             @if ($errors->has('kodebarang'))
                                 <span class="help-block">{{ $errors->first('kodebarang') }}</span>
                             @endif
@@ -233,7 +202,7 @@
                         <div class="form-group{{ $errors->has('jenisbarang') ? ' has-error ' : '' }}">
                             <label for="jenisbarang">Jenis Barang</label>
                             <select name="jenisbarang" class="form-control" id="jenisbarang">
-                                <option value="">Pilih Jenis Barang</option>
+                                <option value="">-- Pilih jenis barang --</option>
                                 <option value="Habis Pakai" {{ old('jenisbarang') == 'Habis Pakai' ? 'selected' : '' }}>Habis Pakai</option>
                                 <option value="Tidak Habis Pakai" {{ old('jenisbarang') == 'Tidak Habis Pakai' ? 'selected' : '' }}>Tidak Habis Pakai</option>
                             </select>

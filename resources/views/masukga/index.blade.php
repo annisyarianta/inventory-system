@@ -134,6 +134,7 @@
                         <div class="form-group">
                             <label for="barangga_id">Nama Barang</label>
                             <select name="barangga_id" class="form-control" id="barangga_id">
+                                <option value="">-- Pilih barang --</option>
                                 @foreach ($barangga as $brg)
                                     <option value="{{ $brg->id }}"
                                         {{ old('barangga_id') == $brg->id ? 'selected' : '' }}>

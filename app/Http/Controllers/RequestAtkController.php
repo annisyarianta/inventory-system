@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\requests as requestmodel;
+use App\Requests as requestmodel;
 use App\barangga;
 use App\unit;
-use App\validation;
+use App\Validation;
 use Illuminate\Http\Request;
 
 class RequestAtkController extends Controller

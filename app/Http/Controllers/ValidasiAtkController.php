@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\request as requestmodel;
-use App\validation as validationmodel;
+use App\Requests as requestmodel;
+use App\Validation as validationmodel;
 use Illuminate\Http\Request;
 
 class ValidasiAtkController extends Controller
