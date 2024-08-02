@@ -96,13 +96,13 @@
                                             <td class="text-center">{{ $barang->unit->namaunit }}</td>
                                             <td class="text-center">
                                                 <a href="/keluarga/{{ $barang->id }}/edit"
-                                                    class="btn btn-warning btn-circle"><i
+                                                    class="btn btn-warning btn-circle btn-sm mr-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{-- <button type="button" data-toggle="modal" data-target="#editmodalbarangkeluar"
                             data-barangga_id="{{$barang->barangga_id}}" data-id="{{$barang->id}}" data-tanggalkeluar="{{$barang->tanggalkeluar}}" data-jumlahkeluar="{{$barang->jumlahkeluar}}"
                             class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button> --}}
                                                 <a href="/keluarga/{{ $barang->id }}/delete"
-                                                    class="btn btn-danger btn-circle"
+                                                    class="btn btn-danger btn-circle btn-sm"
                                                     onclick="return confirm('Yakin ingin menghapus {{ $barang->barangga->namabarang }} yang keluar tanggal {{ $barang->tanggalkeluar }}?')"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>

@@ -86,10 +86,10 @@
                                                     data-name="{{ $user->name }}" data-id="{{ $user->id }}"
                                                     data-email="{{ $user->email }}" data-role="{{ $user->role }}"
                                                     data-password="{{ $user->password }}"
-                                                    class="btn btn-warning btn-circle mr-1"><i
+                                                    class="btn btn-warning btn-circle btn-sm mr-1"><i
                                                         class="fas fa-pencil-alt"></i></button>
                                                 <a href="/users/{{ $user->id }}/delete"
-                                                    class="btn btn-danger btn-circle"
+                                                    class="btn btn-danger btn-circle btn-sm"
                                                     onclick="return confirm('Yakin ingin menghapus {{ $user->name }}?')"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>

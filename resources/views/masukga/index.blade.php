@@ -1,4 +1,3 @@
-
 @extends('layouts.master')
 @section('cari')
     <form class="navbar-form navbar-left">
@@ -48,7 +47,8 @@
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
                             <div class="col-sm-12">
-                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%"
+                                    cellspacing="0">
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting sorting_asc text-center" tabindex="0"
@@ -94,13 +94,13 @@
                                             <td>{{ $barang->satuan }}</td>
                                             <td class="text-center">
                                                 <a href="/masukga/{{ $barang->id }}/edit"
-                                                    class="btn btn-warning btn-circle mr-1"><i
+                                                    class="btn btn-warning btn-circle btn-sm mr-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{-- <button type="button" data-toggle="modal" data-target="#editmodalbarangmasuk"
                                             data-barangga_id="{{$barang->barangga_id}}" data-id="{{$barang->id}}" data-tanggalmasuk="{{$barang->tanggalmasuk}}" data-jumlahmasuk="{{$barang->jumlahmasuk}}"
                                             class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button> --}}
                                                 <a href="/masukga/{{ $barang->id }}/delete"
-                                                    class="btn btn-danger btn-circle"
+                                                    class="btn btn-danger btn-sm btn-circle"
                                                     onclick="return confirm('Yakin ingin menghapus {{ $barang->barangga->namabarang }} yang masuk tanggal {{ $barang->tanggalmasuk }}?')"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>
@@ -123,9 +123,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 id="exampleModalLabel">Tambah Data Barang Masuk</h3>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button> --}}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
 
                 <form action="/masukga/create" method="POST" enctype="multipart/form-data">
@@ -134,6 +134,7 @@
                         <div class="form-group">
                             <label for="barangga_id">Nama Barang</label>
                             <select name="barangga_id" class="form-control" id="barangga_id">
+                                <option value="">-- Pilih barang --</option>
                                 @foreach ($barangga as $brg)
                                     <option value="{{ $brg->id }}"
                                         {{ old('barangga_id') == $brg->id ? 'selected' : '' }}>
