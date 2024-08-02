@@ -120,14 +120,14 @@
 
     {{-- Modal Form --}}
     <div class="modal fade" id="tambahkeluar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 id="exampleModalLabel">Tambah Data Barang Keluar</h3>
-                    {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button> --}}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
 
                 <form action="/keluarga/create" method="POST" enctype="multipart/form-data">
@@ -136,6 +136,7 @@
                         <div class="form-group">
                             <label for="barangga_id">Nama Barang</label>
                             <select name="barangga_id" class="form-control" id="barangga_id">
+                                <option value="">-- Pilih barang --</option>
                                 @foreach ($barangga as $brg)
                                     <option value="{{ $brg->id }}"
                                         {{ old('barangga_id') == $brg->id ? 'selected' : '' }}>
@@ -148,7 +149,7 @@
                         <div class="form-group{{ $errors->has('tanggalkeluar') ? ' has-error ' : '' }}">
                             <label for="tanggalkeluar">Tanggal Barang Keluar</label>
                             <input name="tanggalkeluar" type="date" class="form-control" id="tanggalkeluar"
-                                placeholder="Tanggal Barang Keluar" value="{{ old('tanggalkeluar') }}">
+                                placeholder="Masukkan tanggal barang keluar" value="{{ old('tanggalkeluar') }}">
                             @if ($errors->has('tanggalkeluar'))
                                 <span class="help-block">*Kolom ini harus diisi</span>
                             @endif
@@ -157,7 +158,7 @@
                         <div class="form-group{{ $errors->has('jumlahkeluar') ? ' has-error ' : '' }}">
                             <label for="jumlahkeluar">Jumlah Barang Keluar</label>
                             <input name="jumlahkeluar" type="number" class="form-control" id="jumlahkeluar"
-                                placeholder="Jumlah Barang Keluar" value="{{ old('jumlahkeluar') }}">
+                                placeholder="Masukkan jumlah barang keluar" value="{{ old('jumlahkeluar') }}">
                             @if ($errors->has('jumlahkeluar'))
                                 <span class="help-block">{{ $errors->first('jumlahkeluar') }}</span>
                             @endif
@@ -166,6 +167,7 @@
                         <div class="form-group">
                             <label for="unit">Unit</label>
                             <select name="unit_id" class="form-control" id="unit_id">
+                                <option value="">-- Pilih unit --</option>
                                 @foreach ($unit as $unt)
                                     <option value="{{ $unt->id }}"
                                         {{ old('unit_id') == $unt->id ? 'selected' : '' }}>
@@ -177,7 +179,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
 

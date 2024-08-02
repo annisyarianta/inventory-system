@@ -33,6 +33,8 @@ class UserController extends Controller
             'password' => Hash::make($request->password) // Hashing password sebelum menyimpan
         ]);
 
+        $user->save();
+
         return redirect('/users')->with('sukses', 'User berhasil ditambahkan');
     }
 

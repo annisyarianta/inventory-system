@@ -106,7 +106,7 @@
 
     {{-- Modal Form EDIT --}}
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -164,7 +164,7 @@
 
     {{-- Modal Form ADD --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -180,7 +180,7 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error ' : '' }}">
                             <label for="name">Nama</label>
                             <input name="name" type="text" class="form-control" id="name"
-                                placeholder="Masukkan Nama Pengguna" value="{{ old('name') }}">
+                                placeholder="Masukkan nama pengguna" value="{{ old('name') }}">
                             @if ($errors->has('name'))
                                 <span class="help-block">{{ $errors->first('name') }}</span>
                             @endif
@@ -189,7 +189,7 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error ' : '' }}">
                             <label for="email">Email</label>
                             <input name="email" type="email" class="form-control" id="email"
-                                placeholder="Masukkan Email" value="{{ old('email') }}">
+                                placeholder="Masukkan email pengguna" value="{{ old('email') }}">
                             @if ($errors->has('email'))
                                 <span class="help-block">{{ $errors->first('email') }}</span>
                             @endif
@@ -213,7 +213,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error ' : '' }}">
                             <label for="password">Password</label>
                             <input name="password" type="password" class="form-control" id="password"
-                                placeholder="Masukkan Password" value="{{ old('password') }}">
+                                placeholder="Masukkan password" value="{{ old('password') }}">
                             @if ($errors->has('password'))
                                 <span class="help-block">{{ $errors->first('password') }}</span>
                             @endif
@@ -222,7 +222,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
 

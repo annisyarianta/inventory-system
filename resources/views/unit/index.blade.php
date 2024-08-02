@@ -102,14 +102,14 @@
 
 {{-- Modal Form EDIT --}}
 <div class="modal fade" id="editunit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+    aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 id="exampleModalLabel">Edit Unit</h3>
-                {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button> --}}
+                </button>
             </div>
 
             <form id="aksi" action="" method="POST" enctype="multipart/form-data">
