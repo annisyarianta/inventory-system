@@ -26,7 +26,7 @@ class CreateRequestsTable extends Migration
         // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         $table->foreign('barangga_id')->references('id')->on('barangga')->onDelete('cascade');
         $table->foreign('unit_id')->references('id')->on('unit')->onDelete('cascade');
-        // $table->foreign('validation_id')->references('id')->on('validations')->onDelete('cascade');
+        $table->foreign('validation_id')->references('id')->on('validations')->onDelete('cascade');
     });
 }
 

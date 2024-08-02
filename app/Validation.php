@@ -3,14 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Requests;
 
 class Validation extends Model
 {
-    protected $fillable = ['request_id'];
+    protected $fillable = ['request_id', 'status'];
 
-    public function request()
-    {
-        return $this->belongsTo(requests::class);
-    }
-
+    public function requestmodel()
+{
+    return $this->belongsTo(Requests::class, 'request_id');
+}
 }
