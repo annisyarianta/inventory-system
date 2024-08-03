@@ -96,8 +96,6 @@
                                                 @endif
                                             @endforeach
                                             </td>
-                                            <td>{{ $barang->jenisbarang }}</td>
-                                          
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 150px; max-height: 180px"></td>
                                         </tr>

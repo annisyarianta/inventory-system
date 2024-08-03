@@ -21,9 +21,9 @@ class barangga extends Model
 
     public function getGambar()
     {
-        if (!$this->gambar) {
-            return asset('images/Kopi Branti.png');
-        }
+        // if (!$this->gambar) {
+        //     return asset('images/Kopi Branti.png');
+        // }
 
         return asset('images/' . $this->gambar);
     }
