@@ -93,11 +93,11 @@
         </div>
 
         <div class="row">
-            <!-- Chart Keluar Masuk Barang Perbulan -->
+            <!-- Area Chart Keluar Masuk Barang -->
             <div class="col-xl-6 col-lg-7">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-black">Chart Keluar Masuk Barang Perbulan</h6>
+                        <h6 class="m-0 font-weight-bold text-black">Chart Keluar-Masuk Barang</h6>
                     </div>
                     <div class="card-body">
                         <div class="chart-area">
@@ -107,7 +107,23 @@
                 </div>
             </div>
 
+            <!-- Barang Keluar Terbanyak per Bulan Pie Chart -->
             <div class="col-xl-6 col-lg-6">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-black">Barang Keluar Terbanyak:
+                            {{ \Carbon\Carbon::create()->month($selectedMonth)->locale('id')->translatedFormat('F') }}</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-pie">
+                            <canvas id="topKeluarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Pie Chart -->
+            {{-- <div class="col-xl-6 col-lg-6">
                 <div class="card shadow mb-4">
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-0 font-weight-bold text-black">Revenue Sources</h6>
@@ -118,52 +134,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Barang Keluar Terbanyak per Bulan Card -->
-            <div class="col-xl-6 col-lg-6">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-black">Barang Keluar Terbanyak per Bulan</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="chart-pie pt-4 pb-2">
-                            <canvas id="topKeluarChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tabel Barang Keluar Terbanyak Keseluruhan -->
-            <div class="col-xl-6 col-lg-7">
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-black">Barang Keluar Terbanyak Keseluruhan</h6>
-                    </div>
-                    <div class="card-body">
-                        <!-- Form Filter -->
-                        <form method="GET" action="{{ url('/dashboard') }}">
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="tanggalawalkeluar">Tanggal Awal</label>
-                                    <input type="date" class="form-control" id="tanggalawalkeluar"
-                                        name="tanggalawalkeluar" value="{{ $tanggalawal }}">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="tanggalakhirkeluar">Tanggal Akhir</label>
-                                    <input type="date" class="form-control" id="tanggalakhirkeluar"
-                                        name="tanggalakhirkeluar" value="{{ $tanggalakhir }}">
-                                </div>
-                                <div class="form-group col-md-4 d-flex align-items-end">
-                                    <button type="submit" class="btn btn-primary">Filter</button>
-                                </div>
-                            </div>
-                            <input type="hidden" name="bulan" value="{{ $selectedMonth }}">
-                            <input type="hidden" name="tahun" value="{{ $selectedYear }}">
-                        </form>
-                    </div>
-                </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -188,15 +159,15 @@
                     datasets: [{
                         label: 'Barang Masuk',
                         data: barangMasukData,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        fill: false
+                        borderColor: 'rgba(246, 194, 62, 1)',
+                        backgroundColor: 'rgba(246, 194, 62, 0.2)',
+                        fill: true,
                     }, {
                         label: 'Barang Keluar',
                         data: barangKeluarData,
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        fill: false
+                        borderColor: 'rgba(28, 200, 138, 1)',
+                        backgroundColor: 'rgba(28, 200, 138, 0.2)',
+                        fill: true,
                     }]
                 },
                 options: {
@@ -215,21 +186,38 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Bulan'
-                            }
+                            },
+                            gridLines: {
+                                display: false,
+                                drawBorder: false,
+                            },
                         }],
                         yAxes: [{
                             display: true,
                             scaleLabel: {
-                                display: true,
-                                labelString: 'Jumlah Barang'
+                                display: false,
                             },
                             ticks: {
                                 beginAtZero: true
+                            },
+                            gridLines: {
+                                drawBorder: true,
+                                borderDash: [3],
                             }
                         }]
-                    }
-                }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        align: 'start',
+                        labels: {
+                            boxWidth: 30, 
+                            padding: 15, 
+                            fontColor: '#333', 
+                            usePointStyle: false,
+                        }
+                    },
+                },
             });
         });
     </script>
@@ -239,40 +227,69 @@
             var ctx = document.getElementById('topKeluarChart').getContext('2d');
             var chartData = @json($chartData);
             var myChart = new Chart(ctx, {
-                type: 'pie',
+                type: 'bar',
                 data: {
                     labels: chartData.labels,
                     datasets: [{
                         data: chartData.data,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)'
+                        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', 'rgba(255, 99, 132, 1)',
+                            '#e74a3b'
                         ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)'
+                        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#fd5175',
+                            '#c63929'
                         ],
-                        borderWidth: 1
+                        borderColor: "rgba(234, 236, 244, 1)",
+                        borderWidth: 1,
                     }]
                 },
                 options: {
                     responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    scales: {
+                        xAxes: [{
+                            display: false,
+                            scaleLabel: {
+                                display: true,
+                            },
+                            gridLines: {
+                                display: false,
+                                drawBorder: false,
+                            },
+                        }],
+                        yAxes: [{
                             display: true,
-                            text: 'Top 5 Barang Keluar Terbanyak'
+                            scaleLabel: {
+                                display: false,
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            },
+                            gridLines: {
+                                drawBorder: true,
+                                borderDash: [3],
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false,
+                        position: 'bottom',
+                        align: 'start',
+                        labels: {
+                            boxWidth: 50, 
+                            padding: 15, 
+                            fontColor: '#333', 
+                            usePointStyle: true,
                         }
-                    }
-                }
+                    },
+                },
             });
         });
     </script>
