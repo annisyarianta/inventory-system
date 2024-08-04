@@ -45,19 +45,17 @@
 					<!-- Topbar -->
 					@include('layouts.includes._navbar')
 					<!-- End of Topbar -->
-
-						@yield('content')
-
-						<!-- Content Row -->
-						
+                        <div class="main-content">
+                            @yield('content')
+                        </div>						
 					<!-- /.container-fluid -->
 				</div>
 				<!-- End of Main Content -->
 
 				<!-- Footer -->
 				<footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
+                    <div class="footer">
+                        <div class="copyright text-center">
                             <span>Copyright &copy; PT Angkasa Pura II 2024</span>
                         </div>
                     </div>
