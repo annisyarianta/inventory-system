@@ -7,6 +7,7 @@ use App\barangga;
 use App\keluarga;
 use App\masukga;
 use Carbon\Carbon;
+use App\requests;
 
 class DashboardController extends Controller
 {
@@ -32,7 +33,9 @@ class DashboardController extends Controller
         } else {
             $barangmasuk = masukga::all();
             $barangkeluar = keluarga::all();
-            $jumlah_atk_keseluruhan = $barangmasuk->sum('jumlahmasuk');
+            $totalBarangMasuk = masukga::sum('jumlahmasuk');
+            $totalBarangKeluar = keluarga::sum('jumlahkeluar');
+            $jumlah_atk_keseluruhan = $totalBarangMasuk - $totalBarangKeluar;
 
             // Hitung jumlah barang masuk berdasarkan bulan dan tahun yang dipilih
             $jumlah_barang_masuk_perbulan = masukga::whereMonth('tanggalmasuk', $selectedMonth)
@@ -43,6 +46,9 @@ class DashboardController extends Controller
             $jumlah_barang_keluar_perbulan = keluarga::whereMonth('tanggalkeluar', $selectedMonth)
                 ->whereYear('tanggalkeluar', $selectedYear)
                 ->sum('jumlahkeluar');
+            
+            //Data jumlah pending request
+            $pendingRequestCount = requests::where('status', 'pending')->count();
 
             // Data untuk chart
             $monthlyData = [];
@@ -87,13 +93,11 @@ class DashboardController extends Controller
             $barangGaList = barangga::whereIn('id', $barangKeluarIds)->get()->keyBy('id');
 
             // Menyusun data untuk chart pie
-            $chartData = ['labels' => [], 'data' => []];
+            $chartData = [];
             foreach ($topKeluar as $item) {
-                if (isset($barangGaList[$item->barangga_id])) {
-                    $barang = $barangGaList[$item->barangga_id];
-                    $chartData['labels'][] = $barang->namabarang;
-                    $chartData['data'][] = $item->total_keluar;
-                }
+                $barang = $barangGaList[$item->barangga_id];
+                $chartData['labels'][] = $barang->namabarang;
+                $chartData['data'][] = $item->total_keluar;
             }
 
             return view('dashboards.index', [
@@ -110,6 +114,7 @@ class DashboardController extends Controller
                 'barangGaList' => $barangGaList,
                 'tanggalawal' => $tanggalawal,
                 'tanggalakhir' => $tanggalakhir,
+                'pendingRequestCount' => $pendingRequestCount,
             ]);
         }
     }
