@@ -16,7 +16,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Unit</h1>
+    <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Data Unit</h1>
     <br>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
