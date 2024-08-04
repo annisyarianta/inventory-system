@@ -89,7 +89,7 @@
                                             {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
                                 data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
                         </td> --}}
-                                            <td class="text-center">{{ $barang->barangga->kodebarang }}</td>
+                                            <td >{{ $barang->barangga->kodebarang }}</td>
                                             <td >{{ $barang->barangga->namabarang }}</td>
                                             <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalkeluar)) }}</td>
                                             <td class="text-center">{{ $barang->jumlahkeluar }}</td>

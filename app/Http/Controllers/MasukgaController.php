@@ -19,9 +19,9 @@ class MasukgaController extends Controller
             $tanggalawal = $request->tanggalawalmasuk;
             $tanggalakhir = $request->tanggalakhirmasuk;
             $barangga = \App\barangga::all();
-            $barangmasuk = masukga::whereBetween('tanggalmasuk', [$tanggalawal, $tanggalakhir])->orderbyDesc('tanggalmasuk')->paginate(20);
+            $barangmasuk = masukga::whereBetween('tanggalmasuk', [$tanggalawal, $tanggalakhir])->orderbyDesc('created_at')->paginate(20);
         } else {
-            $barangmasuk = \App\masukga::orderbyDesc('tanggalmasuk')->paginate(20);
+            $barangmasuk = \App\masukga::orderbyDesc('created_at')->paginate(20);
             // $lokasi_barang = \App\lokasi::all();
             $barangga = barangga::all();
         }
@@ -32,8 +32,9 @@ class MasukgaController extends Controller
     {
         $this->validate($request, [
             'barangga_id' => 'required',
+            // 'namabarang' => 'required',
             'jumlahmasuk' => 'required|integer',
-            'satuan' => 'required|string',
+            // 'satuan' => 'required|string',
             'tanggalmasuk' => 'required'
         ]);
 
@@ -54,8 +55,9 @@ class MasukgaController extends Controller
         $barang = \App\masukga::find($id);
         $this->validate($request, [
             'barangga_id' => 'required',
+            // 'namabarang' => 'required',
             'jumlahmasuk' => 'required|integer',
-            'satuan' => 'required|string',
+            // 'satuan' => 'required|string',
             'tanggalmasuk' => 'required'
         ]);
         $barang->update($request->all());

@@ -22,71 +22,71 @@ Route::get('/', function () {
 Route::get('/atk', 'AtkController@index');
 
 Route::get('/loginatk', 'AuthController@login')->name('login');
-Route::post('/postlogin', 'AuthController@postlogin');
+Route::post('/postlogin', 'AuthController@postlogin')->middleware('redirect.authenticated');
 Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/dashboardatk', 'DashboardController@index');
+    Route::get('/dashboardatk', 'DashboardController@index')->middleware('admin');
 
-    Route::get('/users', 'UserController@index');
-    Route::post('/users/create', 'UserController@create');
-    Route::get('/users/{id}/edit', 'UserController@edit');
-    Route::post('/users/{id}/update', 'UserController@update');
-    Route::get('/users/{id}/delete', 'UserController@delete');
+    Route::get('/users', 'UserController@index')->middleware('admin');
+    Route::post('/users/create', 'UserController@create')->middleware('admin');
+    Route::get('/users/{id}/edit', 'UserController@edit')->middleware('admin');
+    Route::post('/users/{id}/update', 'UserController@update')->middleware('admin');
+    Route::get('/users/{id}/delete', 'UserController@delete')->middleware('admin');
 
-    Route::get('/barangga', 'BaranggaController@index');
-    Route::post('/barangga/create', 'BaranggaController@create');
-    Route::get('/barangga/{id}/edit', 'BaranggaController@edit');
-    Route::post('/barangga/{id}/update', 'BaranggaController@update');
-    Route::get('/barangga/{id}/delete', 'BaranggaController@delete');
-    Route::get('/barangga/exportexcelbarangga', 'BaranggaController@exportexcelmasuk');
-    Route::get('/barangga/exportpdfbarangga', 'BaranggaController@exportpdfmasuk');
+    Route::get('/barangga', 'BaranggaController@index')->middleware('admin');
+    Route::post('/barangga/create', 'BaranggaController@create')->middleware('admin');
+    Route::get('/barangga/{id}/edit', 'BaranggaController@edit')->middleware('admin');
+    Route::post('/barangga/{id}/update', 'BaranggaController@update')->middleware('admin');
+    Route::get('/barangga/{id}/delete', 'BaranggaController@delete')->middleware('admin');
+    Route::get('/barangga/exportexcelbarangga', 'BaranggaController@exportexcelmasuk')->middleware('admin');
+    Route::get('/barangga/exportpdfbarangga', 'BaranggaController@exportpdfmasuk')->middleware('admin');
 
-    Route::get('/masukga', 'MasukgaController@index');
-    Route::post('/masukga/create', 'MasukgaController@create');
-    Route::get('/masukga/{id}/edit', 'MasukgaController@edit');
-    Route::post('/masukga/{id}/update', 'MasukgaController@update');
-    Route::get('/masukga/{id}/delete', 'MasukgaController@delete');
-    Route::get('/masukga/exportexcelmasuk', 'MasukgaController@exportexcelmasuk');
-    Route::get('/masukga/exportpdfmasuk', 'MasukgaController@exportpdfmasuk');
+    Route::get('/masukga', 'MasukgaController@index')->middleware('admin');
+    Route::post('/masukga/create', 'MasukgaController@create')->middleware('admin');
+    Route::get('/masukga/{id}/edit', 'MasukgaController@edit')->middleware('admin');
+    Route::post('/masukga/{id}/update', 'MasukgaController@update')->middleware('admin');
+    Route::get('/masukga/{id}/delete', 'MasukgaController@delete')->middleware('admin');
+    Route::get('/masukga/exportexcelmasuk', 'MasukgaController@exportexcelmasuk')->middleware('admin');
+    Route::get('/masukga/exportpdfmasuk', 'MasukgaController@exportpdfmasuk')->middleware('admin');
 
-    Route::get('/keluarga', 'KeluargaController@index');
-    Route::post('/keluarga/create', 'KeluargaController@create');
-    Route::get('/keluarga/{id}/edit', 'KeluargaController@edit');
-    Route::post('/keluarga/{id}/update', 'KeluargaController@update');
-    Route::get('/keluarga/{id}/delete', 'KeluargaController@delete');
-    Route::get('/keluarga/exportexcelkeluar', 'KeluargaController@exportexcelkeluar');
-    Route::get('/keluarga/exportpdfkeluar', 'KeluargaController@exportpdfkeluar');
-    Route::post('/keluarga/exportpdfba', 'KeluargaController@exportpdfba');
+    Route::get('/keluarga', 'KeluargaController@index')->middleware('admin');
+    Route::post('/keluarga/create', 'KeluargaController@create')->middleware('admin');
+    Route::get('/keluarga/{id}/edit', 'KeluargaController@edit')->middleware('admin');
+    Route::post('/keluarga/{id}/update', 'KeluargaController@update')->middleware('admin');
+    Route::get('/keluarga/{id}/delete', 'KeluargaController@delete')->middleware('admin');
+    Route::get('/keluarga/exportexcelkeluar', 'KeluargaController@exportexcelkeluar')->middleware('admin');
+    Route::get('/keluarga/exportpdfkeluar', 'KeluargaController@exportpdfkeluar')->middleware('admin');
+    Route::post('/keluarga/exportpdfba', 'KeluargaController@exportpdfba')->middleware('admin');
 
     Route::get('/daftar', 'DaftarController@index');
     Route::get('/daftar/exportexcel', 'DaftarController@exportexcel');
     Route::get('/daftar/exportpdf', 'DaftarController@exportpdf');
 
-    Route::get('/laporan', 'LaporanController@index');
-    Route::get('/laporan/excel', 'LaporanController@excel');
-    Route::post('/laporan/exportexcellaporan', 'LaporanController@exportexcellaporan');
-    Route::get('/laporan/pdf', 'LaporanController@pdf');
-    Route::post('/laporan/exportpdflaporan', 'LaporanController@exportpdflaporan');
-    Route::post('/laporan/cari', 'LaporanController@cari');
+    Route::get('/laporan', 'LaporanController@index')->middleware('admin');
+    Route::get('/laporan/excel', 'LaporanController@excel')->middleware('admin');
+    Route::post('/laporan/exportexcellaporan', 'LaporanController@exportexcellaporan')->middleware('admin');
+    Route::get('/laporan/pdf', 'LaporanController@pdf')->middleware('admin');
+    Route::post('/laporan/exportpdflaporan', 'LaporanController@exportpdflaporan')->middleware('admin');
+    Route::post('/laporan/cari', 'LaporanController@cari')->middleware('admin');
 
-    Route::get('/unit', 'UnitController@index');
-    Route::get('/unit/{id}/list', 'UnitController@list');
-    Route::post('/unit/create', 'UnitController@create');
-    Route::get('/unit/{id}/delete', 'UnitController@delete');
-    Route::post('/unit/{id}/update', 'UnitController@update');
+    Route::get('/unit', 'UnitController@index')->middleware('admin');
+    Route::get('/unit/{id}/list', 'UnitController@list')->middleware('admin');
+    Route::post('/unit/create', 'UnitController@create')->middleware('admin');
+    Route::get('/unit/{id}/delete', 'UnitController@delete')->middleware('admin');
+    Route::post('/unit/{id}/update', 'UnitController@update')->middleware('admin');
 
-    Route::get('/requests', [RequestAtkController::class, 'index'])->name('requests.index');
-    Route::get('/requests/create', [RequestAtkController::class, 'create'])->name('requests.create');
-    Route::post('/requests', [RequestAtkController::class, 'store'])->name('requests.store');
-    Route::get('/requests/{id}/edit', [RequestAtkController::class, 'edit'])->name('requests.edit');
-    Route::put('/requests/{id}', [RequestAtkController::class, 'update'])->name('requests.update');
-    Route::delete('/requests/{id}', [RequestAtkController::class, 'destroy'])->name('requests.destroy');
+    Route::get('/requests', [RequestAtkController::class, 'index'])->name('requests.index')->middleware('staff');
+    Route::get('/requests/create', [RequestAtkController::class, 'create'])->name('requests.create')->middleware('staff');
+    Route::post('/requests', [RequestAtkController::class, 'store'])->name('requests.store')->middleware('staff');
+    Route::get('/requests/{id}/edit', [RequestAtkController::class, 'edit'])->name('requests.edit')->middleware('staff');
+    Route::put('/requests/{id}', [RequestAtkController::class, 'update'])->name('requests.update')->middleware('staff');
+    Route::delete('/requests/{id}', [RequestAtkController::class, 'destroy'])->name('requests.destroy')->middleware('staff');
 
-    Route::get('/validations', [ValidasiAtkController::class, 'index'])->name('validations.index');
-    Route::get('/validations/{id}/edit', [ValidasiAtkController::class, 'edit'])->name('validations.edit');
-    Route::put('/validations/{id}', [ValidasiAtkController::class, 'update'])->name('validations.update');
-    Route::delete('/validations/{id}', [ValidasiAtkController::class, 'destroy'])->name('validations.destroy');
+    Route::get('/validations', [ValidasiAtkController::class, 'index'])->name('validations.index')->middleware('admin');
+    Route::get('/validations/{id}/edit', [ValidasiAtkController::class, 'edit'])->name('validations.edit')->middleware('admin');
+    Route::put('/validations/{id}', [ValidasiAtkController::class, 'update'])->name('validations.update')->middleware('admin');
+    Route::delete('/validations/{id}', [ValidasiAtkController::class, 'destroy'])->name('validations.destroy')->middleware('admin');
 });
 
     // Route::get('/inventory', 'InventoryController@index');

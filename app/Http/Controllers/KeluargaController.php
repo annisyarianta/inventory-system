@@ -20,9 +20,9 @@ class KeluargaController extends Controller
             $tanggalawal = $request->tanggalawalkeluar;
             $tanggalakhir = $request->tanggalakhirkeluar;
             $barangga = \App\barangga::all();
-            $barangkeluar = keluarga::whereBetween('tanggalkeluar', [$tanggalawal, $tanggalakhir])->orderbyDesc('tanggalkeluar')->paginate(20);
+            $barangkeluar = keluarga::whereBetween('tanggalkeluar', [$tanggalawal, $tanggalakhir])->orderbyDesc('created_at')->paginate(20);
         } else {
-            $barangkeluar = \App\keluarga::orderbyDesc('tanggalkeluar')->paginate(20);
+            $barangkeluar = \App\keluarga::orderbyDesc('created_at')->paginate(20);
             // $lokasi_barang = \App\lokasi::all();
             $barangga = barangga::all();
         }

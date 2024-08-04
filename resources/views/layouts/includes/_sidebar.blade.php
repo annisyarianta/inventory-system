@@ -12,6 +12,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0" />
 
+    @can('admin')
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
         <a class="nav-link" href="/dashboardatk">
@@ -40,7 +41,9 @@
             <i class="fas fa-fw fa-upload"></i>
             <span>Barang Keluar</span></a>
     </li>
+    @endcan
 
+    
     <!-- Nav Item - Daftar Barang -->
     <li class="nav-item">
         <a class="nav-link" href="/daftar">
@@ -48,13 +51,16 @@
             <span>Daftar Barang</span></a>
     </li>
 
+    @can('staff')
     <!-- Nav Item - Request -->
     <li class="nav-item">
         <a class="nav-link" href="/requests">
             <i class="fas fa-fw fa-eject"></i>
             <span>Request Barang</span></a>
     </li>
+    @endcan
 
+    @can('admin')
     <!-- Nav Item - Validate -->
     <li class="nav-item">
         <a class="nav-link" href="/validations">
@@ -106,6 +112,7 @@
             <i class="fas fa-fw fa-users"></i>
             <span>User Management</span></a>
     </li>
+    @endcan
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block" />

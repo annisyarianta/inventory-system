@@ -24,7 +24,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Master Data Barang</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Master Data ATK</h1>
         <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
             For more information about DataTables, please visit the official DataTables documentation.</p>
         <!-- DataTales Example -->
@@ -48,16 +48,20 @@
                                                 style="width: 10px;">No.</th>
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 50px;">Kode Barang</th>
+                                                aria-label="Kode ATK: activate to sort column ascending"
+                                                style="width: 50px;">Kode ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 180px;">Nama Barang</th>
+                                                aria-label="Nama ATK: activate to sort column ascending"
+                                                style="width: 180px;">Nama ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Jenis Barang: activate to sort column ascending"
-                                                style="width: 50px;">Jenis Barang</th>
+                                                aria-label="Jenis ATK: activate to sort column ascending"
+                                                style="width: 50px;">Jenis ATK</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Satuan: activate to sort column ascending"
+                                                style="width: 50px;">Satuan</th>
                                             <th class="text-center" style="width: 80px;">Gambar</th>
                                             <th class="text-center" style="width: 40px;">Aksi</th>
                                         </tr>
@@ -82,18 +86,15 @@
                                                     <span class="badge badge-secondary">{{ $barang->jenisbarang }}</span>
                                                 @endif
                                             </td>
+                                            <td class="text-center">{{ $barang->satuan }}</td>
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 180px; max-height: 200px"></td>
                                             <td class="text-center">
                                                 {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
                                                     class="lnr lnr-pencil"></i></a> --}}
-                                                <button type="button" data-toggle="modal" data-target="#editmodal"
-                                                    data-namabarang="{{ $barang->namabarang }}"
-                                                    data-id="{{ $barang->id }}"
-                                                    data-kodebarang="{{ $barang->kodebarang }}"
-                                                    data-gambar="{{ $barang->gambar }}"
+                                                    <a href="/barangga/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle btn-sm mr-1"><i
-                                                        class="fas fa-pencil-alt"></i></button>
+                                                        class="fas fa-pencil-alt"></i></a>
                                                 <a href="/barangga/{{ $barang->id }}/delete"
                                                     class="btn btn-danger btn-circle btn-sm"
                                                     onclick="return confirm('Yakin ingin menghapus {{ $barang->namabarang }}?')"><i
@@ -112,7 +113,7 @@
     </div>
 
     {{-- Modal Form EDIT --}}
-    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -161,7 +162,7 @@
                             @if ($errors->has('gambar'))
                                 <span class="help-block">{{ $errors->first('gambar') }}</span>
                             @endif
-                            <small>*Upload gambar jika ada (*.jpg, *.jpeg, *.png)</small>
+                            <small>Upload gambar jika ada (.jpg, *.jpeg, *.png)</small>
                         </div>
                 </div>
 
@@ -171,12 +172,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     {{-- End Modal Form EDIT --}}
 
     {{-- Modal Form --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -219,6 +220,15 @@
                             @endif
                         </div>
 
+                        <div class="form-group{{ $errors->has('satuan') ? ' has-error ' : '' }}">
+                            <label for="satuan">Kode Barang</label>
+                            <input name="satuan" type="text" class="form-control" id="satuan"
+                                placeholder="Masukkan Satuan" value="{{ old('satuan') }}">
+                            @if ($errors->has('satuan'))
+                                <span class="help-block">{{ $errors->first('satuan') }}</span>
+                            @endif
+                        </div>
+
                         <div class="form-group{{ $errors->has('gambar') ? ' has-error ' : '' }}">
                             <label for="gambar">Gambar</label>
                             <input name="gambar" type="file" class="form-control-file" id="gambar"
@@ -226,7 +236,7 @@
                             @if ($errors->has('gambar'))
                                 <span class="help-block">{{ $errors->first('gambar') }}</span>
                             @endif
-                            <small>*Upload gambar jika ada (*.jpg, *.jpeg, *.png)</small>
+                            <small>Upload gambar jika ada (.jpg, *.jpeg, *.png)</small>
                         </div>
                     </div>
 

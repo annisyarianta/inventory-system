@@ -26,6 +26,7 @@ class BaranggaController extends Controller
             'namabarang' => 'required|unique:barangga',
             'kodebarang' => 'required|unique:barangga',
             'jenisbarang' => 'required',
+            'satuan' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png'
         ]);
 
@@ -53,6 +54,7 @@ class BaranggaController extends Controller
             'namabarang' => 'required',
             'kodebarang' => 'required',
             'jenisbarang' => 'required',
+            'satuan' => 'required',
             'gambar' => 'mimes:jpg,jpeg,png'
         ]);
         $barang->update($request->all());

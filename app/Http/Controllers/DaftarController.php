@@ -16,7 +16,7 @@ class DaftarController extends Controller
     public function index(Request $request)
     {
         if ($request->has('cari')) {
-            $inventory_barang = \App\barangga::where("namabarang", "LIKE", "%" . $request->cari . "%")->orWhere("kodebarang", "LIKE", "%" . $request->cari . "%")->orderBy('namabarang')->paginate();
+            $inventory_barang = \App\barangga::where("namabarang", "LIKE", "%" . $request->cari . "%")->orWhere("kodebarang", "LIKE", "%" . $request->cari . "%")->orderBy('namabarang')->paginate(20);
             $barangmasuk = masukga::all();
             $barangkeluar = keluarga::all();
             // ->orwhere("gudang", "LIKE", "%" . $request->cari . "%")

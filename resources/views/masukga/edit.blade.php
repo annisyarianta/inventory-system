@@ -1,27 +1,42 @@
 @extends('layouts.master')
 @section('content')
+@if (session('sukses'))
+<div class="alert alert-success alert-dismissible" role="alert">
+    {{session('sukses')}} <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">×</span></button>
+</div>
+@endif
+@if (session('gagal'))
+<div class="alert alert-danger alert-dismissible" role="alert">
+    {{session('gagal')}} <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">×</span></button>
+</div>
+@endif
 
 <!-- MAIN -->
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel">
-            <div class="panel-heading">
-                <h2>Edit Barang Masuk</h2>
-            </div>
-            <div class="panel-body">
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Edit Barang Masuk</h1>
+    <!-- Basic Card Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Form Edit Barang Masuk</h6>
+        </div>
+        <div class="card-body">
                 <form id="aksi" action="/masukga/{{$barangmasuk->id}}/update" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="barangga_id">Nama Barang</label>
-                        <select name="barangga_id" class="form-control" id="barangga_id">
-                            @foreach ($barangga as $brg)
+                        <input type="text" name="barangga_id" id="barangga_id" list="barangga_list" class="form-control" placeholder="-- Pilih barang --">
+                        <datalist id="barangga_list">
+                        @foreach ($barangga as $brg)
                             <option value="{{$brg->id}}" @if ($barangmasuk->barangga_id == $brg->id)
                                 selected
                                 @endif>
                                 {{$brg->namabarang}}
                             </option>
                             @endforeach
-                        </select>
+                        </datalist>
                     </div>
     
                     <div class="form-group{{$errors->has('tanggalmasuk') ? ' has-error ' : ''}}">
@@ -40,13 +55,13 @@
                         @endif
                     </div>
 
-                    <div class="form-group{{$errors->has('satuan') ? ' has-error ' : ''}}">
+                    <!-- <div class="form-group{{$errors->has('satuan') ? ' has-error ' : ''}}">
                         <label for="satuan">Satuan</label>
                         <input name="satuan" type="text" class="form-control" id="satuan" value="{{$barangmasuk->satuan}}">
                         @if ($errors->has('satuan'))
                         <span class="help-block">{{$errors->first('satuan')}}</span>
                         @endif
-                    </div>
+                    </div> -->
     
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-warning">Update</button>

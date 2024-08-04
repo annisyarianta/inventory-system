@@ -92,12 +92,9 @@
                                             <td class="text-center">
                                                 {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
                                                     class="lnr lnr-pencil"></i></a> --}}
-                                                <button type="button" data-toggle="modal" data-target="#editmodal"
-                                                    data-name="{{ $user->name }}" data-id="{{ $user->id }}"
-                                                    data-email="{{ $user->email }}" data-role="{{ $user->role }}"
-                                                    data-password="{{ $user->password }}"
+                                                    <a href="/users/{{ $user->id }}/edit"
                                                     class="btn btn-warning btn-circle btn-sm mr-1"><i
-                                                        class="fas fa-pencil-alt"></i></button>
+                                                        class="fas fa-pencil-alt"></i></a>
                                                 <a href="/users/{{ $user->id }}/delete"
                                                     class="btn btn-danger btn-circle btn-sm"
                                                     onclick="return confirm('Yakin ingin menghapus {{ $user->name }}?')"><i
@@ -115,7 +112,7 @@
     </div>
 
     {{-- Modal Form EDIT --}}
-    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -169,7 +166,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     {{-- End Modal Form EDIT --}}
 
     {{-- Modal Form ADD --}}

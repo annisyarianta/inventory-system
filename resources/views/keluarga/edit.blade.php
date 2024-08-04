@@ -3,13 +3,15 @@
 
 <!-- MAIN -->
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel">
-            <div class="panel-heading">
-                <h2>Edit Barang Keluar</h2>
-            </div>
-            <div class="panel-body">
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Edit Barang Keluar</h1>
+    <!-- Basic Card Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Form Edit Barang Keluar</h6>
+        </div>
+        <div class="card-body">
                 <form id="aksi" action="/keluarga/{{$barangkeluar->id}}/update" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group">

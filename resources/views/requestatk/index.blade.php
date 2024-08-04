@@ -53,8 +53,8 @@
                                                 style="width: 100px;">Tanggal Request</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Tanggal Request: activate to sort column ascending"
-                                                style="width: 100px;">Tanggal Acc</th>
+                                                aria-label="Tanggal Validasi: activate to sort column ascending"
+                                                style="width: 100px;">Tanggal Validasi</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Request: activate to sort column ascending"
@@ -76,7 +76,7 @@
                     <td class="text-center">{{ $request->barangga->kodebarang }}</td>
                     <td>{{ $request->barangga->namabarang }}</td>
                     <td class="text-center">{{ date('d/m/Y', strtotime($request->tanggal_request)) }}</td>
-                    <td class="text-center">{{ $request->validation ? date('d/m/Y', strtotime($request->tanggal_validasi)) : '-' }}</td>
+                    <td class="text-center">{{ $request->validation ? date('d/m/Y', strtotime($request->validation_id->created_at)) : '-' }}</td>
                     <td class="text-center">{{ $request->quantity }}</td>
                     <td class="text-center">{{ $request->unit->namaunit }}</td>
                     <td class="text-center">

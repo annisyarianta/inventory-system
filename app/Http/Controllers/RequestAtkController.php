@@ -12,7 +12,7 @@ class RequestAtkController extends Controller
 {
     public function index()
     {
-        $requests = requestmodel::with('barangga', 'unit')->orderbyDesc('tanggal_request')->paginate(20);
+        $requests = requestmodel::with('barangga', 'unit')->orderbyDesc('created_at')->paginate(20);
         return view('requestatk.index', ['requests' => $requests]);
     }
 

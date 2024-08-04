@@ -70,10 +70,10 @@
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Barang Masuk: activate to sort column ascending"
                                                 style="width: 50px;">Jumlah <br> Barang Masuk</th>
-                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                            <!-- <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Satuan: activate to sort column ascending"
-                                                style="width: 50px;">Satuan</th>
+                                                style="width: 50px;">Satuan</th> -->
                                             <th class="text-center" style="width: 40px;">Aksi</th>
                                         </tr>
                                     </thead>
@@ -91,7 +91,7 @@
                                             {{-- <td class="text-center">{{ $barang->tanggalmasuk }}</td> --}}
                                             <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalmasuk)) }}</td>
                                             <td class="text-center">{{ $barang->jumlahmasuk }}</td>
-                                            <td class="text-center">{{ $barang->satuan }}</td>
+                                            <!-- <td class="text-center">{{ $barang->satuan }}</td> -->
                                             <td class="text-center">
                                                 <a href="/masukga/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle btn-sm mr-1"><i
@@ -131,8 +131,8 @@
                 <form action="/masukga/create" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="barangga_id">Nama Barang</label>
+                    <div class="form-group">
+                    <label for="barangga_id">Nama Barang</label>
                             <select name="barangga_id" class="form-control" id="barangga_id">
                                 <option value="">-- Pilih barang --</option>
                                 @foreach ($barangga as $brg)
@@ -143,6 +143,8 @@
                                 @endforeach
                             </select>
                         </div>
+                        
+     
 
                         <div class="form-group{{ $errors->has('tanggalmasuk') ? ' has-error ' : '' }}">
                             <label for="tanggalmasuk">Tanggal Barang Masuk</label>
@@ -162,15 +164,17 @@
                             @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('satuan') ? ' has-error ' : '' }}">
+                    </div>
+
+                        <!-- <div class="form-group{{ $errors->has('satuan') ? ' has-error ' : '' }}">
                             <label for="satuan">Satuan</label>
                             <input name="satuan" type="text" class="form-control" id="satuan"
                                 placeholder="Satuan" value="{{ old('satuan') }}">
                             @if ($errors->has('satuan'))
                                 <span class="help-block">{{ $errors->first('satuan') }}</span>
                             @endif
-                        </div>
-                    </div>
+                        </div> -->
+                    
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

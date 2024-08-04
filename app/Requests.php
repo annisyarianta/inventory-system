@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Requests extends Model
 {
-    protected $fillable = ['barangga_id', 'quantity', 'unit_id', 'tanggal_request', 'status'];
+    protected $fillable = ['barangga_id', 'quantity', 'unit_id', 'tanggal_request', 'validation_id', 'status'];
 
     public function barangga()
     {
