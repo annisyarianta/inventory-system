@@ -28,8 +28,8 @@
         Kelola Barang
     </div>
 
-     <!-- Nav Item - Barang Masuk -->
-     <li class="nav-item">
+    <!-- Nav Item - Barang Masuk -->
+    <li class="nav-item">
         <a class="nav-link" href="/masukga">
             <i class="fas fa-fw fa-download"></i>
             <span>Barang Masuk</span></a>

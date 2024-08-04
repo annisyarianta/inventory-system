@@ -158,7 +158,7 @@
                         <div class="form-group{{ $errors->has('jumlahmasuk') ? ' has-error ' : '' }}">
                             <label for="jumlahmasuk">Jumlah Barang Masuk</label>
                             <input name="jumlahmasuk" type="number" class="form-control" id="jumlahmasuk"
-                                placeholder="Jumlah Barang Masuk" value="{{ old('jumlahmasuk') }}">
+                                placeholder="Masukkan jumlah barang masuk" value="{{ old('jumlahmasuk') }}">
                             @if ($errors->has('jumlahmasuk'))
                                 <span class="help-block">{{ $errors->first('jumlahmasuk') }}</span>
                             @endif
