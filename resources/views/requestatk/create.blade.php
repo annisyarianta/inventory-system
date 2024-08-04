@@ -1,38 +1,56 @@
 @extends('layouts.master')
 @section('content')
     <div class="container-fluid">
-        <h1 class="h2 mb-2 text-gray-800" style="font-weight: 600">Buat Request ATK</h1>
         <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Form Request ATK</h6>
+            </div>
             <div class="card-body">
                 <form action="{{ route('requests.store') }}" method="POST">
                     @csrf
-                    <div class="form-group">
-                        <label for="barangga_id">ATK</label>
-                        <select name="barangga_id" id="barangga_id" class="form-control">
-                            @foreach ($barangga as $item)
-                                <option value="{{ $item->id }}">{{ $item->kodebarang }} - {{ $item->namabarang }}</option>
-                            @endforeach
-                        </select>
+                    <div class="form-group row">
+                        <label for="barangga_id" class="col-sm-2 col-form-label">Nama ATK</label>
+                        <div class="col-sm-10">
+                            <select name="barangga_id" id="barangga_id" class="form-control">
+                                @foreach ($barangga as $item)
+                                    <option value="{{ $item->id }}">{{ $item->kodebarang }} - {{ $item->namabarang }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="tanggal_request">Tanggal Request</label>
-                        <input type="date" name="tanggal_request" id="tanggal_request" class="form-control" required>
+                    <div class="form-group row">
+                        <label for="tanggal_request" class="col-sm-2 col-form-label">Tanggal Request</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="tanggal_request" id="tanggal_request" class="form-control" required>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="unit_id">Unit</label>
-                        <select name="unit_id" id="unit_id" class="form-control">
-                            @foreach ($unit as $item)
-                                <option value="{{ $item->id }}">{{ $item->namaunit }}</option>
-                            @endforeach
-                        </select>
+                    <div class="form-group row">
+                        <label for="unit_id" class="col-sm-2 col-form-label">Unit</label>
+                        <div class="col-sm-10">
+                            <select name="unit_id" id="unit_id" class="form-control">
+                                @foreach ($unit as $item)
+                                    <option value="{{ $item->id }}">{{ $item->namaunit }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="quantity">Jumlah Request</label>
-                        <input type="number" name="quantity" id="quantity" class="form-control" required>
+                    <div class="form-group row">
+                        <label for="quantity" class="col-sm-2 col-form-label">Jumlah Request</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="quantity" id="quantity" class="form-control" required>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="window.history.back();">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-paper-plane"></i>
+                            </span>
+                            <span class="text">Submit</span>
+                        </button>
+                    </div>                
                 </form>
             </div>
         </div>
