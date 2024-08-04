@@ -2,7 +2,7 @@
     <div class="sidebar-scroll">
         <nav>
             <ul class="nav">
-                <li><a href="/atk" class=""><i class="lnr lnr-layers"></i> <span>Daftar Barang</span></a>
+                <li><a href="/atk" class=""><i class="lnr lnr-layers"></i> <span>Daftar ATK</span></a>
                 </li>
                 {{-- <li>
                     <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-menu"></i>

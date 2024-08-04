@@ -31,7 +31,7 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Barang</th>
+                <th>Nama ATK</th>
                 <th>OK</th>
                 <th>U/S</th>
                 <th>Jumlah</th>

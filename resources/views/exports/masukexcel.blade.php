@@ -31,10 +31,10 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Tanggal Barang Masuk</th>
-                <th>Jumlah Barang Masuk</th>
+                <th>Kode ATK</th>
+                <th>Nama ATK</th>
+                <th>Tanggal ATK Masuk</th>
+                <th>Jumlah ATK Masuk</th>
             </tr>
         </thead>
         <tbody>

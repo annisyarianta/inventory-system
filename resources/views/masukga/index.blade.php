@@ -26,7 +26,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Barang Masuk</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">ATK Masuk</h1>
         <br>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -56,20 +56,20 @@
                                                 style="width: 10px;">No.</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 40px;">Kode Barang</th>
+                                                aria-label="Kode ATK: activate to sort column ascending"
+                                                style="width: 40px;">Kode ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 150px;">Nama Barang</th>
+                                                aria-label="Nama ATK: activate to sort column ascending"
+                                                style="width: 150px;">Nama ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Tanggal Barang Masuk: activate to sort column ascending"
-                                                style="width: 75px;">Tanggal <br> Barang Masuk</th>
+                                                aria-label="Tanggal ATK Masuk: activate to sort column ascending"
+                                                style="width: 75px;">Tanggal <br> ATK Masuk</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Jumlah Barang Masuk: activate to sort column ascending"
-                                                style="width: 50px;">Jumlah <br> Barang Masuk</th>
+                                                aria-label="Jumlah ATK Masuk: activate to sort column ascending"
+                                                style="width: 50px;">Jumlah <br> ATK Masuk</th>
                                             <!-- <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Satuan: activate to sort column ascending"
@@ -122,7 +122,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 id="exampleModalLabel">Tambah Data Barang Masuk</h3>
+                    <h3 id="exampleModalLabel">Tambah Data ATK Masuk</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -132,9 +132,9 @@
                     {{ csrf_field() }}
                     <div class="modal-body">
                     <div class="form-group">
-                    <label for="barangga_id">Nama Barang</label>
+                    <label for="barangga_id">Nama ATK</label>
                             <select name="barangga_id" class="form-control" id="barangga_id">
-                                <option value="">-- Pilih barang --</option>
+                                <option value="">-- Pilih ATK --</option>
                                 @foreach ($barangga as $brg)
                                     <option value="{{ $brg->id }}"
                                         {{ old('barangga_id') == $brg->id ? 'selected' : '' }}>
@@ -147,7 +147,7 @@
      
 
                         <div class="form-group{{ $errors->has('tanggalmasuk') ? ' has-error ' : '' }}">
-                            <label for="tanggalmasuk">Tanggal Barang Masuk</label>
+                            <label for="tanggalmasuk">Tanggal ATK Masuk</label>
                             <input name="tanggalmasuk" type="date" class="form-control" id="tanggalmasuk"
                                 placeholder="Tanggal Barang Masuk" value="{{ old('tanggalmasuk') }}">
                             @if ($errors->has('tanggalmasuk'))
@@ -156,7 +156,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('jumlahmasuk') ? ' has-error ' : '' }}">
-                            <label for="jumlahmasuk">Jumlah Barang Masuk</label>
+                            <label for="jumlahmasuk">Jumlah ATK Masuk</label>
                             <input name="jumlahmasuk" type="number" class="form-control" id="jumlahmasuk"
                                 placeholder="Masukkan jumlah barang masuk" value="{{ old('jumlahmasuk') }}">
                             @if ($errors->has('jumlahmasuk'))

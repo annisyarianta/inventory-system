@@ -39,7 +39,7 @@
                                             aria-label="No.: activate to sort column descending" aria-sort="ascending"
                                             style="width: 10px;">No.</th>
                                         <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1" aria-label="Nama Barang: activate to sort column ascending"
+                                            colspan="1" aria-label="Unit: activate to sort column ascending"
                                             style="width: 150px;">Unit</th>
                                         <th class="text-center"
                                             style="width: 50px;">Aksi</th>

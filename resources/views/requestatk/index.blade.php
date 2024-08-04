@@ -40,11 +40,11 @@
                                                 style="width: 10px;">No.</th>
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Kode Barang: activate to sort column ascending"
+                                                aria-label="Kode ATK: activate to sort column ascending"
                                                 style="width: 40px;">Kode ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Nama Barang: activate to sort column ascending"
+                                                aria-label="Nama ATK: activate to sort column ascending"
                                                 style="width: 200px;">Nama ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"

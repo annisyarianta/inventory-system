@@ -41,15 +41,15 @@
 </head>
 
 <body>
-    <h1 style="text-align: center">BARANG KELUAR</h1>
+    <h1 style="text-align: center">ATK KELUAR</h1>
     <table>
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Tanggal Barang Keluar</th>
-                <th>Jumlah Barang Keluar</th>
+                <th>Kode ATK</th>
+                <th>Nama ATK</th>
+                <th>Tanggal ATK Keluar</th>
+                <th>Jumlah ATK Keluar</th>
                 <th>Unit</th>
             </tr>
         </thead>

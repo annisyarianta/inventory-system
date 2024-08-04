@@ -36,12 +36,12 @@
 </head>
 
 <body>
-    <h1 style="text-align: center">Inventory Barang</h1>
+    <h1 style="text-align: center">Inventory ATK</h1>
     <table>
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Barang</th>
+                <th>Nama ATK</th>
                 <th>OK</th>
                 <th>U/S</th>
                 <th>Jumlah</th>

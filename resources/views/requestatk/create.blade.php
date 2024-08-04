@@ -7,7 +7,7 @@
                 <form action="{{ route('requests.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="barangga_id">Barang</label>
+                        <label for="barangga_id">ATK</label>
                         <select name="barangga_id" id="barangga_id" class="form-control">
                             @foreach ($barangga as $item)
                                 <option value="{{ $item->id }}">{{ $item->kodebarang }} - {{ $item->namabarang }}</option>

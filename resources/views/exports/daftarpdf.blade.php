@@ -41,14 +41,14 @@
 </head>
 
 <body>
-    <h1 style="text-align: center">DAFTAR BARANG</h1>
+    <h1 style="text-align: center">DAFTAR ATK</h1>
     <table>
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Jumlah Barang</th>
+                <th>Kode ATK</th>
+                <th>Nama ATK</th>
+                <th>Jumlah ATK</th>
             </tr>
         </thead>
         <tbody>

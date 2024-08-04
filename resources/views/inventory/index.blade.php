@@ -16,7 +16,7 @@
     <div class="col-md-12">
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title">INVENTORY BARANG</h3>
+                <h3 class="panel-title">INVENTORY ATK</h3>
                 <div class="right">
                     <a href="/inventory/exportpdf" class="btn btn-danger btn-sm">Export PDF</a>
                     <a href="/inventory/exportexcel" class="btn btn-success btn-sm">Export Excel</a>
@@ -29,7 +29,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>No.</th>
-                            <th>Nama Barang</th>
+                            <th>Nama ATK</th>
                             <th>OK</th>
                             <th>U/S</th>
                             <th>Jumlah</th>
@@ -73,7 +73,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="NamaBarang"></h3>
+                <h3 id="NamaAtk"></h3>
             </div>
             <div class="modal-body text-center">
                 <img id="previewgambar" src="" class="rounded" style="max-width: 550px; max-height: 400px">
@@ -102,7 +102,7 @@
                 {{csrf_field()}}
                 <div class="modal-body">
                     <div class="form-group{{$errors->has('nama') ? ' has-error ' : ''}}">
-                        <label for="nama">Nama Barang</label>
+                        <label for="nama">Nama ATK</label>
                         <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Barang"
                             value="{{old('nama')}}">
                         @if ($errors->has('nama'))
@@ -129,7 +129,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="lokasi_id">Lokasi Penyimpanan Barang</label>
+                        <label for="lokasi_id">Lokasi Penyimpanan ATK</label>
                         <select name="lokasi_id" class="form-control" id="lokasi_id">
                             @foreach ($lokasi_barang as $lokasi)
                             <option value="{{$lokasi->id}}" {{(old('lokasi_id') == $lokasi->id ? 'selected' : '')}}>

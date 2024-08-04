@@ -88,13 +88,7 @@
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
                                             </td>
-                                            <td class="text-center">
-                                            @foreach ($barangmasuk as $brgmasuk)
-                                                @if ($barang->id == $brgmasuk->barangga_id)
-                                                    {{ $brgmasuk->satuan }} 
-                                                @endif
-                                            @endforeach
-                                            </td>
+                                            <td class="text-center">{{ $barang->satuan }}</td>
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 150px; max-height: 180px"></td>
                                         </tr>

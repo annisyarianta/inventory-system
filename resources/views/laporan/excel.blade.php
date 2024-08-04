@@ -23,10 +23,10 @@
                     {{csrf_field()}}
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="jenislaporan">Nama Barang</label>
+                            <label for="jenislaporan">Nama ATK</label>
                             <select name="jenislaporan" class="form-control" id="jenislaporan">
-                                <option value="barangmasuk">Barang Masuk</option>
-                                <option value="barangkeluar">Barang Keluar</option>
+                                <option value="barangmasuk">Barang ATK</option>
+                                <option value="barangkeluar">Barang ATK</option>
                             </select>
                         </div>
     

@@ -31,9 +31,9 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Kode Barang</th>
-                <th>Nama Barang</th>
-                <th>Jumlah Barang</th>
+                <th>Kode ATK</th>
+                <th>Nama ATK</th>
+                <th>Jumlah ATK</th>
             </tr>
         </thead>
         <tbody>

@@ -16,7 +16,7 @@
     <div class="col-md-12">
         <div class="panel">
             <div class="panel-heading">
-                <h3 class="panel-title">INVENTORY BARANG</h3>
+                <h3 class="panel-title">INVENTORY ATK</h3>
                 <div class="right">
                     <a href="/lokasi/{{$lokasi->id}}/exportpdfid" class="btn btn-danger btn-sm">Export PDF</a>
                     <a href="/lokasi/{{$lokasi->id}}/exportexcelid" class="btn btn-success btn-sm">Export Excel</a>
@@ -29,7 +29,7 @@
                     <thead class="thead-dark">
                         <tr>
                             <th>No.</th>
-                            <th>Nama Barang</th>
+                            <th>Nama ATK</th>
                             <th>OK</th>
                             <th>U/S</th>
                             <th>Jumlah</th>
@@ -101,8 +101,8 @@
                 {{csrf_field()}}
                 <div class="modal-body">
                     <div class="form-group{{$errors->has('nama') ? ' has-error ' : ''}}">
-                        <label for="nama">Nama Barang</label>
-                        <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Barang"
+                        <label for="nama">Nama ATK</label>
+                        <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama ATK"
                             value="{{old('nama')}}">
                         @if ($errors->has('nama'))
                         <span class="help-block">{{$errors->first('nama')}}</span>
@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="form-group{{$errors->has('gudang') ? ' has-error ' : ''}}">
-                        <label for="gudang">Lokasi Penyimpanan Barang</label>
+                        <label for="gudang">Lokasi Penyimpanan ATK</label>
                         <select name="gudang" class="form-control" id="gudang">
                             @foreach ($lokasi_barang as $lokasi)
                             <option value="{{$lokasi->NamaLokasi}}"

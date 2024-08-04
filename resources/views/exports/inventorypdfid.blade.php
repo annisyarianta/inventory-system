@@ -36,12 +36,12 @@
 </head>
 
 <body>
-    <h1 style="text-align: center">Inventory Barang di {{$lokasi->NamaLokasi}}</h1>
+    <h1 style="text-align: center">Inventory ATK di {{$lokasi->NamaLokasi}}</h1>
     <table>
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama Barang</th>
+                <th>Nama ATK</th>
                 <th>OK</th>
                 <th>U/S</th>
                 <th>Jumlah</th>

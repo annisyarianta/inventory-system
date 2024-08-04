@@ -25,21 +25,21 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Kelola Barang
+        Kelola ATK
     </div>
 
     <!-- Nav Item - Barang Masuk -->
     <li class="nav-item">
         <a class="nav-link" href="/masukga">
             <i class="fas fa-fw fa-download"></i>
-            <span>Barang Masuk</span></a>
+            <span>ATK Masuk</span></a>
     </li>
 
     <!-- Nav Item - Barang Keluar -->
     <li class="nav-item">
         <a class="nav-link" href="/keluarga">
             <i class="fas fa-fw fa-upload"></i>
-            <span>Barang Keluar</span></a>
+            <span>ATK Keluar</span></a>
     </li>
     @endcan
 
@@ -48,7 +48,7 @@
     <li class="nav-item">
         <a class="nav-link" href="/daftar">
             <i class="fas fa-fw fa-archive"></i>
-            <span>Daftar Barang</span></a>
+            <span>Daftar ATK</span></a>
     </li>
 
     @can('staff')
@@ -56,7 +56,7 @@
     <li class="nav-item">
         <a class="nav-link" href="/requests">
             <i class="fas fa-fw fa-eject"></i>
-            <span>Request Barang</span></a>
+            <span>Request ATK</span></a>
     </li>
     @endcan
 
@@ -65,7 +65,7 @@
     <li class="nav-item">
         <a class="nav-link" href="/validations">
             <i class="fas fa-fw fa-clipboard-check"></i>
-            <span>Validasi Barang</span></a>
+            <span>Validasi ATK</span></a>
     </li>
 
     <!-- Nav Item - Pages Collapse Menu -->
@@ -77,8 +77,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/barangga">Barang</a>
-                <a class="collapse-item" href="/unit">Unit</a>
+                <a class="collapse-item" href="/barangga">Data ATK</a>
+                <a class="collapse-item" href="/unit">Data Unit</a>
             </div>
         </div>
     </li>
