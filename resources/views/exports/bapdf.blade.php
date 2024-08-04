@@ -67,8 +67,8 @@
         <thead>
             <tr class="biru">
                 <th>NO.</th>
-                <th>KODE BARANG</th>
-                <th>NAMA BARANG</th>
+                <th>KODE ATK</th>
+                <th>NAMA ATK</th>
                 <th>VOLUME/SATUAN</th>
                 <th>KETERANGAN</th>
             </tr>

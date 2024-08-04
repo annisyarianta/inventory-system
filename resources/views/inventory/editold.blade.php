@@ -6,7 +6,7 @@
             {{csrf_field()}}
             <h1>Edit Data Inventory</h1>
             <div class="form-group">
-                <label for="nama">Nama Barang</label>
+                <label for="nama">Nama ATK</label>
                 <input name="nama" type="text" class="form-control" id="nama" value="{{$barang->nama}}">
             </div>
 
@@ -21,7 +21,7 @@
             </div>
 
             <div class="form-group">
-                <label for="gudang">Lokasi Penyimpanan Barang</label>
+                <label for="gudang">Lokasi Penyimpanan ATK</label>
                 <select name="gudang" class="form-control" id="gudang">
                     <option value="Ruang Server" @if ($barang->gudang == "Ruang Server") selected @endif>Ruang Server
                     </option>

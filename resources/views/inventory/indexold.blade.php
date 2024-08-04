@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col">
-        <h1>Inventory Barang</h1>
+        <h1>Inventory ATK</h1>
     </div>
 
     <div class="col align-self-center">
@@ -22,7 +22,7 @@
         <thead class="thead-dark">
             <tr>
                 <th>No.</th>
-                <th>Nama Barang</th>
+                <th>Nama ATK</th>
                 <th>OK</th>
                 <th>U/S</th>
                 <th>Jumlah</th>
@@ -73,7 +73,7 @@
                 {{csrf_field()}}
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="nama">Nama Barang</label>
+                        <label for="nama">Nama ATK</label>
                         <input name="nama" type="text" class="form-control" id="nama" placeholder="Nama Barang">
                     </div>
 
@@ -88,7 +88,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="gudang">Lokasi Penyimpanan Barang</label>
+                        <label for="gudang">Lokasi Penyimpanan ATK</label>
                         <select name="gudang" class="form-control" id="gudang">
                             <option value="Ruang Server">Ruang Server</option>
                             <option value="Gudang Kedatangan">Gudang Kedatangan</option>

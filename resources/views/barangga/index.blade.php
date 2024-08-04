@@ -25,8 +25,8 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Master Data ATK</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the official DataTables documentation.</p>
+        <br>
+        <p class="mb-4"></p>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">

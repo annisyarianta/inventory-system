@@ -24,7 +24,7 @@
                 <form id="aksi" action="/barangga/{{ $barang->id }}/update" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group{{$errors->has('namabarang') ? ' has-error ' : ''}}">
-                        <label for="namabarang">Nama</label>
+                        <label for="namabarang">Nama ATK</label>
                         <input name="namabarang" type="text" class="form-control" id="namabarang" value="{{$barang->namabarang}}">
                         @if ($errors->has('namabarang'))
                         <span class="help-block">{{$errors->first('namabarang')}}</span>

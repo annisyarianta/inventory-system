@@ -8,7 +8,7 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="barangga_id">Barang</label>
+                        <label for="barangga_id">ATK</label>
                         <select name="barangga_id" id="barangga_id" class="form-control">
                             @foreach ($barang as $item)
                                 <option value="{{ $item->id }}" {{ $item->id == $request->barangga_id ? 'selected' : '' }}>{{ $item->kodebarang }} - {{ $item->namabarang }}</option>

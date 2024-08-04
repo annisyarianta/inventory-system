@@ -30,8 +30,8 @@
                             <label for="jenislaporan">Jenis Laporan</label>
                             <select name="jenislaporan" class="form-control" id="jenislaporan">
                                 <option value="">-- Pilih Jenis Laporan --</option>
-                                <option value="barangmasuk">Barang Masuk</option>
-                                <option value="barangkeluar">Barang Keluar</option>
+                                <option value="barangmasuk">ATK Masuk</option>
+                                <option value="barangkeluar">ATK Keluar</option>
                             </select>
                         </div>
 

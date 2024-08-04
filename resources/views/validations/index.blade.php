@@ -16,9 +16,9 @@
 
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Validasi Barang</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the official DataTables documentation.</p>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Validasi ATK</h1>
+        <br>
+        <p class="mb-4"></p>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
 
@@ -37,12 +37,12 @@
                                                 style="width: 10px;">No.</th>
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 40px;">Kode Barang</th>
+                                                aria-label="Kode ATK: activate to sort column ascending"
+                                                style="width: 40px;">Kode ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 200px;">Nama Barang</th>
+                                                aria-label="Nama ATK: activate to sort column ascending"
+                                                style="width: 200px;">Nama ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah Request: activate to sort column ascending"
@@ -136,7 +136,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalKurangiLabel">Kurangi Jumlah Barang</h5>
+                    <h5 class="modal-title" id="modalKurangiLabel">Kurangi Jumlah ATK</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

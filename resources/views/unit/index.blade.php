@@ -17,8 +17,8 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Unit</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the official DataTables documentation.</p>
+    <br>
+    <p class="mb-4"></p>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-end">
@@ -40,7 +40,7 @@
                                             aria-label="No.: activate to sort column descending" aria-sort="ascending"
                                             style="width: 10px;">No.</th>
                                         <th class="sorting text-center" tabindex="0" aria-controls="dataTable" rowspan="1"
-                                            colspan="1" aria-label="Nama Barang: activate to sort column ascending"
+                                            colspan="1" aria-label="Unit: activate to sort column ascending"
                                             style="width: 150px;">Unit</th>
                                         <th class="text-center"
                                             style="width: 50px;">Aksi</th>

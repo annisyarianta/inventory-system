@@ -26,7 +26,7 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
         <!-- Page Heading -->
-        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Barang Keluar</h1>
+        <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">ATK Keluar</h1>
         <br>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -58,20 +58,20 @@
                                                 style="width: 10px;">No.</th>
                                             <th class="sorting text-xl-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Kode Barang: activate to sort column ascending"
-                                                style="width: 30px;">Kode Barang</th>
+                                                aria-label="Kode ATK: activate to sort column ascending"
+                                                style="width: 30px;">Kode ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Nama Barang: activate to sort column ascending"
-                                                style="width: 150px;">Nama Barang</th>
+                                                aria-label="Nama ATK: activate to sort column ascending"
+                                                style="width: 150px;">Nama ATK</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Tanggal Barang Keluar: activate to sort column ascending"
-                                                style="width: 70px;">Tanggal <br> Barang Keluar</th>
+                                                aria-label="Tanggal ATK Keluar: activate to sort column ascending"
+                                                style="width: 70px;">Tanggal <br> ATK Keluar</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Jumlah Barang Keluar: activate to sort column ascending"
-                                                style="width: 70px;">Jumlah <br> Barang Keluar</th>
+                                                aria-label="Jumlah ATK Keluar: activate to sort column ascending"
+                                                style="width: 70px;">Jumlah <br> ATK Keluar</th>
                                             <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Unit: activate to sort column ascending" style="width: 30px;">

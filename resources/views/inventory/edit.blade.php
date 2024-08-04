@@ -13,7 +13,7 @@
                 <form action="/inventory/{{$barang->id}}/update" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div class="form-group{{$errors->has('nama') ? ' has-error ' : ''}}">
-                        <label for="nama">Nama Barang</label>
+                        <label for="nama">Nama ATK</label>
                         <input name="nama" type="text" class="form-control" id="nama" value="{{$barang->nama}}">
                         @if ($errors->has('nama'))
                         <span class="help-block">{{$errors->first('nama')}}</span>
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="lokasi_id">Lokasi Penyimpanan Barang</label>
+                        <label for="lokasi_id">Lokasi Penyimpanan ATK</label>
                         <select name="lokasi_id" class="form-control" id="lokasi_id">
                             @foreach ($lokasi_barang as $lokasi)
                             <option value="{{$lokasi->id}}" @if ($barang->lokasi_id == $lokasi->id)

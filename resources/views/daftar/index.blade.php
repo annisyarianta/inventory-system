@@ -16,8 +16,8 @@
     <div class="container-fluid">
         <!-- Page Heading -->
         <h1 class="h2 mb-2 text-black-800" style="font-weight: 600">Inventory ATK</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the official DataTables documentation.</p>
+        <br>
+        <p class="mb-4"></p>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">
@@ -89,13 +89,7 @@
                                                 @endforeach
                                                 {{ $jmlhmasuk - $jmlhkeluar }}
                                             </td>
-                                            <td class="text-center">
-                                            @foreach ($barangmasuk as $brgmasuk)
-                                                @if ($barang->id == $brgmasuk->barangga_id)
-                                                    {{ $brgmasuk->satuan }} 
-                                                @endif
-                                            @endforeach
-                                            </td>
+                                            <td class="text-center">{{ $barang->satuan }}</td>
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 150px; max-height: 180px"></td>
                                         </tr>
