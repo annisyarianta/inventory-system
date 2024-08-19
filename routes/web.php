@@ -16,7 +16,11 @@ use App\Http\Controllers\ValidasiAtkController;
 */
 
 Route::get('/', function () {
-    return redirect(route('login'));
+    if(Auth::user()){
+        return redirect(route('dashboardatk'));
+    }else{
+        return redirect(route('login'));
+    }
 });
 
 Route::get('/atk', 'AtkController@index');
@@ -28,6 +32,8 @@ Route::get('/logout', 'AuthController@logout');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboardatk', 'DashboardController@index')->middleware('admin');
 
+    Route::get('/log_login', 'LogLoginController@index')->middleware('admin');
+    Route::get('/log_activity', 'LogActivityController@index')->middleware('admin');
     Route::get('/users', 'UserController@index')->middleware('admin');
     Route::post('/users/create', 'UserController@create')->middleware('admin');
     Route::get('/users/{id}/edit', 'UserController@edit')->middleware('admin');
