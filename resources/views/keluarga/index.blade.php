@@ -218,7 +218,7 @@
                         <div class="form-group">
                             <label for="referensi">Referensi</label>
                             <input name="referensi" type="text" class="form-control" id="referensi"
-                                placeholder="Referensi" value="{{ old('referensi') }}">
+                                placeholder="No. Nota Dinas" value="{{ old('referensi') }}">
                         </div>
 
                         <div class="form-group">
@@ -231,6 +231,12 @@
                                     </option>
                                 @endforeach
                             </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="diketahui">Diketahui</label>
+                            <input name="diketahui" type="text" class="form-control" id="diketahui"
+                                placeholder="Diketahui Oleh..." value="{{ old('diketahui') }}">
                         </div>
 
                         <div class="form-group">

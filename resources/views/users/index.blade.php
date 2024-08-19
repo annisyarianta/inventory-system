@@ -1,13 +1,4 @@
 @extends('layouts.master')
-{{-- @section('cari')
-<form class="navbar-form navbar-left">
-    <form class="form-inline my-2 my-lg-0" method="GET" action="/barangga">
-        <input name="carimasterdata" class="form-control mr-sm-2" type="search" placeholder="Cari Master Data"
-            aria-label="Search">
-        <button class="btn btn-primary" type="submit">Cari</button>
-    </form>
-</form>
-@endsection --}}
 @section('content')
     @if (session('sukses'))
         <div class="alert alert-success alert-dismissible" role="alert">
@@ -89,15 +80,15 @@
                                             <td class="text-center">{{ $user->created_at }}</td>
                                             <td class="text-center">{{ $user->updated_at }}</td>
                                             <td class="text-center">
-                                                {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
-                                                    class="lnr lnr-pencil"></i></a> --}}
+                                                @if ($user->role != 'admin' || $users->where('role', 'admin')->count() > 1)
                                                     <a href="/users/{{ $user->id }}/edit"
-                                                    class="btn btn-warning btn-circle btn-sm mr-1"><i
-                                                        class="fas fa-pencil-alt"></i></a>
-                                                <a href="/users/{{ $user->id }}/delete"
-                                                    class="btn btn-danger btn-circle btn-sm"
-                                                    onclick="return confirm('Yakin ingin menghapus {{ $user->name }}?')"><i
-                                                        class="fas fa-trash"></i></a>
+                                                        class="btn btn-warning btn-circle btn-sm mr-1"><i
+                                                            class="fas fa-pencil-alt"></i></a>
+                                                    <a href="/users/{{ $user->id }}/delete"
+                                                        class="btn btn-danger btn-circle btn-sm"
+                                                        onclick="return confirm('Yakin ingin menghapus {{ $user->name }}?')"><i
+                                                            class="fas fa-trash"></i></a>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
@@ -105,68 +96,11 @@
                             </div>
                         </div>
                     </div>
+                    {{ $users->links() }}
                 </div>
             </div>
         </div>
     </div>
-
-    {{-- Modal Form EDIT --}}
-    <!-- <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 id="exampleModalLabel">Edit User</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form  action="/users/{{ $user->id }}/update" id="aksi" method="POST"
-                        enctype="multipart/form-data">
-                        {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('name') ? ' has-error ' : '' }}">
-                            <label for="name">Nama</label>
-                            <input name="name" type="text" class="form-control" id="name"
-                                value="{{ old('name', $user->name) }}">
-                            @if ($errors->has('name'))
-                                <span class="help-block">{{ $errors->first('name') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error ' : '' }}">
-                            <label for="email">Email</label>
-                            <input name="email" type="email" class="form-control" id="email"
-                                value="{{ old('email', $user->email) }}">
-                            @if ($errors->has('email'))
-                                <span class="help-block">{{ $errors->first('email') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('role') ? ' has-error ' : '' }}">
-                            <label for="role">Role</label>
-                            <select name="role" class="form-control" id="role">
-                                <option value="">Pilih Role</option>
-                                <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                                <option value="staff" {{ $user->role == 'staff' ? 'selected' : '' }}>Staff</option>
-                                <option value="lainnya" {{ $user->role == 'lainnya' ? 'selected' : '' }}>Lainnya</option>
-                            </select>
-                            @if ($errors->has('role'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('role') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-warning">Update</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    {{-- End Modal Form EDIT --}}
 
     {{-- Modal Form ADD --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

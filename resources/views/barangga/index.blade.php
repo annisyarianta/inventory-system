@@ -176,77 +176,85 @@
 
     {{-- Modal Form --}}
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 id="exampleModalLabel">Tambah Data ATK</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+     aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="exampleModalLabel">Tambah Data ATK</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form action="/barangga/create" method="POST" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="form-group{{ $errors->has('namabarang') ? ' has-error ' : '' }}">
+                        <label for="namabarang">Nama Barang</label>
+                        <input name="namabarang" type="text" class="form-control" id="namabarang"
+                               placeholder="Masukkan nama ATK" value="{{ old('namabarang') }}">
+                        @if ($errors->has('namabarang'))
+                            <span class="help-block">{{ $errors->first('namabarang') }}</span>
+                        @endif
+                    </div>
+
+                    <div class="form-group{{ $errors->has('kodebarang') ? ' has-error ' : '' }}">
+                        <label for="kodebarang">Kode Barang</label>
+                        <input name="kodebarang" type="text" class="form-control" id="kodebarang"
+                               placeholder="Masukkan kode barang" value="{{ old('kodebarang') }}">
+                        @if ($errors->has('kodebarang'))
+                            <span class="help-block">{{ $errors->first('kodebarang') }}</span>
+                        @endif
+                    </div>
+
+                    <div class="form-group{{ $errors->has('jenisbarang') ? ' has-error ' : '' }}">
+                        <label for="jenisbarang">Jenis Barang</label>
+                        <select name="jenisbarang" class="form-control" id="jenisbarang">
+                            <option value="">-- Pilih jenis barang --</option>
+                            <option value="Habis Pakai" {{ old('jenisbarang') == 'Habis Pakai' ? 'selected' : '' }}>Habis Pakai</option>
+                            <option value="Tidak Habis Pakai" {{ old('jenisbarang') == 'Tidak Habis Pakai' ? 'selected' : '' }}>Tidak Habis Pakai</option>
+                        </select>
+                        @if ($errors->has('jenisbarang'))
+                            <span class="help-block">{{ $errors->first('jenisbarang') }}</span>
+                        @endif
+                    </div>
+
+                    <div class="form-group{{ $errors->has('satuan') ? ' has-error ' : '' }}">
+                        <label for="satuan">Satuan</label>
+                        <input name="satuan" type="text" class="form-control" id="satuan"
+                               placeholder="Masukkan Satuan" value="{{ old('satuan') }}">
+                        @if ($errors->has('satuan'))
+                            <span class="help-block">{{ $errors->first('satuan') }}</span>
+                        @endif
+                    </div>
+
+                    <div class="form-group{{ $errors->has('gambar') ? ' has-error ' : '' }}">
+                        <label for="gambar">Gambar</label>
+                        <input name="gambar" type="file" class="form-control-file" id="gambar">
+                        @if ($errors->has('gambar'))
+                            <span class="help-block">{{ $errors->first('gambar') }}</span>
+                        @endif
+                        <small>Upload gambar jika ada (.jpg, *.jpeg, *.png), up to 2 MB</small>
+                    </div>
                 </div>
 
-                <form action="/barangga/create" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="modal-body">
-                        <div class="form-group{{ $errors->has('namabarang') ? ' has-error ' : '' }}">
-                            <label for="namabarang">Nama Barang</label>
-                            <input name="namabarang" type="text" class="form-control" id="namabarang"
-                                placeholder="Masukkan nama ATK" value="{{ old('namabarang') }}">
-                            @if ($errors->has('namabarang'))
-                                <span class="help-block">{{ $errors->first('namabarang') }}</span>
-                            @endif
-                        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
 
-                        <div class="form-group{{ $errors->has('kodebarang') ? ' has-error ' : '' }}">
-                            <label for="kodebarang">Kode Barang</label>
-                            <input name="kodebarang" type="text" class="form-control" id="kodebarang"
-                                placeholder="Masukkan kode barang" value="{{ old('kodebarang') }}">
-                            @if ($errors->has('kodebarang'))
-                                <span class="help-block">{{ $errors->first('kodebarang') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('jenisbarang') ? ' has-error ' : '' }}">
-                            <label for="jenisbarang">Jenis Barang</label>
-                            <select name="jenisbarang" class="form-control" id="jenisbarang">
-                                <option value="">-- Pilih jenis barang --</option>
-                                <option value="Habis Pakai" {{ old('jenisbarang') == 'Habis Pakai' ? 'selected' : '' }}>Habis Pakai</option>
-                                <option value="Tidak Habis Pakai" {{ old('jenisbarang') == 'Tidak Habis Pakai' ? 'selected' : '' }}>Tidak Habis Pakai</option>
-                            </select>
-                            @if ($errors->has('jenisbarang'))
-                                <span class="help-block">{{ $errors->first('jenisbarang') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('satuan') ? ' has-error ' : '' }}">
-                            <label for="satuan">Kode Barang</label>
-                            <input name="satuan" type="text" class="form-control" id="satuan"
-                                placeholder="Masukkan Satuan" value="{{ old('satuan') }}">
-                            @if ($errors->has('satuan'))
-                                <span class="help-block">{{ $errors->first('satuan') }}</span>
-                            @endif
-                        </div>
-
-                        <div class="form-group{{ $errors->has('gambar') ? ' has-error ' : '' }}">
-                            <label for="gambar">Gambar</label>
-                            <input name="gambar" type="file" class="form-control-file" id="gambar"
-                                value="{{ old('gambar') }}">
-                            @if ($errors->has('gambar'))
-                                <span class="help-block">{{ $errors->first('gambar') }}</span>
-                            @endif
-                            <small>Upload gambar jika ada (.jpg, *.jpeg, *.png)</small>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-
-                </form>
-            </div>
+            </form>
         </div>
     </div>
-    {{-- End Modal Form --}}
+</div>
+
+<!-- Tambahkan JavaScript untuk membuka modal jika ada error -->
+@if (session('modal_open') || $errors->any())
+    <script>
+        $(document).ready(function() {
+            $('#exampleModal').modal('show'); // Ganti #exampleModal dengan ID modal Anda
+        });
+    </script>
+@endif
+
 @endsection
