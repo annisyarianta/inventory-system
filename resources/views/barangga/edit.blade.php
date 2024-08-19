@@ -82,7 +82,7 @@
                             @if ($errors->has('gambar'))
                                 <span class="help-block">{{ $errors->first('gambar') }}</span>
                             @endif
-                            <small>Upload gambar jika ada (.jpg, *.jpeg, *.png)</small>
+                            <small>Upload gambar jika ada (.jpg, *.jpeg, *.png), up to 2 MB</small>
                         </div>
                     </div>
                     <div class="modal-footer">

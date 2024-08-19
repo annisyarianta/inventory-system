@@ -94,11 +94,12 @@ class KeluargaController extends Controller
         $nomorba = $request->nomorba;
         $tanggalba = $request->tanggalba;
         $referensi = $request->referensi;
+        $diketahui = $request->diketahui;
         $penerima = $request->penerima;
         $jabatanpenerima = $request->jabatanpenerima;
         $unit = $request->unit;
         $namaunit = unit::find($unit);
-        $pdf = PDF::loadView('exports.bapdf', ['barangkeluar' => $barangkeluar, 'barangga' => $barangga, 'nomorba' => $nomorba, 'tanggalba' => $tanggalba, 'referensi' => $referensi, 'penerima' => $penerima, 'jabatanpenerima' => $jabatanpenerima, 'tanggalawal' => $tanggalawal, 'tanggalakhir' => $tanggalakhir, 'namaunit' => $namaunit]);
+        $pdf = PDF::loadView('exports.bapdf', ['barangkeluar' => $barangkeluar, 'barangga' => $barangga, 'nomorba' => $nomorba, 'tanggalba' => $tanggalba, 'referensi' => $referensi, 'diketahui' => $diketahui, 'penerima' => $penerima, 'jabatanpenerima' => $jabatanpenerima, 'tanggalawal' => $tanggalawal, 'tanggalakhir' => $tanggalakhir, 'namaunit' => $namaunit]);
         return $pdf->download('Berita Acara.pdf');
     }
 }

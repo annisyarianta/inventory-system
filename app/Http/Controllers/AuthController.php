@@ -14,10 +14,20 @@ class AuthController extends Controller
 
     public function postlogin(Request $request)
     {
-        if (Auth::attempt(['email' => $request->username, 'password' => $request->password])) {
-            return redirect('/dashboardatk');
+        $credentials = ['email' => $request->username, 'password' => $request->password];
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            // Redirect based on the user's role
+            if ($user->role === 'admin') {
+                return redirect('/dashboardatk');
+            } elseif ($user->role === 'staff') {
+                return redirect('/daftar');
+            }
         }
-        return redirect('/loginatk');
+
+        return redirect('/loginatk')->with('error', 'Invalid credentials');
     }
 
     public function logout()
