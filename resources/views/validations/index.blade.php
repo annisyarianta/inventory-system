@@ -95,26 +95,18 @@
                                                 </td>
                                                 <td class="text-center">
                                                     @if ($validation->status == 'pending')
-                                                        <form action="{{ route('validations.update', $validation->id) }}"
-                                                            method="POST" id="form-{{ $validation->id }}">
+                                                        <form action="{{ route('validations.update', $validation->id) }}" method="POST" id="form-{{ $validation->id }}">
                                                             @csrf
                                                             @method('PUT')
-                                                            <button type="button"
-                                                                onclick="submitForm('approved', {{ $validation->id }})"
-                                                                class="btn btn-success btn-circle btn-sm mr-1"><i class="fas fa-check"></i></i></button>
-                                                            <button type="button"
-                                                                onclick="submitForm('rejected', {{ $validation->id }})"
-                                                                class="btn btn-danger btn-circle btn-sm mr-1"><i
-                                                                class="fas fa-times"></i></button>
-                                                            <button type="button"
-                                                                onclick="showKurangiModal({{ $validation->id }}, {{ $validation->requestmodel->quantity }})"
-                                                                class="btn btn-warning btn-circle btn-sm"><i
-                                                                    class="fas fa-pencil-alt"></i></button>
+                                                            <button type="button" onclick="submitForm('approved', {{ $validation->id }})" class="btn btn-success btn-circle btn-sm mr-1"><i class="fas fa-check"></i></button>
+                                                            <button type="button" onclick="submitForm('rejected', {{ $validation->id }})" class="btn btn-danger btn-circle btn-sm mr-1"><i class="fas fa-times"></i></button>
+                                                            <button type="button" onclick="showKurangiModal({{ $validation->id }}, {{ $validation->requestmodel->quantity }})" class="btn btn-warning btn-circle btn-sm"><i class="fas fa-pencil-alt"></i></button>
                                                         </form>
                                                     @else
                                                         <span>Status: {{ ucfirst($validation->status) }}</span>
                                                     @endif
                                                 </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -146,8 +138,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="quantity">Jumlah yang Disetujui</label>
-                            <input type="number" name="quantity" id="quantity" class="form-control" required
-                                min="1">
+                            <input type="number" name="quantity" id="quantity" class="form-control" required min="1">
                         </div>
                         <input type="hidden" name="status" value="modified">
                     </div>
@@ -156,6 +147,7 @@
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -176,12 +168,14 @@
             var formKurangi = document.getElementById('formKurangi');
             formKurangi.action = "/validations/" + id;
 
-            // Set the initial quantity value
+            // Set the initial quantity value to match the request quantity
             document.getElementById('quantity').value = quantity;
 
             // Show modal
             $('#modalKurangi').modal('show');
         }
+
+
     </script>
 
     <!-- Include jQuery and Bootstrap JS -->

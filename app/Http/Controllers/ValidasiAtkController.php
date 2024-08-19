@@ -26,62 +26,63 @@ class ValidasiAtkController extends Controller
     }
 
     public function storeValidation(Request $request, $id)
-    {
-        $validation = validationmodel::findOrFail($id);
-    
-        // Validasi input
-        $this->validate($request, [
-            'status' => 'required|in:approved,rejected,modified',
-            'quantity' => 'required_if:status,modified|integer|min:1'
-        ]);
-    
-        // Ambil data dari request
-        $status = $request->input('status');
-        $inputQuantity = $request->input('quantity');
-        $requestQuantity = $validation->requestmodel->quantity;
-    
-        if ($status == 'modified') {
-            if ($inputQuantity < $requestQuantity) {
-                $finalQuantity = $inputQuantity; // Gunakan jumlah yang dimasukkan di form
-                $status = 'approved'; // Ubah status menjadi 'approved'
-            } else {
-                return redirect()->back()->with('gagal', 'Jumlah yang dimasukkan lebih besar atau sama dengan jumlah request.');
-            }
-        } elseif ($status == 'rejected') {
-            // Jika statusnya ditolak, tidak perlu mengubah jumlah
-            $finalQuantity = 0;
-        } else {
-            $finalQuantity = $requestQuantity; // Jika status bukan 'modified' atau 'rejected', gunakan jumlah asli
-        }
-    
-        // Update validation model dengan data baru
-        $validation->update([
-            'status' => $status,
-            'quantity' => $finalQuantity,
-            'tanggal_validasi' => now()
-        ]);
-    
-        // Update status di request model
+{
+    $validation = validationmodel::findOrFail($id);
+
+    // Validasi input
+    $this->validate($request, [
+        'status' => 'required|in:approved,rejected,modified,pending',
+        'quantity' => 'required_if:status,modified|integer|min:1'
+    ]);
+
+    // Ambil data dari request
+    $status = $request->input('status');
+    $inputQuantity = $request->input('quantity');
+    $requestQuantity = $validation->requestmodel->quantity;
+
+    // Untuk status 'modified', perbarui quantity requestmodel terlepas apakah bertambah atau berkurang
+    if ($status == 'modified') {
+        $finalQuantity = $inputQuantity;
+
+        // Update jumlah di requestmodel
         $validation->requestmodel->update([
-            'status' => $status,
+            'quantity' => $finalQuantity,
         ]);
-    
-        // Jika status adalah approved, masukkan data ke tabel barang keluar
-        if ($status == 'approved') {
-            keluarga::create([
-                'barangga_id' => $validation->requestmodel->barangga_id,
-                'jumlahkeluar' => $finalQuantity,
-                'tanggalkeluar' => now(),
-                'unit_id' => $validation->requestmodel->unit_id
-            ]);
-        }
-    
-        // Redirect ke halaman validasi dengan pesan sukses
-        return redirect()->route('validations.index')->with('sukses', 'Validasi ATK berhasil diupdate');
+
+        $status = 'pending'; // Tetap pending setelah dimodifikasi
+    } elseif ($status == 'rejected') {
+        $finalQuantity = 0; // Jika ditolak, tidak ada barang yang keluar
+    } else {
+        $finalQuantity = $requestQuantity; // Gunakan jumlah asli untuk status selain 'modified' atau 'rejected'
     }
+
+    // Update validation model dengan data baru
+    $validation->update([
+        'status' => $status,
+        'quantity' => $finalQuantity,
+        'tanggal_validasi' => now()
+    ]);
+
+    // Update status di request model
+    $validation->requestmodel->update([
+        'status' => $status,
+    ]);
+
+    // Jika status adalah approved, masukkan data ke tabel barang keluar
+    if ($status == 'approved') {
+        keluarga::create([
+            'barangga_id' => $validation->requestmodel->barangga_id,
+            'jumlahkeluar' => $finalQuantity,
+            'tanggalkeluar' => now(),
+            'unit_id' => $validation->requestmodel->unit_id
+        ]);
+    }
+
+    // Redirect ke halaman validasi dengan pesan sukses
+    return redirect()->route('validations.index')->with('sukses', 'Validasi ATK berhasil diupdate');
+}
+
     
-
-
     // Metode update untuk memanggil storeValidation
     public function update(Request $request, $id)
     {

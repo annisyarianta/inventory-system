@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/keluarga/{id}/delete', 'KeluargaController@delete')->middleware('admin');
     Route::get('/keluarga/exportexcelkeluar', 'KeluargaController@exportexcelkeluar')->middleware('admin');
     Route::get('/keluarga/exportpdfkeluar', 'KeluargaController@exportpdfkeluar')->middleware('admin');
-    Route::post('/keluarga/exportpdfba', 'KeluargaController@exportpdfba')->middleware('admin');
+    Route::post('/keluarga/exportpdfba', 'KeluargaController@exportpdfba');
 
     Route::get('/daftar', 'DaftarController@index');
     Route::get('/daftar/exportexcel', 'DaftarController@exportexcel');
@@ -82,6 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/requests/{id}/edit', [RequestAtkController::class, 'edit'])->name('requests.edit')->middleware('staff');
     Route::put('/requests/{id}', [RequestAtkController::class, 'update'])->name('requests.update')->middleware('staff');
     Route::delete('/requests/{id}', [RequestAtkController::class, 'destroy'])->name('requests.destroy')->middleware('staff');
+    Route::post('/requests/exportpdfba', 'RequestController@exportpdfba');
 
     Route::get('/validations', [ValidasiAtkController::class, 'index'])->name('validations.index')->middleware('admin');
     Route::get('/validations/{id}/edit', [ValidasiAtkController::class, 'edit'])->name('validations.edit')->middleware('admin');

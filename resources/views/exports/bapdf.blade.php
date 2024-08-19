@@ -100,7 +100,7 @@
         <thead>
             <tr>
                 <th style="border: none">Diketahui:</th>
-                <th style="border: none">Telah DIterima Oleh:</th>
+                <th style="border: none">Telah Diterima Oleh:</th>
             </tr>
         </thead>
         <tbody>
@@ -109,7 +109,7 @@
                 <td style="padding-bottom: 100px; border: none"><b>{{$jabatanpenerima}}</b></td>
             </tr>
             <tr>
-                <td style="border: none"><b><u>YUSPRIADY YUSUF</u></b></td>
+                <td style="border: none"><b><u>{{$diketahui}}</u></b></td>
                 <td style="border: none"><b><u>{{$penerima}}</u></b></td>
             </tr>
         </tbody>
