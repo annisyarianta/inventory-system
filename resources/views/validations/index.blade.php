@@ -66,9 +66,9 @@
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td class="text-center">
-                                                    {{ $validation->requestmodel ? $validation->requestmodel->barangga->kodebarang : '-' }}
+                                                    {{ $validation->requestmodel ? $validation->requestmodel->masteratk->kodebarang : '-' }}
                                                 </td>
-                                                <td>{{ $validation->requestmodel ? $validation->requestmodel->barangga->namabarang : '-' }}
+                                                <td>{{ $validation->requestmodel ? $validation->requestmodel->masteratk->namabarang : '-' }}
                                                 </td>
                                                 <td class="text-center">
                                                     {{ $validation->requestmodel ? (is_numeric($validation->requestmodel->quantity) ? (int) $validation->requestmodel->quantity : '-') : '-' }}

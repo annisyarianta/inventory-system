@@ -1,7 +1,7 @@
 
 @extends('layouts.master')
 {{-- <form class="navbar-form navbar-left">
-    <form class="form-inline my-2 my-lg-0" method="GET" action="/barangga">
+    <form class="form-inline my-2 my-lg-0" method="GET" action="/masteratk">
         <input name="carimasterdata" class="form-control mr-sm-2" type="search" placeholder="Cari Master Data"
             aria-label="Search">
         <button class="btn btn-primary" type="submit">Cari</button>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMasukgaTable extends Migration
+class CreateAtkmasukTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateMasukgaTable extends Migration
      */
     public function up()
     {
-        Schema::create('masukga', function (Blueprint $table) {
+        Schema::create('atkmasuk', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('barangga_id');
+            $table->string('masteratk_id');
             // $table->string('namabarang');
             $table->integer('jumlahmasuk');
             // $table->string('satuan');
             $table->date('tanggalmasuk');
+            $table->integer('hargasatuan'); 
+            $table->integer('hargatotal'); 
         });
     }
 
@@ -31,6 +33,6 @@ class CreateMasukgaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('masukga');
+        Schema::dropIfExists('atkmasuk');
     }
 }

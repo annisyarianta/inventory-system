@@ -5,8 +5,8 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
-use App\barangga;
-use App\keluarga;
+use App\masteratk;
+use App\atkkeluar;
 
 class KeluarExport implements FromView
 {
@@ -20,9 +20,9 @@ class KeluarExport implements FromView
 
     public function view(): View
     {
-        $barangkeluar = keluarga::all();
+        $barangkeluar = atkkeluar::all();
         // $lokasi_barang = \App\lokasi::all();
-        $barangga = barangga::all();
-        return view('exports.keluarexcel', ['barangkeluar' => $barangkeluar, 'barangga' => $barangga]);
+        $masteratk = masteratk::all();
+        return view('exports.keluarexcel', ['barangkeluar' => $barangkeluar, 'masteratk' => $masteratk]);
     }
 }

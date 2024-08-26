@@ -35,6 +35,8 @@
                 <th>Nama ATK</th>
                 <th>Tanggal ATK Masuk</th>
                 <th>Jumlah ATK Masuk</th>
+                <th>Harga Satuan</th>
+                <th>Harga Total</th>
             </tr>
         </thead>
         <tbody>
@@ -42,10 +44,12 @@
             @foreach ($barangmasuk->sortby('tanggalmasuk') as $barang) <?php $no++; ?>
                 <tr>
                     <td scope="row"><?= $no; ?></td>
-                    <td>{{$barang->barangga->kodebarang}}</td>
-                    <td>{{$barang->barangga->namabarang}}</td>
+                    <td>{{$barang->masteratk->kodebarang}}</td>
+                    <td>{{$barang->masteratk->namabarang}}</td>
                     <td>{{$barang->tanggalmasuk}}</td>
                     <td>{{$barang->jumlahmasuk}}</td>
+                    <td>{{$barang->hargasatuan}}</td>
+                    <td>{{$barang->hargatotal}}</td>
                 </tr>
             @endforeach
         </tbody>

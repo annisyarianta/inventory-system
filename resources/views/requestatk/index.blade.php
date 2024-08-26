@@ -47,8 +47,8 @@
                                         @foreach ($requests as $request)
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                                <td class="text-center">{{ $request->barangga->kodebarang }}</td>
-                                                <td>{{ $request->barangga->namabarang }}</td>
+                                                <td class="text-center">{{ $request->masteratk->kodebarang }}</td>
+                                                <td>{{ $request->masteratk->namabarang }}</td>
                                                 <td class="text-center">{{ date('d/m/Y', strtotime($request->tanggal_request)) }}</td>
                                                 <td class="text-center">{{ $request->quantity }}</td>
                                                 <td class="text-center">{{ $request->unit->namaunit }}</td>
@@ -85,7 +85,7 @@
                     <h3 id="exampleModalLabel">Cetak Berita Acara</h3>
                 </div>
 
-                <form action="/keluarga/exportpdfba" method="POST" enctype="multipart/form-data">
+                <form action="/atkkeluar/exportpdfba" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <div class="form-group">

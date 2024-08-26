@@ -40,30 +40,30 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/users/{id}/update', 'UserController@update')->middleware('admin');
     Route::get('/users/{id}/delete', 'UserController@delete')->middleware('admin');
 
-    Route::get('/barangga', 'BaranggaController@index')->middleware('admin');
-    Route::post('/barangga/create', 'BaranggaController@create')->middleware('admin');
-    Route::get('/barangga/{id}/edit', 'BaranggaController@edit')->middleware('admin');
-    Route::post('/barangga/{id}/update', 'BaranggaController@update')->middleware('admin');
-    Route::get('/barangga/{id}/delete', 'BaranggaController@delete')->middleware('admin');
-    Route::get('/barangga/exportexcelbarangga', 'BaranggaController@exportexcelmasuk')->middleware('admin');
-    Route::get('/barangga/exportpdfbarangga', 'BaranggaController@exportpdfmasuk')->middleware('admin');
+    Route::get('/masteratk', 'MasteratkController@index')->middleware('admin');
+    Route::post('/masteratk/create', 'MasteratkController@create')->middleware('admin');
+    Route::get('/masteratk/{id}/edit', 'MasteratkController@edit')->middleware('admin');
+    Route::post('/masteratk/{id}/update', 'MasteratkController@update')->middleware('admin');
+    Route::get('/masteratk/{id}/delete', 'MasteratkController@delete')->middleware('admin');
+    Route::get('/masteratk/exportexcelmasteratk', 'MasteratkController@exportexcelmasuk')->middleware('admin');
+    Route::get('/masteratk/exportpdfmasteratk', 'MasteratkController@exportpdfmasuk')->middleware('admin');
 
-    Route::get('/masukga', 'MasukgaController@index')->middleware('admin');
-    Route::post('/masukga/create', 'MasukgaController@create')->middleware('admin');
-    Route::get('/masukga/{id}/edit', 'MasukgaController@edit')->middleware('admin');
-    Route::post('/masukga/{id}/update', 'MasukgaController@update')->middleware('admin');
-    Route::get('/masukga/{id}/delete', 'MasukgaController@delete')->middleware('admin');
-    Route::get('/masukga/exportexcelmasuk', 'MasukgaController@exportexcelmasuk')->middleware('admin');
-    Route::get('/masukga/exportpdfmasuk', 'MasukgaController@exportpdfmasuk')->middleware('admin');
+    Route::get('/atkmasuk', 'AtkmasukController@index')->middleware('admin');
+    Route::post('/atkmasuk/create', 'AtkmasukController@create')->middleware('admin');
+    Route::get('/atkmasuk/{id}/edit', 'AtkmasukController@edit')->middleware('admin');
+    Route::post('/atkmasuk/{id}/update', 'AtkmasukController@update')->middleware('admin');
+    Route::get('/atkmasuk/{id}/delete', 'AtkmasukController@delete')->middleware('admin');
+    Route::get('/atkmasuk/exportexcelmasuk', 'AtkmasukController@exportexcelmasuk')->middleware('admin');
+    Route::get('/atkmasuk/exportpdfmasuk', 'AtkmasukController@exportpdfmasuk')->middleware('admin');
 
-    Route::get('/keluarga', 'KeluargaController@index')->middleware('admin');
-    Route::post('/keluarga/create', 'KeluargaController@create')->middleware('admin');
-    Route::get('/keluarga/{id}/edit', 'KeluargaController@edit')->middleware('admin');
-    Route::post('/keluarga/{id}/update', 'KeluargaController@update')->middleware('admin');
-    Route::get('/keluarga/{id}/delete', 'KeluargaController@delete')->middleware('admin');
-    Route::get('/keluarga/exportexcelkeluar', 'KeluargaController@exportexcelkeluar')->middleware('admin');
-    Route::get('/keluarga/exportpdfkeluar', 'KeluargaController@exportpdfkeluar')->middleware('admin');
-    Route::post('/keluarga/exportpdfba', 'KeluargaController@exportpdfba');
+    Route::get('/atkkeluar', 'AtkkeluarController@index')->middleware('admin');
+    Route::post('/atkkeluar/create', 'AtkkeluarController@create')->middleware('admin');
+    Route::get('/atkkeluar/{id}/edit', 'AtkkeluarController@edit')->middleware('admin');
+    Route::post('/atkkeluar/{id}/update', 'AtkkeluarController@update')->middleware('admin');
+    Route::get('/atkkeluar/{id}/delete', 'AtkkeluarController@delete')->middleware('admin');
+    Route::get('/atkkeluar/exportexcelkeluar', 'AtkkeluarController@exportexcelkeluar')->middleware('admin');
+    Route::get('/atkkeluar/exportpdfkeluar', 'AtkkeluarController@exportpdfkeluar')->middleware('admin');
+    Route::post('/atkkeluar/exportpdfba', 'AtkkeluarController@exportpdfba');
 
     Route::get('/daftar', 'DaftarController@index');
     Route::get('/daftar/exportexcel', 'DaftarController@exportexcel');

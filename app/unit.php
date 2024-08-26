@@ -9,8 +9,8 @@ class unit extends Model
     protected $table = 'unit';
     protected $fillable = ['namaunit'];
 
-    public function keluarga()
+    public function atkkeluar()
     {
-        return $this->hasMany(keluarga::class);
+        return $this->hasMany(atkkeluar::class);
     }
 }

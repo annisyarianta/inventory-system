@@ -3,8 +3,8 @@
 namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
-use App\masukga;
-use App\barangga;
+use App\atkmasuk;
+use App\masteratk;
 use Maatwebsite\Excel\Concerns\FromView;
 use Illuminate\Contracts\View\View;
 
@@ -20,9 +20,9 @@ class MasukExport implements FromView
 
     public function view(): View
     {
-        $barangmasuk = masukga::all();
+        $barangmasuk = atkmasuk::all();
         // $lokasi_barang = \App\lokasi::all();
-        $barangga = barangga::all();
-        return view('exports.masukexcel', ['barangmasuk' => $barangmasuk, 'barangga' => $barangga]);
+        $masteratk = masteratk::all();
+        return view('exports.masukexcel', ['barangmasuk' => $barangmasuk, 'masteratk' => $masteratk]);
     }
 }

@@ -15,7 +15,7 @@ class CreateRequestsTable extends Migration
 {
     Schema::create('requests', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('barangga_id');
+        $table->unsignedBigInteger('masteratk_id');
         $table->date('tanggal_request');
         $table->unsignedBigInteger('validation_id')->nullable();
         $table->integer('quantity');
@@ -24,7 +24,7 @@ class CreateRequestsTable extends Migration
         $table->timestamps();
 
         // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        $table->foreign('barangga_id')->references('id')->on('barangga')->onDelete('cascade');
+        $table->foreign('masteratk_id')->references('id')->on('masteratk')->onDelete('cascade');
         $table->foreign('unit_id')->references('id')->on('unit')->onDelete('cascade');
         $table->foreign('validation_id')->references('id')->on('validations')->onDelete('cascade');
     });

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 {{-- @section('cari')
 <form class="navbar-form navbar-left">
-    <form class="form-inline my-2 my-lg-0" method="GET" action="/barangga">
+    <form class="form-inline my-2 my-lg-0" method="GET" action="/masteratk">
         <input name="carimasterdata" class="form-control mr-sm-2" type="search" placeholder="Cari Master Data"
             aria-label="Search">
         <button class="btn btn-primary" type="submit">Cari</button>
@@ -89,12 +89,12 @@
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 180px; max-height: 200px"></td>
                                             <td class="text-center">
-                                                {{-- <a href="/barangga/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
+                                                {{-- <a href="/masteratk/{{ $barang->id }}/edit" class="btn btn-warning btn-sm"><i
                                                     class="lnr lnr-pencil"></i></a> --}}
-                                                    <a href="/barangga/{{ $barang->id }}/edit"
+                                                    <a href="/masteratk/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle btn-sm mr-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
-                                                <a href="/barangga/{{ $barang->id }}/delete"
+                                                <a href="/masteratk/{{ $barang->id }}/delete"
                                                     class="btn btn-danger btn-circle btn-sm"
                                                     onclick="return confirm('Yakin ingin menghapus {{ $barang->namabarang }}?')"><i
                                                         class="fas fa-trash"></i></a>
@@ -186,7 +186,7 @@
                 </button>
             </div>
 
-            <form action="/barangga/create" method="POST" enctype="multipart/form-data">
+            <form action="/masteratk/create" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="form-group{{ $errors->has('namabarang') ? ' has-error ' : '' }}">
