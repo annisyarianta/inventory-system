@@ -79,9 +79,9 @@
                                                 aria-label="Harga Total: activate to sort column ascending"
                                                 style="width: 50px;">Harga Total</th>
                                             <!-- <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
-                                                rowspan="1" colspan="1"
-                                                aria-label="Satuan: activate to sort column ascending"
-                                                style="width: 50px;">Satuan</th> -->
+                                                    rowspan="1" colspan="1"
+                                                    aria-label="Satuan: activate to sort column ascending"
+                                                    style="width: 50px;">Satuan</th> -->
                                             <th class="text-center" style="width: 40px;">Aksi</th>
                                         </tr>
                                     </thead>
@@ -97,7 +97,8 @@
                                             <td class="text-center">{{ $barang->masteratk->kodebarang }}</td>
                                             <td>{{ $barang->masteratk->namabarang }}</td>
                                             {{-- <td class="text-center">{{ $barang->tanggalmasuk }}</td> --}}
-                                            <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalmasuk)) }}</td>
+                                            <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalmasuk)) }}
+                                            </td>
                                             <td class="text-center">{{ $barang->jumlahmasuk }}</td>
                                             <td class="text-center">{{ $barang->hargasatuan }}</td>
                                             <td class="text-center">{{ $barang->hargatotal }}</td>
@@ -141,9 +142,22 @@
                 <form action="/atkmasuk/create" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
-                    <div class="form-group">
-                    <label for="masteratk_id">Nama ATK</label>
-                            <select name="masteratk_id" class="form-control" id="masteratk_id">
+                        <div class="form-group">
+                            <label for="masteratk_id">Nama ATK</label>
+                            <div class="searchable-dropdown">
+                                <input type="text" id="search" placeholder="-- Pilih ATK --" onkeyup="filterFunction()" class="form-control">
+                                <div id="dropdownList" class="dropdown-content">
+                                    <a href="#" onclick="selectOption('', '-- Pilih ATK --')"></a>
+                                    @foreach ($masteratk as $brg)
+                                        <a href="#" onclick="selectOption('{{ $brg->id }}', '{{ $brg->namabarang }}')">
+                                            {{ $brg->namabarang }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                                <input type="hidden" name="masteratk_id" id="masteratk_id">
+                            </div>
+                            
+                            {{-- <select name="masteratk_id" class="form-control" id="masteratk_id">
                                 <option value="">-- Pilih ATK --</option>
                                 @foreach ($masteratk as $brg)
                                     <option value="{{ $brg->id }}"
@@ -151,10 +165,8 @@
                                         {{ $brg->namabarang }}
                                     </option>
                                 @endforeach
-                            </select>
+                            </select> --}}
                         </div>
-                        
-     
 
                         <div class="form-group{{ $errors->has('tanggalmasuk') ? ' has-error ' : '' }}">
                             <label for="tanggalmasuk">Tanggal ATK Masuk</label>
@@ -176,24 +188,13 @@
 
                         <div class="form-group">
                             <label for="hargasatuan">Harga Satuan</label>
-                            <input name="hargasatuan" type="number" class="form-control" id="hargasatuan" placeholder="Masukkan harga satuan" value="{{ old('hargasatuan') }}">
+                            <input name="hargasatuan" type="number" class="form-control" id="hargasatuan"
+                                placeholder="Masukkan harga satuan" value="{{ old('hargasatuan') }}">
                             @if ($errors->has('hargasatuan'))
                                 <span class="help-block">{{ $errors->first('hargasatuan') }}</span>
                             @endif
                         </div>
-
-
                     </div>
-
-                        <!-- <div class="form-group{{ $errors->has('satuan') ? ' has-error ' : '' }}">
-                            <label for="satuan">Satuan</label>
-                            <input name="satuan" type="text" class="form-control" id="satuan"
-                                placeholder="Satuan" value="{{ old('satuan') }}">
-                            @if ($errors->has('satuan'))
-                                <span class="help-block">{{ $errors->first('satuan') }}</span>
-                            @endif
-                        </div> -->
-                    
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

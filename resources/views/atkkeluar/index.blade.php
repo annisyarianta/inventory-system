@@ -134,7 +134,19 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="masteratk_id">Nama Barang</label>
-                            <select name="masteratk_id" class="form-control" id="masteratk_id">
+                            <div class="searchable-dropdown">
+                                <input type="text" id="search" placeholder="-- Pilih ATK --" onkeyup="filterFunction()" class="form-control">
+                                <div id="dropdownList" class="dropdown-content">
+                                    <a href="#" onclick="selectOption('', '-- Pilih ATK --')"></a>
+                                    @foreach ($masteratk as $brg)
+                                        <a href="#" onclick="selectOption('{{ $brg->id }}', '{{ $brg->namabarang }}')">
+                                            {{ $brg->namabarang }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                                <input type="hidden" name="masteratk_id" id="masteratk_id">
+                            </div>
+                            {{-- <select name="masteratk_id" class="form-control" id="masteratk_id">
                                 <option value="">-- Pilih barang --</option>
                                 @foreach ($masteratk as $brg)
                                     <option value="{{ $brg->id }}"
@@ -142,7 +154,7 @@
                                         {{ $brg->namabarang }}
                                     </option>
                                 @endforeach
-                            </select>
+                            </select> --}}
                         </div>
 
                         <div class="form-group{{ $errors->has('tanggalkeluar') ? ' has-error ' : '' }}">

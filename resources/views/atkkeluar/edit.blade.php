@@ -15,13 +15,25 @@
                     <div class="form-group row">
                         <label for="masteratk_id" class="col-sm-2 col-form-label">Nama Barang</label>
                         <div class="col-sm-10">
-                            <select name="masteratk_id" class="form-control" id="masteratk_id">
+                            <div class="searchable-dropdown">
+                                <input type="text" id="search" placeholder="-- Pilih ATK --" onkeyup="filterFunction()" class="form-control">
+                                <div id="dropdownList" class="dropdown-content">
+                                    <a href="#" onclick="selectOption('', '-- Pilih ATK --')"></a>
+                                    @foreach ($masteratk as $brg)
+                                        <a href="#" onclick="selectOption('{{ $brg->id }}', '{{ $brg->namabarang }}')">
+                                            {{ $brg->namabarang }}
+                                        </a>
+                                    @endforeach
+                                </div>
+                                <input type="hidden" name="masteratk_id" id="masteratk_id">
+                            </div>
+                            {{-- <select name="masteratk_id" class="form-control" id="masteratk_id">
                                 @foreach ($masteratk as $brg)
                                     <option value="{{ $brg->id }}" @if ($barangkeluar->masteratk_id == $brg->id) selected @endif>
                                         {{ $brg->namabarang }}
                                     </option>
                                 @endforeach
-                            </select>
+                            </select> --}}
                         </div>
                     </div>
 
