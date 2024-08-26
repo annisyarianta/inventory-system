@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKategoriToBaranggaTable extends Migration
+class AddKategoriToMasteratkTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddKategoriToBaranggaTable extends Migration
      */
     public function up()
     {
-        Schema::table('barangga', function (Blueprint $table) {
+        Schema::table('masteratk', function (Blueprint $table) {
             $table->string('kategori');
         });
     }
@@ -25,7 +25,7 @@ class AddKategoriToBaranggaTable extends Migration
      */
     public function down()
     {
-        Schema::table('barangga', function (Blueprint $table) {
+        Schema::table('masteratk', function (Blueprint $table) {
             $table->dropColumn('kategori');
         });
     }

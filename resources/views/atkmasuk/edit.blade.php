@@ -11,17 +11,17 @@
                 <h6 class="m-0 font-weight-bold text-primary">Form Edit ATK Masuk</h6>
             </div>
             <div class="card-body">
-                <form id="aksi" action="/masukga/{{ $barangmasuk->id }}/update" method="POST"
+                <form id="aksi" action="/atkmasuk/{{ $barangmasuk->id }}/update" method="POST"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <div class="form-group row">
-                            <label for="barangga_id" class="col-sm-2 col-form-label">Nama ATK</label>
+                            <label for="masteratk_id" class="col-sm-2 col-form-label">Nama ATK</label>
                             <div class="col-sm-10">
-                                <select name="barangga_id" class="form-control" id="barangga_id">
-                                    @foreach ($barangga as $brg)
+                                <select name="masteratk_id" class="form-control" id="masteratk_id">
+                                    @foreach ($masteratk as $brg)
                                         <option value="{{ $brg->id }}"
-                                            @if ($barangmasuk->barangga_id == $brg->id) selected @endif>
+                                            @if ($barangmasuk->masteratk_id == $brg->id) selected @endif>
                                             {{ $brg->namabarang }}
                                         </option>
                                     @endforeach
@@ -51,16 +51,17 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group row">
-                            <label for="satuan" class="col-sm-2 col-form-label">Satuan</label>
+                        <div class="form-group row">
+                            <label for="hargasatuan" class="col-sm-2 col-form-label">Harga Satuan</label>
                             <div class="col-sm-10">
-                                <input name="satuan" type="text" class="form-control" id="satuan"
-                                    value="{{ $barangmasuk->satuan }}">
-                                @if ($errors->has('satuan'))
-                                    <span class="help-block">{{ $errors->first('satuan') }}</span>
+                                <input name="hargasatuan" type="number" class="form-control" id="hargasatuan"
+                                    value="{{ $barangmasuk->hargasatuan }}">
+                                @if ($errors->has('hargasatuan'))
+                                    <span class="help-block">{{ $errors->first('hargasatuan') }}</span>
                                 @endif
                             </div>
-                        </div> -->
+                        </div>
+
                     </div>
 
                     <div class="modal-footer">

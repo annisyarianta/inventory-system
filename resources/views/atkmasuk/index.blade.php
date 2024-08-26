@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('cari')
     <form class="navbar-form navbar-left">
-        <form class="form-inline my-2 my-lg-0" method="GET" action="/masukga">
+        <form class="form-inline my-2 my-lg-0" method="GET" action="/atkmasuk">
             <input id="tanggalawalmasuk" name="tanggalawalmasuk" class="form-control mr-sm-2" type="search"
                 placeholder="Tanggal Awal" aria-label="Search">
             <input id="tanggalakhirmasuk" name="tanggalakhirmasuk" class="form-control mr-sm-2" type="search"
@@ -31,10 +31,10 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-end">
-                <a href="/masukga/exportpdfmasuk" class="btn btn-danger btn-sm mr-2">
+                <a href="/atkmasuk/exportpdfmasuk" class="btn btn-danger btn-sm mr-2">
                     <span class="text">Export PDF</span>
                 </a>
-                <a href="/masukga/exportexcelmasuk" class="btn btn-success btn-sm mr-2">
+                <a href="/atkmasuk/exportexcelmasuk" class="btn btn-success btn-sm mr-2">
                     <span class="text">Export Excel</span>
                 </a>
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahmasuk">
@@ -70,6 +70,14 @@
                                                 rowspan="1" colspan="1"
                                                 aria-label="Jumlah ATK Masuk: activate to sort column ascending"
                                                 style="width: 50px;">Jumlah <br> ATK Masuk</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Harga Satuan: activate to sort column ascending"
+                                                style="width: 50px;">Harga Satuan</th>
+                                            <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
+                                                rowspan="1" colspan="1"
+                                                aria-label="Harga Total: activate to sort column ascending"
+                                                style="width: 50px;">Harga Total</th>
                                             <!-- <th class="sorting text-center" tabindex="0" aria-controls="dataTable"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Satuan: activate to sort column ascending"
@@ -86,22 +94,24 @@
                                             {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
                                                 data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
                                         </td> --}}
-                                            <td class="text-center">{{ $barang->barangga->kodebarang }}</td>
-                                            <td>{{ $barang->barangga->namabarang }}</td>
+                                            <td class="text-center">{{ $barang->masteratk->kodebarang }}</td>
+                                            <td>{{ $barang->masteratk->namabarang }}</td>
                                             {{-- <td class="text-center">{{ $barang->tanggalmasuk }}</td> --}}
                                             <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalmasuk)) }}</td>
                                             <td class="text-center">{{ $barang->jumlahmasuk }}</td>
+                                            <td class="text-center">{{ $barang->hargasatuan }}</td>
+                                            <td class="text-center">{{ $barang->hargatotal }}</td>
                                             <!-- <td class="text-center">{{ $barang->satuan }}</td> -->
                                             <td class="text-center">
-                                                <a href="/masukga/{{ $barang->id }}/edit"
+                                                <a href="/atkmasuk/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle btn-sm mr-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{-- <button type="button" data-toggle="modal" data-target="#editmodalbarangmasuk"
-                                            data-barangga_id="{{$barang->barangga_id}}" data-id="{{$barang->id}}" data-tanggalmasuk="{{$barang->tanggalmasuk}}" data-jumlahmasuk="{{$barang->jumlahmasuk}}"
+                                            data-masteratk_id="{{$barang->masteratk_id}}" data-id="{{$barang->id}}" data-tanggalmasuk="{{$barang->tanggalmasuk}}" data-jumlahmasuk="{{$barang->jumlahmasuk}}"
                                             class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button> --}}
-                                                <a href="/masukga/{{ $barang->id }}/delete"
+                                                <a href="/atkmasuk/{{ $barang->id }}/delete"
                                                     class="btn btn-danger btn-sm btn-circle"
-                                                    onclick="return confirm('Yakin ingin menghapus {{ $barang->barangga->namabarang }} yang masuk tanggal {{ $barang->tanggalmasuk }}?')"><i
+                                                    onclick="return confirm('Yakin ingin menghapus {{ $barang->masteratk->namabarang }} yang masuk tanggal {{ $barang->tanggalmasuk }}?')"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
@@ -128,16 +138,16 @@
                     </button>
                 </div>
 
-                <form action="/masukga/create" method="POST" enctype="multipart/form-data">
+                <form action="/atkmasuk/create" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
                     <div class="form-group">
-                    <label for="barangga_id">Nama ATK</label>
-                            <select name="barangga_id" class="form-control" id="barangga_id">
+                    <label for="masteratk_id">Nama ATK</label>
+                            <select name="masteratk_id" class="form-control" id="masteratk_id">
                                 <option value="">-- Pilih ATK --</option>
-                                @foreach ($barangga as $brg)
+                                @foreach ($masteratk as $brg)
                                     <option value="{{ $brg->id }}"
-                                        {{ old('barangga_id') == $brg->id ? 'selected' : '' }}>
+                                        {{ old('masteratk_id') == $brg->id ? 'selected' : '' }}>
                                         {{ $brg->namabarang }}
                                     </option>
                                 @endforeach
@@ -163,6 +173,15 @@
                                 <span class="help-block">{{ $errors->first('jumlahmasuk') }}</span>
                             @endif
                         </div>
+
+                        <div class="form-group">
+                            <label for="hargasatuan">Harga Satuan</label>
+                            <input name="hargasatuan" type="number" class="form-control" id="hargasatuan" placeholder="Masukkan harga satuan" value="{{ old('hargasatuan') }}">
+                            @if ($errors->has('hargasatuan'))
+                                <span class="help-block">{{ $errors->first('hargasatuan') }}</span>
+                            @endif
+                        </div>
+
 
                     </div>
 

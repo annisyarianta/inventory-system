@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\request as requestmodel;
 use App\validation as validationmodel;
-use App\keluarga; // Import model BarangKeluar
+use App\atkkeluar; // Import model BarangKeluar
 use Illuminate\Http\Request;
 
 class ValidasiAtkController extends Controller
 {
     public function index()
     {
-        $validations = validationmodel::with('requestmodel.barangga', 'requestmodel.unit')
+        $validations = validationmodel::with('requestmodel.masteratk', 'requestmodel.unit')
             ->where('status', 'pending')
             ->orderbyDesc('created_at')
             ->paginate(20);
@@ -70,8 +70,8 @@ class ValidasiAtkController extends Controller
 
     // Jika status adalah approved, masukkan data ke tabel barang keluar
     if ($status == 'approved') {
-        keluarga::create([
-            'barangga_id' => $validation->requestmodel->barangga_id,
+        atkkeluar::create([
+            'masteratk_id' => $validation->requestmodel->masteratk_id,
             'jumlahkeluar' => $finalQuantity,
             'tanggalkeluar' => now(),
             'unit_id' => $validation->requestmodel->unit_id

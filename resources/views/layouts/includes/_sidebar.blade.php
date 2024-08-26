@@ -31,14 +31,14 @@
 
         <!-- Nav Item - Barang Masuk -->
         <li class="nav-item">
-            <a class="nav-link" href="/masukga">
+            <a class="nav-link" href="/atkmasuk">
                 <i class="fas fa-fw fa-download"></i>
                 <span>ATK Masuk</span></a>
         </li>
 
         <!-- Nav Item - Barang Keluar -->
         <li class="nav-item">
-            <a class="nav-link" href="/keluarga">
+            <a class="nav-link" href="/atkkeluar">
                 <i class="fas fa-fw fa-upload"></i>
                 <span>ATK Keluar</span></a>
         </li>
@@ -78,7 +78,7 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="/barangga">Data ATK</a>
+                    <a class="collapse-item" href="/masteratk">Data ATK</a>
                     <a class="collapse-item" href="/unit">Data Unit</a>
                 </div>
             </div>

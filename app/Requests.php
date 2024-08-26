@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Requests extends Model
 {
-    protected $fillable = ['barangga_id', 'quantity', 'unit_id', 'tanggal_request', 'validation_id', 'status'];
+    protected $fillable = ['masteratk_id', 'quantity', 'unit_id', 'tanggal_request', 'validation_id', 'status'];
 
-    public function barangga()
+    public function masteratk()
     {
-        return $this->belongsTo(barangga::class);
+        return $this->belongsTo(masteratk::class);
     }
 
     public function unit()

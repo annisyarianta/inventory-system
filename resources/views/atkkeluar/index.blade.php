@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('cari')
     <form class="navbar-form navbar-left">
-        <form class="form-inline my-2 my-lg-0" method="GET" action="/keluarga">
+        <form class="form-inline my-2 my-lg-0" method="GET" action="/atkkeluar">
             <input id="tanggalawalkeluar" name="tanggalawalkeluar" class="form-control mr-sm-2" type="search"
                 placeholder="Tanggal Awal" aria-label="Search">
             <input id="tanggalakhirkeluar" name="tanggalakhirkeluar" class="form-control mr-sm-2" type="search"
@@ -34,10 +34,10 @@
                 <a href="#" class="btn btn-info btn-sm mr-2" data-toggle="modal" data-target="#cetakba">
                     <span class="text">Cetak BA</span>
                 </a>
-                <a href="/keluarga/exportpdfkeluar" class="btn btn-danger btn-sm mr-2">
+                <a href="/atkkeluar/exportpdfkeluar" class="btn btn-danger btn-sm mr-2">
                     <span class="text">Export PDF</span>
                 </a>
-                <a href="/keluarga/exportexcelkeluar" class="btn btn-success btn-sm mr-2">
+                <a href="/atkkeluar/exportexcelkeluar" class="btn btn-success btn-sm mr-2">
                     <span class="text">Export Excel</span>
                 </a>
                 <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambahkeluar">
@@ -88,21 +88,21 @@
                                             {{-- <td><a href="#" data-nama="{{$barang->nama}}" data-image="{{$barang->getGambar()}}"
                                 data-toggle="modal" data-target="#modalgambar">{{$barang->nama}}</a>
                         </td> --}}
-                                            <td >{{ $barang->barangga->kodebarang }}</td>
-                                            <td >{{ $barang->barangga->namabarang }}</td>
+                                            <td >{{ $barang->masteratk->kodebarang }}</td>
+                                            <td >{{ $barang->masteratk->namabarang }}</td>
                                             <td class="text-center">{{ date('d/m/Y', strtotime($barang->tanggalkeluar)) }}</td>
                                             <td class="text-center">{{ $barang->jumlahkeluar }}</td>
                                             <td class="text-center">{{ $barang->unit->namaunit }}</td>
                                             <td class="text-center">
-                                                <a href="/keluarga/{{ $barang->id }}/edit"
+                                                <a href="/atkkeluar/{{ $barang->id }}/edit"
                                                     class="btn btn-warning btn-circle btn-sm mr-1"><i
                                                         class="fas fa-pencil-alt"></i></a>
                                                 {{-- <button type="button" data-toggle="modal" data-target="#editmodalbarangkeluar"
-                            data-barangga_id="{{$barang->barangga_id}}" data-id="{{$barang->id}}" data-tanggalkeluar="{{$barang->tanggalkeluar}}" data-jumlahkeluar="{{$barang->jumlahkeluar}}"
+                            data-masteratk_id="{{$barang->masteratk_id}}" data-id="{{$barang->id}}" data-tanggalkeluar="{{$barang->tanggalkeluar}}" data-jumlahkeluar="{{$barang->jumlahkeluar}}"
                             class="btn btn-warning btn-sm"><i class="lnr lnr-pencil"></i></button> --}}
-                                                <a href="/keluarga/{{ $barang->id }}/delete"
+                                                <a href="/atkkeluar/{{ $barang->id }}/delete"
                                                     class="btn btn-danger btn-circle btn-sm"
-                                                    onclick="return confirm('Yakin ingin menghapus {{ $barang->barangga->namabarang }} yang keluar tanggal {{ $barang->tanggalkeluar }}?')"><i
+                                                    onclick="return confirm('Yakin ingin menghapus {{ $barang->masteratk->namabarang }} yang keluar tanggal {{ $barang->tanggalkeluar }}?')"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
@@ -129,16 +129,16 @@
                     </button>
                 </div>
 
-                <form action="/keluarga/create" method="POST" enctype="multipart/form-data">
+                <form action="/atkkeluar/create" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="barangga_id">Nama Barang</label>
-                            <select name="barangga_id" class="form-control" id="barangga_id">
+                            <label for="masteratk_id">Nama Barang</label>
+                            <select name="masteratk_id" class="form-control" id="masteratk_id">
                                 <option value="">-- Pilih barang --</option>
-                                @foreach ($barangga as $brg)
+                                @foreach ($masteratk as $brg)
                                     <option value="{{ $brg->id }}"
-                                        {{ old('barangga_id') == $brg->id ? 'selected' : '' }}>
+                                        {{ old('masteratk_id') == $brg->id ? 'selected' : '' }}>
                                         {{ $brg->namabarang }}
                                     </option>
                                 @endforeach
@@ -200,7 +200,7 @@
                 </button> --}}
                 </div>
 
-                <form action="/keluarga/exportpdfba" method="POST" enctype="multipart/form-data">
+                <form action="/atkkeluar/exportpdfba" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <!-- <div class="form-group">

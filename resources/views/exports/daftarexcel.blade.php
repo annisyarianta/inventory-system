@@ -46,12 +46,12 @@
                     <td>
                         <?php $jmlhmasuk = 0; $jmlhkeluar = 0 ?>
                         @foreach ($barangmasuk as $brgmasuk)
-                            @if ($barang->id == $brgmasuk->barangga_id)
+                            @if ($barang->id == $brgmasuk->masteratk_id)
                                 <?php $jmlhmasuk = $jmlhmasuk + $brgmasuk->jumlahmasuk ?>
                             @endif
                         @endforeach
                         @foreach ($barangkeluar as $brgkeluar)
-                            @if ($barang->id == $brgkeluar->barangga_id)
+                            @if ($barang->id == $brgkeluar->masteratk_id)
                                 <?php $jmlhkeluar = $jmlhkeluar + $brgkeluar->jumlahkeluar ?>
                             @endif
                         @endforeach

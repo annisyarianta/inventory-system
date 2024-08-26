@@ -3,8 +3,8 @@
 namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
-use App\keluarga;
-use App\masukga;
+use App\atkkeluar;
+use App\atkmasuk;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
@@ -20,9 +20,9 @@ class DaftarExport implements FromView
 
     public function view(): View
     {
-        $inventory_barang = \App\barangga::all();
-        $barangmasuk = masukga::all();
-        $barangkeluar = keluarga::all();
+        $inventory_barang = \App\masteratk::all();
+        $barangmasuk = atkmasuk::all();
+        $barangkeluar = atkkeluar::all();
 
         // $lokasi_barang = \App\lokasi::all();
         return view('exports.daftarexcel', ['inventory_barang' => $inventory_barang, 'barangmasuk' => $barangmasuk, 'barangkeluar' => $barangkeluar]);

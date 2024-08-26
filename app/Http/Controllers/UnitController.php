@@ -29,7 +29,7 @@ class UnitController extends Controller
     public function delete($id)
     {
         $unit = \App\unit::find($id);
-        if ($unit->keluarga->all()) {
+        if ($unit->atkkeluar->all()) {
             return redirect('/unit')->with('gagal', 'Unit gagal dihapus');
         } else {
             $unit->delete();

@@ -9,10 +9,10 @@
                 <form action="{{ route('requests.store') }}" method="POST">
                     @csrf
                     <div class="form-group row">
-                        <label for="barangga_id" class="col-sm-2 col-form-label">Nama ATK</label>
+                        <label for="masteratk_id" class="col-sm-2 col-form-label">Nama ATK</label>
                         <div class="col-sm-10">
-                            <select name="barangga_id" id="barangga_id" class="form-control">
-                                @foreach ($barangga as $item)
+                            <select name="masteratk_id" id="masteratk_id" class="form-control">
+                                @foreach ($masteratk as $item)
                                     <option value="{{ $item->id }}">{{ $item->kodebarang }} - {{ $item->namabarang }}</option>
                                 @endforeach
                             </select>

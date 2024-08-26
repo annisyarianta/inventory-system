@@ -8,11 +8,11 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
-                        <label for="barangga_id" class="col-sm-2 col-form-label">Nama ATK</label>
+                        <label for="masteratk_id" class="col-sm-2 col-form-label">Nama ATK</label>
                         <div class="col-sm-10">
-                            <select name="barangga_id" id="barangga_id" class="form-control">
+                            <select name="masteratk_id" id="masteratk_id" class="form-control">
                                 @foreach ($barang as $item)
-                                    <option value="{{ $item->id }}" {{ $item->id == $request->barangga_id ? 'selected' : '' }}>{{ $item->kodebarang }} - {{ $item->namabarang }}</option>
+                                    <option value="{{ $item->id }}" {{ $item->id == $request->masteratk_id ? 'selected' : '' }}>{{ $item->kodebarang }} - {{ $item->namabarang }}</option>
                                 @endforeach
                             </select>
                         </div>

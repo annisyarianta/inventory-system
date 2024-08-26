@@ -21,7 +21,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Form Edit Master Data</h6>
             </div>
             <div class="card-body">
-                <form id="aksi" action="/barangga/{{ $barang->id }}/update" method="POST"
+                <form id="aksi" action="/masteratk/{{ $barang->id }}/update" method="POST"
                     enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group row{{ $errors->has('namabarang') ? ' has-error ' : '' }}">

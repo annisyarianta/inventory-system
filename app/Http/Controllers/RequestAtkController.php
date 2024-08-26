@@ -3,40 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Requests as requestmodel;
-use App\barangga;
+use App\masteratk;
 use App\unit;
 use App\Validation;
 use PDF;
-use App\keluarga;
+use App\atkkeluar;
 use Illuminate\Http\Request;
 
 class RequestAtkController extends Controller
 {
     public function index()
     {
-        $requests = requestmodel::with('barangga', 'unit')->orderbyDesc('created_at')->paginate(20);
+        $requests = requestmodel::with('masteratk', 'unit')->orderbyDesc('created_at')->paginate(20);
         $unit = unit::all(); 
         return view('requestatk.index', ['requests' => $requests, 'unit' => $unit]); // Mengirimkan 'unit' ke view
     }
 
     public function create()
     {
-        $barangga = barangga::all();
+        $masteratk = masteratk::all();
         $unit = unit::all();
-        return view('requestatk.create', ['barangga' => $barangga, 'unit' => $unit]);
+        return view('requestatk.create', ['masteratk' => $masteratk, 'unit' => $unit]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'barangga_id' => 'required|exists:barangga,id',
+            'masteratk_id' => 'required|exists:masteratk,id',
             'quantity' => 'required|integer',
             'unit_id' => 'required|exists:unit,id',
             'tanggal_request' => 'required|date'
         ]);
 
         $requestAtk = requestmodel::create([
-            'barangga_id' => $request->barangga_id,
+            'masteratk_id' => $request->masteratk_id,
             'quantity' => $request->quantity,
             'unit_id' => $request->unit_id,
             'tanggal_request' => $request->tanggal_request,
@@ -46,7 +46,7 @@ class RequestAtkController extends Controller
         // Insert into validasiatk for admin validation
         Validation::create([
             'request_id' => $requestAtk->id,
-            'barangga_id' => $requestAtk->barangga_id,
+            'masteratk_id' => $requestAtk->masteratk_id,
             'quantity' => $requestAtk->quantity,
             'unit_id' => $requestAtk->unit_id,
             'status' => 'pending'
@@ -59,13 +59,13 @@ class RequestAtkController extends Controller
     {
         $tanggalawal = $request->tanggalbaawal;
         $tanggalakhir = $request->tanggalbaakhir;
-        $barangkeluar = keluarga::query()
+        $barangkeluar = atkkeluar::query()
             ->where("unit_id", "LIKE", "%" . $request->unit . "%")
             ->whereBetween('tanggalkeluar', [$tanggalawal, $tanggalakhir]) // Mengganti $tanggalawal dengan $tanggalakhir di akhir query
             ->orderby('tanggalkeluar')
             ->get();
 
-        $barangga = barangga::all();
+        $masteratk = masteratk::all();
         $nomorba = $request->nomorba;
         $tanggalba = $request->tanggalba;
         $referensi = $request->referensi;
@@ -77,7 +77,7 @@ class RequestAtkController extends Controller
         
         $pdf = PDF::loadView('exports.bapdf', [
             'barangkeluar' => $barangkeluar, 
-            'barangga' => $barangga, 
+            'masteratk' => $masteratk, 
             'nomorba' => $nomorba, 
             'tanggalba' => $tanggalba, 
             'referensi' => $referensi, 

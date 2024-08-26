@@ -57,7 +57,6 @@
                                             <th style="width: 100px;" class="text-center">Gambar</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
                                         <?php $no = $inventory_barang->currentPage() * $inventory_barang->perPage() - $inventory_barang->perPage(); ?> @foreach ($inventory_barang as $barang)
                                         <?php $no++; ?>
                                         <tr>
@@ -77,12 +76,12 @@
                                                 <?php $jmlhmasuk = 0;
                                                 $jmlhkeluar = 0; ?>
                                                 @foreach ($barangmasuk as $brgmasuk)
-                                                    @if ($barang->id == $brgmasuk->barangga_id)
+                                                    @if ($barang->id == $brgmasuk->masteratk_id)
                                                         <?php $jmlhmasuk = $jmlhmasuk + $brgmasuk->jumlahmasuk; ?>
                                                     @endif
                                                 @endforeach
                                                 @foreach ($barangkeluar as $brgkeluar)
-                                                    @if ($barang->id == $brgkeluar->barangga_id)
+                                                    @if ($barang->id == $brgkeluar->masteratk_id)
                                                         <?php $jmlhkeluar = $jmlhkeluar + $brgkeluar->jumlahkeluar; ?>
                                                     @endif
                                                 @endforeach
@@ -92,7 +91,6 @@
                                             <td class="text-center"><img id="previewgambar" src="{{ $barang->getGambar() }}" class="rounded"
                                                     style="max-width: 150px; max-height: 180px"></td>
                                         </tr>
-                                    </tbody>
                                     @endforeach
                                 </table>
                                 {{ $inventory_barang->links() }}

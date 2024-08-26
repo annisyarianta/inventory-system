@@ -119,7 +119,7 @@
                 var recipient2 = button.data('id')
                 var recipient3 = button.data('kodebarang')
                 var recipient4 = button.data('gambar')
-                var aksi = "/barangga/" + recipient2 + "/update"
+                var aksi = "/masteratk/" + recipient2 + "/update"
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
                 var modal = $(this)
@@ -131,15 +131,15 @@
 
             $('#editmodalbarangmasuk').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget) // Button that triggered the modal
-                var recipient = button.data('barangga_id') // Extract info from data-* attributes
+                var recipient = button.data('masteratk_id') // Extract info from data-* attributes
                 var recipient2 = button.data('id')
                 var recipient3 = button.data('tanggalmasuk')
                 var recipient4 = button.data('jumlahmasuk')
-                var aksi = "/masukga/" + recipient2 + "/update"
+                var aksi = "/atkmasuk/" + recipient2 + "/update"
                 // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
                 // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
                 var modal = $(this)
-                modal.find('#barangga_id').attr("value", recipient)
+                modal.find('#masteratk_id').attr("value", recipient)
                 modal.find('#tanggalmasuk').attr("value", recipient3)
                 modal.find('#jumlahmasuk').attr("value", recipient4)
                 modal.find('#aksi').attr("action", aksi)

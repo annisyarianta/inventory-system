@@ -4,19 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class barangga extends Model
+class masteratk extends Model
 {
-    protected $table = 'barangga';
+    protected $table = 'masteratk';
     protected $fillable = ['namabarang', 'kodebarang', 'jenisbarang', 'satuan', 'gambar'];
 
-    public function masukga()
+    public function atkmasuk()
     {
-        return $this->hasMany(masukga::class);
+        return $this->hasMany(atkmasuk::class);
     }
 
-    public function keluarga()
+    public function atkkeluar()
     {
-        return $this->hasMany(keluarga::class);
+        return $this->hasMany(atkkeluar::class);
     }
 
     public function getGambar()
