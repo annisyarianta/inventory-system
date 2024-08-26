@@ -16,9 +16,9 @@ use App\Http\Controllers\ValidasiAtkController;
 */
 
 Route::get('/', function () {
-    if(Auth::user()){
+    if (Auth::user()) {
         return redirect(route('dashboardatk'));
-    }else{
+    } else {
         return redirect(route('login'));
     }
 });
