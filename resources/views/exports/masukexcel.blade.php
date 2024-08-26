@@ -40,8 +40,12 @@
             </tr>
         </thead>
         <tbody>
-            <?php $no=0; ?>
-            @foreach ($barangmasuk->sortby('tanggalmasuk') as $barang) <?php $no++; ?>
+        <?php $no = 0; $grandTotal = 0; ?>
+            @foreach ($barangmasuk->sortBy('tanggalmasuk') as $barang) 
+                <?php 
+                    $no++;
+                    $grandTotal += $barang->hargatotal;
+                ?>
                 <tr>
                     <td scope="row"><?= $no; ?></td>
                     <td>{{$barang->masteratk->kodebarang}}</td>
@@ -53,6 +57,12 @@
                 </tr>
             @endforeach
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6" style="text-align:right;">Grand Total:</td>
+                <td>{{$grandTotal}}</td>
+            </tr>
+        </tfoot>
     </table>
 </body>
 

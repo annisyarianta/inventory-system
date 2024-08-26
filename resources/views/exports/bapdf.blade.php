@@ -35,7 +35,6 @@
             background-color: cornflowerblue;
         }
 
-        
     </style>
 </head>
 
@@ -81,13 +80,14 @@
                 <td>4</td>
                 <td>5</td>
             </tr>
-            <?php $no=0; ?>
-            @foreach ($barangkeluar->sortby('tanggalkeluar') as $barang) <?php $no++; ?>
+            <?php $no = 0; ?>
+            @foreach ($barangkeluar->sortby('tanggalkeluar') as $barang) 
+                <?php $no++; ?>
                 <tr>
                     <td scope="row"><?= $no; ?></td>
                     <td>{{$barang->masteratk->kodebarang}}</td>
                     <td>{{$barang->masteratk->namabarang}}</td>
-                    <td>{{$barang->jumlahkeluar}}</td>
+                    <td>{{$barang->jumlahkeluar}} {{$barang->masteratk->satuan}}</td>
                     <td></td>
                 </tr>
             @endforeach

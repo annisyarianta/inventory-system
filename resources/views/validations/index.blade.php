@@ -109,7 +109,7 @@
 
                                             </tr>
                                         @endforeach
-                                    </tbody>
+                                        </tbody>
                                 </table>
 
                                 {{ $validations->links() }}

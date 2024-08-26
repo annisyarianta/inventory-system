@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class loglogin extends Model
+class LogLogin extends Model
 {
+    protected $table = 'loglogins'; // Specify table name if different from the class name
 
     protected $primaryKey = 'loglogin_id';
     public $incrementing = false;
@@ -21,14 +22,13 @@ class loglogin extends Model
 
     public static function generateLogLoginid(int $length = 16): string
     {
-        $loglogin_id = Str::random($length); //Generate random string
-        $exists = DB::table('loglogins')
-            ->where('loglogin_id', '=', $loglogin_id)
-            ->get(['loglogin_id']); //Find matches for id = generated id
-        if (isset($exists[0]->loglogin_id)) { //id exists in users table
-            return self::generateLogLoginid(); //Retry with another generated id
-        }
+        do {
+            $loglogin_id = Str::random($length); // Generate random string
+            $exists = DB::table('loglogins')
+                ->where('loglogin_id', '=', $loglogin_id)
+                ->exists(); // Check if the ID exists
+        } while ($exists);
 
-        return $loglogin_id; //Return the generated id as it does not exist in the DB
+        return $loglogin_id; // Return the generated ID as it does not exist in the DB
     }
 }
